@@ -20,6 +20,8 @@
 
 ## [Funciones Globales:](#funciones-globales)
 
+[Volver arriba](#base-gráfico---índice-de-ayuda-para-asesores)
+
 Funciones de usuario definidas de forma global para mejorar la codificación en los programas.
 
 ### FN%acum(LOCAL archivo$, LOCAL campo$, LOCAL clave$, LOCAL opciones$)
@@ -33,6 +35,8 @@ PRINT FN%acum("FACENCAB","MONTO","HLS"+"200001","KNO[0] CND[REC.TIPO$=""FA""]")
 > 8752336.98
 ~~~
 
+[Volver arriba](#base-gráfico---índice-de-ayuda-para-asesores)
+
 ### fn%fecha$(LOCAL fecha$)
 
 Retorna una variable que contiene una fecha válida end formato ddmmaaaa, formateada del modo dd/mm/aaaa.
@@ -40,6 +44,8 @@ Retorna una variable que contiene una fecha válida end formato ddmmaaaa, format
 PRINT FN%fecha$("24102025")
 > 24/10/2025
 ~~~
+
+[Volver arriba](#base-gráfico---índice-de-ayuda-para-asesores)
 
 ### FN%fecinv$(LOCAL fecha$)
 
@@ -49,6 +55,8 @@ PRINT FN%fecinv$("24102025")
 > 20251024
 ~~~
 
+[Volver arriba](#base-gráfico---índice-de-ayuda-para-asesores)
+
 ### FN%fecha_letras$(LOCAL fecha$)
 
 Retorna la fecha enviada en letra, para ser usada por ejemplo en cartas.
@@ -56,6 +64,8 @@ Retorna la fecha enviada en letra, para ser usada por ejemplo en cartas.
 PRINT FN%fecha_letras$("24102025")
 > 24 de Octubre de 2025
 ~~~
+
+[Volver arriba](#base-gráfico---índice-de-ayuda-para-asesores)
 
 ### FN%find$(LOCAL archivo$, LOCAL campo$, LOCAL clave$)
 
@@ -67,6 +77,8 @@ PRINT FN%find$("NOMDESCR","NOMBRE","HLS"+"0003/002  ")
 > MONICA GUADALUPE
 ~~~
 
+[Volver arriba](#base-gráfico---índice-de-ayuda-para-asesores)
+
 ### FN%mes$(LOCAL mes$)
 
 Retorna el nombre en letras del *mes$* en números.
@@ -74,6 +86,8 @@ Retorna el nombre en letras del *mes$* en números.
 PRINT FN%mes$("10")
 > Octubre
 ~~~
+
+[Volver arriba](#base-gráfico---índice-de-ayuda-para-asesores)
 
 ### FN%mescrito$(LOCAL monto)
 
@@ -83,12 +97,16 @@ PRINT FN%mescrito$(24528.12)
 > VEINTICUATRO MIL QUINIENTOS VEINTIOCHO CON 12 CENTIMOS
 ~~~
 
+[Volver arriba](#base-gráfico---índice-de-ayuda-para-asesores)
+
 ### FN%no_todo(LOCAL num_ctl, LOCAL cond$, LOCAL botones$, LOCAL archivo$, LOCAL posic$)
 
 Que me la explique JL.
 ~~~
 FN%no_todo(listbox.ctl, "","REC.TIPO=""75""","INVGRUPO","")
 ~~~
+
+[Volver arriba](#base-gráfico---índice-de-ayuda-para-asesores)
 
 ### FN%ope_valido(LOCAL funcion$)
 
@@ -98,6 +116,8 @@ PRINT FN%ope_valido("VER_SALDOS")
 > 1
 ~~~
 
+[Volver arriba](#base-gráfico---índice-de-ayuda-para-asesores)
+
 ### FN%pos(LOCAL texto1$, LOCAL texto2$)
 
 Compara *texto1$* dentro de *texto2$* sin importar que contengan acentos, mayúsculas y/o minúsculas. Retorna verdadero (1) sí son iguales, falso (0) si son diferentes y -1 si *texto1$* esta vacío. 
@@ -106,6 +126,8 @@ PRINT fn%pos("ÁéÍóÚ","aeIOu")
 > 1
 ~~~
 
+[Volver arriba](#base-gráfico---índice-de-ayuda-para-asesores)
+
 ### FN%precision(LOCAL valor, LOCAL decimales)
 
 Retorna el *valor* ajustado a la precision de *decimales*.
@@ -113,6 +135,8 @@ Retorna el *valor* ajustado a la precision de *decimales*.
 PRINT FN%precision(249.02193822,3)
 > 249.022
 ~~~
+
+[Volver arriba](#base-gráfico---índice-de-ayuda-para-asesores)
 
 ### FN%tabla(LOCAL valor$, LOCAL tabla$, LOCAL longitud)
 
@@ -125,6 +149,8 @@ PRINT FN%tabla$("02",tabla$,2)
 > 1
 ~~~
 
+[Volver arriba](#base-gráfico---índice-de-ayuda-para-asesores)
+
 ### FN%tbl$(LOCAL lp, LOCAL lin$)
 
 Traduce acentos en una cadena *lin$* para la impresión directa por el canal *lp*.
@@ -136,10 +162,16 @@ PRINT fn%tbl$(lfo,"ÁéÍóÚ")
 CLOSE(lfo)
 ~~~
 
+[Volver arriba](#base-gráfico---índice-de-ayuda-para-asesores)
+
 ## [Rutinas Públicas (RP_XXXXX):](#rp_xxxxx---rutinas-públicas)
 
 Definición de lo que son las rutinas públicas.
 
+[Volver arriba](#base-gráfico---índice-de-ayuda-para-asesores)
+
 ## [Rutinas Utilitarias (RU_XXXXX):](#ru_xxxxx---rutinas-utilitarias)
 
 Definición de lo que son las rutinas utilitarias.
+
+[Volver arriba](#base-gráfico---índice-de-ayuda-para-asesores)

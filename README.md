@@ -17,9 +17,10 @@
     - [FN%tbl$(LOCAL lp, LOCAL lin$)](#fntbllocal-lp-local-lin)
   - [Rutinas Públicas (RP\_XXXXX):](#rutinas-públicas-rp_xxxxx)
     - [RP\_CATAL](#rp_catal)
-      - [RP\_CATAL;CATALOGO](#rp_catalcatalogo)
-      - [RP\_CATAL;APLICACIONES](#rp_catalaplicaciones)
+      - [- RP\_CATAL;CATALOGO](#--rp_catalcatalogo)
+      - [- RP\_CATAL;APLICACIONES](#--rp_catalaplicaciones)
   - [Rutinas Utilitarias (RU\_XXXXX):](#rutinas-utilitarias-ru_xxxxx)
+    - [RU\_COPY](#ru_copy)
 
 ## [Funciones Globales:](#funciones-globales)
 
@@ -175,20 +176,28 @@ Definición de lo que son las rutinas públicas.
 
 ### RP_CATAL
 
-#### RP_CATAL;CATALOGO
+#### - RP_CATAL;CATALOGO
 Catálogo de la Aplicación
 
-Parámetros:
+- Parámetros:
+  - CIA$:
+  - APLIC:
+  - CATAL:
+  - LCAT$[ALL]:
+  - IND_CAT:
+  - OPC$:
+
 ~~~
-CIA$,APLIC,CATAL,LCAT$[ALL],IND_CAT,OPC$
+CALL "RP_CATAL",%BASE_CIA$,...
 ~~~
 
-#### RP_CATAL;APLICACIONES
+#### - RP_CATAL;APLICACIONES
 Tabla de Aplicaciones
 
-Parámetros
+- Parámetros:
+  - TAB_APL$:
 ~~~
-TAB_APL$
+CALL "RP_CATAL;APLICACIONES",TAB_APL$
 ~~~
 
 [Volver arriba](#base-gráfico---índice-de-ayuda-para-asesores)
@@ -199,3 +208,13 @@ TAB_APL$
 Definición de lo que son las rutinas utilitarias.
 
 [Volver arriba](#base-gráfico---índice-de-ayuda-para-asesores)
+
+### RU_COPY
+
+Copia de registros.
+
+>Anteriormente: `HLCOPY`
+
+~~~
+CALL "RU_COPY"
+~~~

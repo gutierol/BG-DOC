@@ -16,6 +16,9 @@
     - [FN%tabla(LOCAL valor$, LOCAL tabla$, LOCAL longitud)](#fntablalocal-valor-local-tabla-local-longitud)
     - [FN%tbl$(LOCAL lp, LOCAL lin$)](#fntbllocal-lp-local-lin)
   - [Rutinas Públicas (RP\_XXXXX):](#rutinas-públicas-rp_xxxxx)
+    - [RP\_CATAL](#rp_catal)
+      - [RP\_CATAL;CATALOGO](#rp_catalcatalogo)
+      - [RP\_CATAL;APLICACIONES](#rp_catalaplicaciones)
   - [Rutinas Utilitarias (RU\_XXXXX):](#rutinas-utilitarias-ru_xxxxx)
 
 ## [Funciones Globales:](#funciones-globales)
@@ -169,6 +172,27 @@ CLOSE(lfo)
 Definición de lo que son las rutinas públicas.
 
 [Volver arriba](#base-gráfico---índice-de-ayuda-para-asesores)
+
+### RP_CATAL
+
+#### RP_CATAL;CATALOGO
+Catálogo de la Aplicación
+
+Parámetros:
+~~~
+CIA$,APLIC,CATAL,LCAT$[ALL],IND_CAT,OPC$
+~~~
+
+#### RP_CATAL;APLICACIONES
+Tabla de Aplicaciones
+
+Parámetros
+~~~
+TAB_APL$
+~~~
+
+[Volver arriba](#base-gráfico---índice-de-ayuda-para-asesores)
+
 
 ## [Rutinas Utilitarias (RU_XXXXX):](#ru_xxxxx---rutinas-utilitarias)
 

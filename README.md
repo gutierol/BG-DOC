@@ -87,6 +87,7 @@ PRINT FN%mescrito$(24528.12)
 
 Que me la explique JL.
 ~~~
+FN%no_todo(listbox.ctl, "","REC.TIPO=""75""","INVGRUPO","")
 ~~~
 
 ### FN%ope_valido(LOCAL funcion$)

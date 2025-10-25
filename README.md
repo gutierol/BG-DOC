@@ -32,7 +32,6 @@ Retorna la acumulación de un *campo$* en un *archivo$* de los registros con la 
 PRINT FN%acum("FACENCAB","MONTO","HLS"+"200001","KNO[0] CND[REC.TIPO$=""FA""]")
 > 8752336.98
 ~~~
-[Volver al índice](#funciones-globales)
 
 ### fn%fecha$(LOCAL fecha$)
 
@@ -41,25 +40,14 @@ Retorna una variable que contiene una fecha válida end formato ddmmaaaa, format
 PRINT FN%fecha$("24102025")
 > 24/10/2025
 ~~~
-[Volver al índice](#funciones-globales)
 
 ### FN%fecinv$(LOCAL fecha$)
 
 Retorna el valor enviado (ddmmaaaa) de forma invertida: aaaammaa.
-~~~- [BASE Gráfico](#base-gráfico)
-  - [Índice de Ayuda para Asesores](#índice-de-ayuda-para-asesores)
-  - [Elementos:](#elementos)
-  - [Funciones Globales:](#funciones-globales)
-  - [Rutinas Públicas (RP\_XXXXX):](#rutinas-públicas-rp_xxxxx)
-  - [Rutinas Utilitarias (RU\_XXXXX):](#rutinas-utilitarias-ru_xxxxx)
-  - [Funciones Globales](#funciones-globales-1)
-  - [RP\_XXXXX - Rutinas Públicas:](#rp_xxxxx---rutinas-públicas)
-  - [RU\_XXXXX - Rutinas Utilitarias:](#ru_xxxxx---rutinas-utilitarias)
-
+~~~
 PRINT FN%fecinv$("24102025")
 > 20251024
 ~~~
-[Volver al índice](#funciones-globales)
 
 ### FN%fecha_letras$(LOCAL fecha$)
 
@@ -68,7 +56,6 @@ Retorna la fecha enviada en letra, para ser usada por ejemplo en cartas.
 PRINT FN%fecha_letras$("24102025")
 > 24 de Octubre de 2025
 ~~~
-[Volver al índice](#funciones-globales)
 
 ### FN%find$(LOCAL archivo$, LOCAL campo$, LOCAL clave$)
 
@@ -79,7 +66,6 @@ PRINT FN%find$("CTLCIAS","CIA_NOM","HLS")
 PRINT FN%find$("NOMDESCR","NOMBRE","HLS"+"0003/002  ")
 > MONICA GUADALUPE
 ~~~
-[Volver al índice](#funciones-globales)
 
 ### FN%mes$(LOCAL mes$)
 
@@ -88,7 +74,6 @@ Retorna el nombre en letras del *mes$* en números.
 PRINT FN%mes$("10")
 > Octubre
 ~~~
-[Volver al índice](#funciones-globales)
 
 ### FN%mescrito$(LOCAL monto)
 
@@ -97,14 +82,12 @@ Retorna el número enviado en letras.
 PRINT FN%mescrito$(24528.12)
 > VEINTICUATRO MIL QUINIENTOS VEINTIOCHO CON 12 CENTIMOS
 ~~~
-[Volver al índice](#funciones-globales)
 
 ### FN%no_todo(LOCAL num_ctl, LOCAL cond$, LOCAL botones$, LOCAL archivo$, LOCAL posic$)
 
 Que me la explique JL.
 ~~~
 ~~~
-[Volver al índice](#funciones-globales)
 
 ### FN%ope_valido(LOCAL funcion$)
 
@@ -113,7 +96,6 @@ Retorna verdadero (1) sí el usuario actual (**%base_login$**), esta autorizado 
 PRINT FN%ope_valido("VER_SALDOS")
 > 1
 ~~~
-[Volver al índice](#funciones-globales)
 
 ### FN%pos(LOCAL texto1$, LOCAL texto2$)
 
@@ -122,7 +104,6 @@ Compara *texto1$* dentro de *texto2$* sin importar que contengan acentos, mayús
 PRINT fn%pos("ÁéÍóÚ","aeIOu")
 > 1
 ~~~
-[Volver al índice](#funciones-globales)
 
 ### FN%precision(LOCAL valor, LOCAL decimales)
 
@@ -131,7 +112,6 @@ Retorna el *valor* ajustado a la precision de *decimales*.
 PRINT FN%precision(249.02193822,3)
 > 249.022
 ~~~
-[Volver al índice](#funciones-globales)
 
 ### FN%tabla(LOCAL valor$, LOCAL tabla$, LOCAL longitud)
 
@@ -143,7 +123,6 @@ PRINT FN%tabla$("10",tabla$,2)
 PRINT FN%tabla$("02",tabla$,2)
 > 1
 ~~~
-[Volver al índice](#funciones-globales)
 
 ### FN%tbl$(LOCAL lp, LOCAL lin$)
 

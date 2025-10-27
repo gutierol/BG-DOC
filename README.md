@@ -4,7 +4,7 @@
 - [BASE Gráfico - Índice de Ayuda para Asesores](#base-gráfico---índice-de-ayuda-para-asesores)
   - [Funciones Globales:](#funciones-globales)
     - [FN%acum: Acumula un campo númerico de un archivo](#fnacum-acumula-un-campo-númerico-de-un-archivo)
-    - [fn%fecha$: Formatea una fecha](#fnfecha-formatea-una-fecha)
+    - [FN%fecha$: Formatea una fecha](#fnfecha-formatea-una-fecha)
     - [FN%fecinv$: Invierte una fecha](#fnfecinv-invierte-una-fecha)
     - [FN%fecha\_letras$: Fecha en letras](#fnfecha_letras-fecha-en-letras)
     - [FN%find$: Busca un valor de un campo en un archivo](#fnfind-busca-un-valor-de-un-campo-en-un-archivo)
@@ -66,7 +66,7 @@ PRINT FN%acum("FACENCAB","MONTO","HLS"+"200001","KNO[0] CND[REC.TIPO$=""FA""]")
 
 [Volver arriba](#base-gráfico---índice-de-ayuda-para-asesores)
 
-### fn%fecha$: Formatea una fecha
+### FN%fecha$: Formatea una fecha
 
 ~~~
 fn%fecha$(LOCAL fecha$)

@@ -1,4 +1,4 @@
-[BASE Gráfico](https://basegrafico.com/img/logo-image.png)
+![BASE Gráfico](https://basegrafico.com/img/logo-image.png)
 # BASE Gráfico - Índice de Ayuda para Asesores
 ---
 - [BASE Gráfico - Índice de Ayuda para Asesores](#base-gráfico---índice-de-ayuda-para-asesores)

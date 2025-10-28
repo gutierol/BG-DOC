@@ -1,37 +1,42 @@
-[![BASE Gráfico](https://basegrafico.com/img/logo-image.png)](https://basegrafico.com/)
-# BASE Gráfico - Índice de Ayuda para Asesores
----
-- [BASE Gráfico - Índice de Ayuda para Asesores](#base-gráfico---índice-de-ayuda-para-asesores)
-  - [Funciones Globales:](#funciones-globales)
-    - [FN%acum: Acumula un campo númerico de un archivo](#fnacum-acumula-un-campo-númerico-de-un-archivo)
-    - [FN%fecha$: Formatea una fecha](#fnfecha-formatea-una-fecha)
-    - [FN%fecinv$: Invierte una fecha](#fnfecinv-invierte-una-fecha)
-    - [FN%fecha\_letras$: Fecha en letras](#fnfecha_letras-fecha-en-letras)
-    - [FN%find$: Busca un valor de un campo en un archivo](#fnfind-busca-un-valor-de-un-campo-en-un-archivo)
-    - [FN%mes$: Nombre de un mes](#fnmes-nombre-de-un-mes)
-    - [FN%mescrito$: Monto escrito](#fnmescrito-monto-escrito)
-    - [FN%no\_todo: Que la explique JL](#fnno_todo-que-la-explique-jl)
-    - [FN%ope\_valido: Operador válido para una función específica](#fnope_valido-operador-válido-para-una-función-específica)
-    - [FN%pos: Busca un texto en otro texto](#fnpos-busca-un-texto-en-otro-texto)
-    - [FN%precision: Ajustar precisión a un monto](#fnprecision-ajustar-precisión-a-un-monto)
-    - [FN%tabla: Busca un valor en una variable](#fntabla-busca-un-valor-en-una-variable)
-    - [FN%tbl$: Traduce acentos en un texto](#fntbl-traduce-acentos-en-un-texto)
-  - [Rutinas Públicas (RP\_XXXXX):](#rutinas-públicas-rp_xxxxx)
-    - [RP\_CATAL](#rp_catal)
-      - [RP\_CATAL;CATALOGO](#rp_catalcatalogo)
-      - [RP\_CATAL;APLICACIONES](#rp_catalaplicaciones)
-    - [RP\_FECHA](#rp_fecha)
-      - [RP\_FECHA;AJUSTAR: Ajustar una fecha](#rp_fechaajustar-ajustar-una-fecha)
-  - [Rutinas Utilitarias (RU\_XXXXX):](#rutinas-utilitarias-ru_xxxxx)
-    - [RU\_COPY](#ru_copy)
+<!-- title: BASE Gráfico -->
+# BASE Gráfico<!-- omit from toc -->
 
-## [Funciones Globales:](#funciones-globales)
+## Índice de Ayuda para Asesores<!-- omit from toc -->
+
+[![BASE Gráfico](https://basegrafico.com/img/logo-image.png)](https://basegrafico.com/)
+
+---
+
+- [Funciones Globales:](#funciones-globales)
+  - [FN%acum: Acumula un campo númerico de un archivo](#fnacum-acumula-un-campo-númerico-de-un-archivo)
+  - [FN%fecha$: Formatea una fecha](#fnfecha-formatea-una-fecha)
+  - [FN%fecinv$: Invierte una fecha](#fnfecinv-invierte-una-fecha)
+  - [FN%fecha\_letras$: Fecha en letras](#fnfecha_letras-fecha-en-letras)
+  - [FN%find$: Busca un valor de un campo en un archivo](#fnfind-busca-un-valor-de-un-campo-en-un-archivo)
+  - [FN%mes$: Nombre de un mes](#fnmes-nombre-de-un-mes)
+  - [FN%mescrito$: Monto escrito](#fnmescrito-monto-escrito)
+  - [FN%no\_todo: Que la explique JL](#fnno_todo-que-la-explique-jl)
+  - [FN%ope\_valido: Operador válido para una función específica](#fnope_valido-operador-válido-para-una-función-específica)
+  - [FN%pos: Busca un texto en otro texto](#fnpos-busca-un-texto-en-otro-texto)
+  - [FN%precision: Ajustar precisión a un monto](#fnprecision-ajustar-precisión-a-un-monto)
+  - [FN%tabla: Busca un valor en una variable](#fntabla-busca-un-valor-en-una-variable)
+  - [FN%tbl$: Traduce acentos en un texto](#fntbl-traduce-acentos-en-un-texto)
+- [Rutinas Públicas (RP\_XXXXX):](#rutinas-públicas-rp_xxxxx)
+  - [RP\_CATAL](#rp_catal)
+    - [RP\_CATAL;CATALOGO](#rp_catalcatalogo)
+    - [RP\_CATAL;APLICACIONES](#rp_catalaplicaciones)
+  - [RP\_FECHA](#rp_fecha)
+    - [RP\_FECHA;AJUSTAR: Ajustar una fecha](#rp_fechaajustar-ajustar-una-fecha)
+- [Rutinas Utilitarias (RU\_XXXXX):](#rutinas-utilitarias-ru_xxxxx)
+  - [RU\_COPY](#ru_copy)
+
+# [Funciones Globales:](#funciones-globales)
 
 Funciones de usuario definidas de forma global para mejorar la codificación en los programas.
 
-[Volver arriba](#base-gráfico---índice-de-ayuda-para-asesores)
+[Volver arriba](#top)
 
-### FN%acum: Acumula un campo númerico de un archivo
+## FN%acum: Acumula un campo númerico de un archivo
 
 ~~~text
 FN%acum(LOCAL archivo$, LOCAL campo$, LOCAL clave$, LOCAL opciones$)
@@ -64,9 +69,9 @@ PRINT FN%acum("FACENCAB","MONTO","HLS"+"200001","KNO[0] CND[REC.TIPO$=""FA""]")
 > 8752336.98
 ~~~
 
-[Volver arriba](#base-gráfico---índice-de-ayuda-para-asesores)
+[Volver arriba](#funciones-globales)
 
-### FN%fecha$: Formatea una fecha
+## FN%fecha$: Formatea una fecha
 
 ~~~text
 fn%fecha$(LOCAL fecha$)
@@ -89,9 +94,9 @@ PRINT FN%fecha$("24102025")
 > 24/10/2025
 ~~~
 
-[Volver arriba](#base-gráfico---índice-de-ayuda-para-asesores)
+[Volver arriba](#funciones-globales)
 
-### FN%fecinv$: Invierte una fecha
+## FN%fecinv$: Invierte una fecha
 
 ~~~text
 FN%fecinv$(LOCAL fecha$)
@@ -102,6 +107,7 @@ FN%fecinv$(LOCAL fecha$)
 Retorna el valor enviado (ddmmaaaa) de forma invertida: aaaammaa.
 
 - Argumentos:
+  
   |Argumento|Descripción|
   |:--------|-----------|
   |fecha$|Fecha ddmmaaaa a invertir|
@@ -113,9 +119,9 @@ PRINT FN%fecinv$("24102025")
 > 20251024
 ~~~
 
-[Volver arriba](#base-gráfico---índice-de-ayuda-para-asesores)
+[Volver arriba](#funciones-globales)
 
-### FN%fecha_letras$: Fecha en letras
+## FN%fecha_letras$: Fecha en letras
 
 ~~~text
 FN%fecha_letras$(LOCAL fecha$)
@@ -138,9 +144,9 @@ PRINT FN%fecha_letras$("24102025")
 > 24 de Octubre de 2025
 ~~~
 
-[Volver arriba](#base-gráfico---índice-de-ayuda-para-asesores)
+[Volver arriba](#funciones-globales)
 
-### FN%find$: Busca un valor de un campo en un archivo
+## FN%find$: Busca un valor de un campo en un archivo
 
 ~~~text
 FN%find$(LOCAL archivo$, LOCAL campo$, LOCAL clave$)
@@ -167,9 +173,9 @@ PRINT FN%find$("NOMDESCR","NOMBRE","HLS"+"0003/002  ")
 > MONICA GUADALUPE
 ~~~
 
-[Volver arriba](#base-gráfico---índice-de-ayuda-para-asesores)
+[Volver arriba](#funciones-globales)
 
-### FN%mes$: Nombre de un mes
+## FN%mes$: Nombre de un mes
 
 ~~~text
 FN%mes$(LOCAL mes$)
@@ -192,9 +198,9 @@ PRINT FN%mes$("10")
 > Octubre
 ~~~
 
-[Volver arriba](#base-gráfico---índice-de-ayuda-para-asesores)
+[Volver arriba](#funciones-globales)
 
-### FN%mescrito$: Monto escrito
+## FN%mescrito$: Monto escrito
 
 ~~~text
 FN%mescrito$(LOCAL monto)
@@ -208,7 +214,7 @@ Retorna el número enviado en letras.
   
   |Argumento|Descripción|
   |:--------|-----------|
-  |monto|Monto o cifra a convertir en letras
+  |monto|Monto o cifra a convertir en letras|
 
 - Ejemplo:
 
@@ -217,9 +223,9 @@ PRINT FN%mescrito$(24528.12)
 > VEINTICUATRO MIL QUINIENTOS VEINTIOCHO CON 12 CENTIMOS
 ~~~
 
-[Volver arriba](#base-gráfico---índice-de-ayuda-para-asesores)
+[Volver arriba](#funciones-globales)
 
-### FN%no_todo: Que la explique JL
+## FN%no_todo: Que la explique JL
 
 ~~~text
 FN%no_todo(LOCAL num_ctl, LOCAL cond$, LOCAL botones$, LOCAL archivo$, LOCAL posic$)
@@ -245,9 +251,9 @@ Que me la explique JL.
 FN%no_todo(listbox.ctl, "","REC.TIPO=""75""","INVGRUPO","")
 ~~~
 
-[Volver arriba](#base-gráfico---índice-de-ayuda-para-asesores)
+[Volver arriba](#funciones-globales)
 
-### FN%ope_valido: Operador válido para una función específica
+## FN%ope_valido: Operador válido para una función específica
 
 ~~~text
 FN%ope_valido(LOCAL funcion$)
@@ -270,9 +276,9 @@ PRINT FN%ope_valido("VER_SALDOS")
 > 1
 ~~~
 
-[Volver arriba](#base-gráfico---índice-de-ayuda-para-asesores)
+[Volver arriba](#funciones-globales)
 
-### FN%pos: Busca un texto en otro texto
+## FN%pos: Busca un texto en otro texto
 
 ~~~text
 FN%pos(LOCAL texto1$, LOCAL texto2$)
@@ -296,9 +302,9 @@ PRINT fn%pos("ÁéÍóÚ","aeIOu")
 > 1
 ~~~
 
-[Volver arriba](#base-gráfico---índice-de-ayuda-para-asesores)
+[Volver arriba](#funciones-globales)
 
-### FN%precision: Ajustar precisión a un monto
+## FN%precision: Ajustar precisión a un monto
 
 ~~~text
 FN%precision(LOCAL valor, LOCAL decimales)
@@ -322,15 +328,15 @@ PRINT FN%precision(249.02193822,3)
 > 249.022
 ~~~
 
-[Volver arriba](#base-gráfico---índice-de-ayuda-para-asesores)
+[Volver arriba](#funciones-globales)
 
-### FN%tabla: Busca un valor en una variable
+## FN%tabla: Busca un valor en una variable
 
 ~~~text
 FN%tabla(LOCAL valor$, LOCAL tabla$, LOCAL longitud)
 ~~~
 
-- Descripción: 
+- Descripción:  
 
 Retorna verdadero (1) sí el elemento *valor$* se encuentra contenido dentro de la variable *tabla$*, haciendo la busqueda del elemento con la *longitud* indicada, de lo contrario retorna falso (0) .
 
@@ -351,9 +357,9 @@ PRINT FN%tabla$("02",tabla$,2)
 > 1
 ~~~
 
-[Volver arriba](#base-gráfico---índice-de-ayuda-para-asesores)
+[Volver arriba](#funciones-globales)
 
-### FN%tbl$: Traduce acentos en un texto
+## FN%tbl$: Traduce acentos en un texto
 
 ~~~text
 FN%tbl$(LOCAL lp, LOCAL lin$)
@@ -380,17 +386,17 @@ PRINT fn%tbl$(lfo,"ÁéÍóÚ")
 CLOSE(lfo)
 ~~~
 
-[Volver arriba](#base-gráfico---índice-de-ayuda-para-asesores)
+[Volver arriba](#funciones-globales)
 
-## [Rutinas Públicas (RP_XXXXX):](#rp_xxxxx---rutinas-públicas)
+# [Rutinas Públicas (RP_XXXXX):](#rutinas-públicas-rp_xxxxx)
 
 Definición de lo que son las rutinas públicas.
 
-[Volver arriba](#base-gráfico---índice-de-ayuda-para-asesores)
+[Volver arriba](#top)
 
-### RP_CATAL
+## RP_CATAL
 
-#### RP_CATAL;CATALOGO
+### RP_CATAL;CATALOGO
 
 Catálogo de la Aplicación
 
@@ -398,20 +404,20 @@ Catálogo de la Aplicación
   
   | Parámetro | E/S | Descripción |
   |:----------|:---:|-------------|
-  |CIA$|E||
-  |APLIC|E||
-  |CATAL|E|
-  |LCAT$[ALL]|E|
-  |IND_CAT|E|
-  |OPC$|E|
+  |CIA$|E| |
+  |APLIC|E| |
+  |CATAL|E| |
+  |LCAT$\[ALL\]|E| |
+  |IND_CAT|E| |
+  |OPC$|E| |
 
 ~~~text
 CALL "RP_CATAL",%BASE_CIA$,...
 ~~~
 
-[Volver arriba](#base-gráfico---índice-de-ayuda-para-asesores)
+[Volver arriba](#rutinas-públicas-rp_xxxxx)
 
-#### RP_CATAL;APLICACIONES
+### RP_CATAL;APLICACIONES
 
 Tabla de Aplicaciones
 
@@ -425,11 +431,11 @@ Tabla de Aplicaciones
 CALL "RP_CATAL;APLICACIONES",TAB_APL$
 ~~~
 
-[Volver arriba](#base-gráfico---índice-de-ayuda-para-asesores)
+[Volver arriba](#rutinas-públicas-rp_xxxxx)
 
-### RP_FECHA
+## RP_FECHA
 
-#### RP_FECHA;AJUSTAR: Ajustar una fecha
+### RP_FECHA;AJUSTAR: Ajustar una fecha
 
 Ajusta una fecha, en días, meses y/o años, retornando la fecha resultante.
 
@@ -462,15 +468,15 @@ CALL "RP_FECHA;AJUSTAR","01/10/2025",0,1,0,"-H"
 > 01112025
 ~~~
 
-[Volver arriba](#base-gráfico---índice-de-ayuda-para-asesores)
+[Volver arriba](#rutinas-públicas-rp_xxxxx)
 
-## [Rutinas Utilitarias (RU_XXXXX):](#ru_xxxxx---rutinas-utilitarias)
+# [Rutinas Utilitarias (RU_XXXXX):](#rutinas-utilitarias-ru_xxxxx)
 
 Definición de lo que son las rutinas utilitarias.
 
-[Volver arriba](#base-gráfico---índice-de-ayuda-para-asesores)
+[Volver arriba](#top)
 
-### RU_COPY
+## RU_COPY
 
 Copia de registros.
 
@@ -480,4 +486,4 @@ Copia de registros.
 CALL "RU_COPY"
 ~~~
 
-[Volver arriba](#base-gráfico---índice-de-ayuda-para-asesores)
+[Volver arriba](#rutinas-utilitarias-ru_xxxxx)

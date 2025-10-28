@@ -27,9 +27,9 @@
 
 ## [Funciones Globales:](#funciones-globales)
 
-[Volver arriba](#base-gráfico---índice-de-ayuda-para-asesores)
-
 Funciones de usuario definidas de forma global para mejorar la codificación en los programas.
+
+[Volver arriba](#base-gráfico---índice-de-ayuda-para-asesores)
 
 ### FN%acum: Acumula un campo númerico de un archivo
 

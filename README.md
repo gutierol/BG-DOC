@@ -18,10 +18,10 @@
     - [FN%tbl$: Traduce acentos en un texto](#fntbl-traduce-acentos-en-un-texto)
   - [Rutinas Públicas (RP\_XXXXX):](#rutinas-públicas-rp_xxxxx)
     - [RP\_CATAL](#rp_catal)
-      - [- RP\_CATAL;CATALOGO](#--rp_catalcatalogo)
-      - [- RP\_CATAL;APLICACIONES](#--rp_catalaplicaciones)
+      - [RP\_CATAL;CATALOGO](#rp_catalcatalogo)
+      - [RP\_CATAL;APLICACIONES](#rp_catalaplicaciones)
     - [RP\_FECHA](#rp_fecha)
-      - [- RP\_FECHA;AJUSTAR: Ajustar una fecha](#--rp_fechaajustar-ajustar-una-fecha)
+      - [RP\_FECHA;AJUSTAR: Ajustar una fecha](#rp_fechaajustar-ajustar-una-fecha)
   - [Rutinas Utilitarias (RU\_XXXXX):](#rutinas-utilitarias-ru_xxxxx)
     - [RU\_COPY](#ru_copy)
 
@@ -387,7 +387,7 @@ Definición de lo que son las rutinas públicas.
 
 ### RP_CATAL
 
-#### - RP_CATAL;CATALOGO
+#### RP_CATAL;CATALOGO
 
 Catálogo de la Aplicación
 
@@ -407,7 +407,7 @@ CALL "RP_CATAL",%BASE_CIA$,...
 
 [Volver arriba](#base-gráfico---índice-de-ayuda-para-asesores)
 
-#### - RP_CATAL;APLICACIONES
+#### RP_CATAL;APLICACIONES
 
 Tabla de Aplicaciones
 
@@ -425,7 +425,7 @@ CALL "RP_CATAL;APLICACIONES",TAB_APL$
 
 ### RP_FECHA
 
-#### - RP_FECHA;AJUSTAR: Ajustar una fecha
+#### RP_FECHA;AJUSTAR: Ajustar una fecha
 
 Ajusta una fecha, en días, meses y/o años, retornando la fecha resultante.
 

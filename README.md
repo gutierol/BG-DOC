@@ -33,7 +33,7 @@ Funciones de usuario definidas de forma global para mejorar la codificación en 
 
 ### FN%acum: Acumula un campo númerico de un archivo
 
-~~~
+~~~text
 FN%acum(LOCAL archivo$, LOCAL campo$, LOCAL clave$, LOCAL opciones$)
 ~~~
 
@@ -54,12 +54,12 @@ Retorna la acumulación de un *campo$* numérico en un *archivo$* de los registr
   
   | Opción | Descripción |
   |:-------|-------------|
-  |KNO[número_de_llave]|Llave o índice del archivo a usar|
-  |CND[Condición]|Condición que deben cumplir los registros|
+  |KNO\[número_de_llave\]|Llave o índice del archivo a usar|
+  |CND\[Condición\]|Condición que deben cumplir los registros|
 
 - Ejemplo:
 
-~~~
+~~~text
 PRINT FN%acum("FACENCAB","MONTO","HLS"+"200001","KNO[0] CND[REC.TIPO$=""FA""]")
 > 8752336.98
 ~~~
@@ -68,7 +68,7 @@ PRINT FN%acum("FACENCAB","MONTO","HLS"+"200001","KNO[0] CND[REC.TIPO$=""FA""]")
 
 ### FN%fecha$: Formatea una fecha
 
-~~~
+~~~text
 fn%fecha$(LOCAL fecha$)
 ~~~
 
@@ -84,7 +84,7 @@ Retorna una variable que contiene una fecha válida end formato ddmmaaaa, format
   
 - Ejemplo:
 
-~~~
+~~~text
 PRINT FN%fecha$("24102025")
 > 24/10/2025
 ~~~
@@ -93,7 +93,7 @@ PRINT FN%fecha$("24102025")
 
 ### FN%fecinv$: Invierte una fecha
 
-~~~
+~~~text
 FN%fecinv$(LOCAL fecha$)
 ~~~
 
@@ -108,7 +108,7 @@ Retorna el valor enviado (ddmmaaaa) de forma invertida: aaaammaa.
 
 - Ejemplo:
 
-~~~
+~~~text
 PRINT FN%fecinv$("24102025")
 > 20251024
 ~~~
@@ -117,7 +117,7 @@ PRINT FN%fecinv$("24102025")
 
 ### FN%fecha_letras$: Fecha en letras
 
-~~~
+~~~text
 FN%fecha_letras$(LOCAL fecha$)
 ~~~
 
@@ -133,7 +133,7 @@ Retorna la fecha enviada en letra, para ser usada por ejemplo en cartas.
 
 - Ejemplo:
 
-~~~
+~~~text
 PRINT FN%fecha_letras$("24102025")
 > 24 de Octubre de 2025
 ~~~
@@ -142,7 +142,7 @@ PRINT FN%fecha_letras$("24102025")
 
 ### FN%find$: Busca un valor de un campo en un archivo
 
-~~~
+~~~text
 FN%find$(LOCAL archivo$, LOCAL campo$, LOCAL clave$)
 ~~~
 
@@ -160,7 +160,7 @@ Retorna el valor del *campo$* contenido en el registro con llave primaria *clave
 
 - Ejemplo:
 
-~~~
+~~~text
 PRINT FN%find$("CTLCIAS","CIA_NOM","HLS")
 > H.L. Sistemas S.R.L.
 PRINT FN%find$("NOMDESCR","NOMBRE","HLS"+"0003/002  ")
@@ -171,7 +171,7 @@ PRINT FN%find$("NOMDESCR","NOMBRE","HLS"+"0003/002  ")
 
 ### FN%mes$: Nombre de un mes
 
-~~~
+~~~text
 FN%mes$(LOCAL mes$)
 ~~~
 
@@ -187,7 +187,7 @@ Retorna el nombre en letras del *mes$* en números.
 
 - Ejemplo:
 
-~~~
+~~~text
 PRINT FN%mes$("10")
 > Octubre
 ~~~
@@ -196,7 +196,7 @@ PRINT FN%mes$("10")
 
 ### FN%mescrito$: Monto escrito
 
-~~~
+~~~text
 FN%mescrito$(LOCAL monto)
 ~~~
 
@@ -205,13 +205,14 @@ FN%mescrito$(LOCAL monto)
 Retorna el número enviado en letras.
 
 - Argumentos:
+  
   |Argumento|Descripción|
   |:--------|-----------|
   |monto|Monto o cifra a convertir en letras
 
 - Ejemplo:
 
-~~~
+~~~text
 PRINT FN%mescrito$(24528.12)
 > VEINTICUATRO MIL QUINIENTOS VEINTIOCHO CON 12 CENTIMOS
 ~~~
@@ -220,7 +221,7 @@ PRINT FN%mescrito$(24528.12)
 
 ### FN%no_todo: Que la explique JL
 
-~~~
+~~~text
 FN%no_todo(LOCAL num_ctl, LOCAL cond$, LOCAL botones$, LOCAL archivo$, LOCAL posic$)
 ~~~
 
@@ -240,7 +241,7 @@ Que me la explique JL.
 
 - Ejemplo:
 
-~~~
+~~~text
 FN%no_todo(listbox.ctl, "","REC.TIPO=""75""","INVGRUPO","")
 ~~~
 
@@ -248,7 +249,7 @@ FN%no_todo(listbox.ctl, "","REC.TIPO=""75""","INVGRUPO","")
 
 ### FN%ope_valido: Operador válido para una función específica
 
-~~~
+~~~text
 FN%ope_valido(LOCAL funcion$)
 ~~~
 
@@ -257,13 +258,14 @@ FN%ope_valido(LOCAL funcion$)
 Retorna verdadero (1) sí el usuario actual (**%base_login$**), esta autorizado en la *funcion$* específica (**CTLFNOPE**), de lo contrario retorna falso (0)
 
 - Argumentos:
+  
   |Argumento|Descripción|
   |:--------|-----------|
   |funcion$|Nombre de la función específica|
 
 - Ejemplo:
 
-~~~
+~~~text
 PRINT FN%ope_valido("VER_SALDOS")
 > 1
 ~~~
@@ -272,7 +274,7 @@ PRINT FN%ope_valido("VER_SALDOS")
 
 ### FN%pos: Busca un texto en otro texto
 
-~~~
+~~~text
 FN%pos(LOCAL texto1$, LOCAL texto2$)
 ~~~
 
@@ -289,7 +291,7 @@ Compara *texto1$* dentro de *texto2$* sin importar que contengan acentos, mayús
 
 - Ejemplo:
 
-~~~
+~~~text
 PRINT fn%pos("ÁéÍóÚ","aeIOu")
 > 1
 ~~~
@@ -298,7 +300,7 @@ PRINT fn%pos("ÁéÍóÚ","aeIOu")
 
 ### FN%precision: Ajustar precisión a un monto
 
-~~~
+~~~text
 FN%precision(LOCAL valor, LOCAL decimales)
 ~~~
 
@@ -307,6 +309,7 @@ FN%precision(LOCAL valor, LOCAL decimales)
 Retorna el *valor* ajustado a la precision de *decimales*.
 
 - Argumentos:
+  
   |Argumento|Descripción|
   |:--------|-----------|
   |valor|Monto a ajustar|
@@ -314,7 +317,7 @@ Retorna el *valor* ajustado a la precision de *decimales*.
 
 - Ejemplo:
   
-~~~
+~~~text
 PRINT FN%precision(249.02193822,3)
 > 249.022
 ~~~
@@ -323,7 +326,7 @@ PRINT FN%precision(249.02193822,3)
 
 ### FN%tabla: Busca un valor en una variable
 
-~~~
+~~~text
 FN%tabla(LOCAL valor$, LOCAL tabla$, LOCAL longitud)
 ~~~
 
@@ -340,7 +343,7 @@ Retorna verdadero (1) sí el elemento *valor$* se encuentra contenido dentro de 
 
 - Ejemplo:
 
-~~~
+~~~text
 tabla$="01020304"
 PRINT FN%tabla$("10",tabla$,2)
 > 0
@@ -352,7 +355,7 @@ PRINT FN%tabla$("02",tabla$,2)
 
 ### FN%tbl$: Traduce acentos en un texto
 
-~~~
+~~~text
 FN%tbl$(LOCAL lp, LOCAL lin$)
 ~~~
 
@@ -369,7 +372,7 @@ Traduce acentos en una cadena *lin$* para la impresión directa por el canal *lp
 
 - Ejemplo:
 
-~~~
+~~~text
 OPEN(unt)"*windev*"
 PRINT (lfo)fn%tbl$(lfo,"ÁéÍóÚ")
 PRINT fn%tbl$(lfo,"ÁéÍóÚ")
@@ -392,6 +395,7 @@ Definición de lo que son las rutinas públicas.
 Catálogo de la Aplicación
 
 - Parámetros:
+  
   | Parámetro | E/S | Descripción |
   |:----------|:---:|-------------|
   |CIA$|E||
@@ -401,7 +405,7 @@ Catálogo de la Aplicación
   |IND_CAT|E|
   |OPC$|E|
 
-~~~
+~~~text
 CALL "RP_CATAL",%BASE_CIA$,...
 ~~~
 
@@ -417,7 +421,7 @@ Tabla de Aplicaciones
   |:----------|:---:|-------------|
   |TAB_APL$|S|Contiene la lista de aplicaciones de BG|
 
-~~~
+~~~text
 CALL "RP_CATAL;APLICACIONES",TAB_APL$
 ~~~
 
@@ -449,7 +453,7 @@ Ajusta una fecha, en días, meses y/o años, retornando la fecha resultante.
 
 - Ejemplos:
 
-~~~
+~~~text
 CALL "RP_FECHA;AJUSTAR","01/10/2025",10,0,0,""
 > 11102025
 CALL "RP_FECHA;AJUSTAR","01/10/2025",0,0,0,"-U"
@@ -472,7 +476,7 @@ Copia de registros.
 
 >Anteriormente: `HLCOPY`
 
-~~~
+~~~text
 CALL "RU_COPY"
 ~~~
 

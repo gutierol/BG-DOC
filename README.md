@@ -27,6 +27,10 @@
     - [RP\_CATAL;APLICACIONES](#rp_catalaplicaciones)
   - [RP\_FECHA](#rp_fecha)
     - [RP\_FECHA;AJUSTAR: Ajustar una fecha](#rp_fechaajustar-ajustar-una-fecha)
+    - [RP\_FECHA;JULIANO: Cálculo del día en juliano](#rp_fechajuliano-cálculo-del-día-en-juliano)
+    - [RP\_FECHA;DIASEM: Día de la semana](#rp_fechadiasem-día-de-la-semana)
+    - [RP\_FECHA;LETRAS: Fecha en letras](#rp_fechaletras-fecha-en-letras)
+    - [RP\_FECHA;EDAD: Diferencia entre dos fechas](#rp_fechaedad-diferencia-entre-dos-fechas)
 - [Rutinas Utilitarias (RU\_XXXXX):](#rutinas-utilitarias-ru_xxxxx)
   - [RU\_COPY](#ru_copy)
 
@@ -65,8 +69,8 @@ Retorna la acumulación de un *campo$* numérico en un *archivo$* de los registr
 - Ejemplo:
 
 ~~~text
-PRINT FN%acum("FACENCAB","MONTO","HLS"+"200001","KNO[0] CND[REC.TIPO$=""FA""]")
-> 8752336.98
+> PRINT FN%acum("FACENCAB","MONTO","HLS"+"200001","KNO[0] CND[REC.TIPO$=""FA""]")
+8752336.98
 ~~~
 
 [Volver arriba](#funciones-globales)
@@ -90,8 +94,8 @@ Retorna una variable que contiene una fecha válida end formato ddmmaaaa, format
 - Ejemplo:
 
 ~~~text
-PRINT FN%fecha$("24102025")
-> 24/10/2025
+> PRINT FN%fecha$("24102025")
+24/10/2025
 ~~~
 
 [Volver arriba](#funciones-globales)
@@ -115,8 +119,8 @@ Retorna el valor enviado (ddmmaaaa) de forma invertida: aaaammaa.
 - Ejemplo:
 
 ~~~text
-PRINT FN%fecinv$("24102025")
-> 20251024
+> PRINT FN%fecinv$("24102025")
+20251024
 ~~~
 
 [Volver arriba](#funciones-globales)
@@ -140,8 +144,8 @@ Retorna la fecha enviada en letra, para ser usada por ejemplo en cartas.
 - Ejemplo:
 
 ~~~text
-PRINT FN%fecha_letras$("24102025")
-> 24 de Octubre de 2025
+> PRINT FN%fecha_letras$("24102025")
+24 de Octubre de 2025
 ~~~
 
 [Volver arriba](#funciones-globales)
@@ -167,10 +171,10 @@ Retorna el valor del *campo$* contenido en el registro con llave primaria *clave
 - Ejemplo:
 
 ~~~text
-PRINT FN%find$("CTLCIAS","CIA_NOM","HLS")
-> H.L. Sistemas S.R.L.
-PRINT FN%find$("NOMDESCR","NOMBRE","HLS"+"0003/002  ")
-> MONICA GUADALUPE
+> PRINT FN%find$("CTLCIAS","CIA_NOM","HLS")
+H.L. Sistemas S.R.L.
+> PRINT FN%find$("NOMDESCR","NOMBRE","HLS"+"0003/002  ")
+MONICA GUADALUPE
 ~~~
 
 [Volver arriba](#funciones-globales)
@@ -194,8 +198,8 @@ Retorna el nombre en letras del *mes$* en números.
 - Ejemplo:
 
 ~~~text
-PRINT FN%mes$("10")
-> Octubre
+> PRINT FN%mes$("10")
+Octubre
 ~~~
 
 [Volver arriba](#funciones-globales)
@@ -219,8 +223,8 @@ Retorna el número enviado en letras.
 - Ejemplo:
 
 ~~~text
-PRINT FN%mescrito$(24528.12)
-> VEINTICUATRO MIL QUINIENTOS VEINTIOCHO CON 12 CENTIMOS
+> PRINT FN%mescrito$(24528.12)
+VEINTICUATRO MIL QUINIENTOS VEINTIOCHO CON 12 CENTIMOS
 ~~~
 
 [Volver arriba](#funciones-globales)
@@ -272,8 +276,8 @@ Retorna verdadero (1) sí el usuario actual (**%base_login$**), esta autorizado 
 - Ejemplo:
 
 ~~~text
-PRINT FN%ope_valido("VER_SALDOS")
-> 1
+> PRINT FN%ope_valido("VER_SALDOS")
+1
 ~~~
 
 [Volver arriba](#funciones-globales)
@@ -298,8 +302,8 @@ Compara *texto1$* dentro de *texto2$* sin importar que contengan acentos, mayús
 - Ejemplo:
 
 ~~~text
-PRINT fn%pos("ÁéÍóÚ","aeIOu")
-> 1
+> PRINT fn%pos("ÁéÍóÚ","aeIOu")
+1
 ~~~
 
 [Volver arriba](#funciones-globales)
@@ -324,8 +328,8 @@ Retorna el *valor* ajustado a la precision de *decimales*.
 - Ejemplo:
   
 ~~~text
-PRINT FN%precision(249.02193822,3)
-> 249.022
+> PRINT FN%precision(249.02193822,3)
+249.022
 ~~~
 
 [Volver arriba](#funciones-globales)
@@ -350,11 +354,11 @@ Retorna verdadero (1) sí el elemento *valor$* se encuentra contenido dentro de 
 - Ejemplo:
 
 ~~~text
-tabla$="01020304"
-PRINT FN%tabla$("10",tabla$,2)
-> 0
-PRINT FN%tabla$("02",tabla$,2)
-> 1
+> tabla$="01020304"
+> PRINT FN%tabla$("10",tabla$,2)
+0
+> PRINT FN%tabla$("02",tabla$,2)
+1
 ~~~
 
 [Volver arriba](#funciones-globales)
@@ -379,11 +383,11 @@ Traduce acentos en una cadena *lin$* para la impresión directa por el canal *lp
 - Ejemplo:
 
 ~~~text
-OPEN(unt)"*windev*"
-PRINT (lfo)fn%tbl$(lfo,"ÁéÍóÚ")
-PRINT fn%tbl$(lfo,"ÁéÍóÚ")
->  ‚¡¢£
-CLOSE(lfo)
+> OPEN(unt)"*windev*"
+> PRINT (lfo)fn%tbl$(lfo,"ÁéÍóÚ")
+> PRINT fn%tbl$(lfo,"ÁéÍóÚ")
+ ‚¡¢£
+> CLOSE(lfo)
 ~~~
 
 [Volver arriba](#funciones-globales)
@@ -396,20 +400,34 @@ Definición de lo que son las rutinas públicas.
 
 ## RP_CATAL
 
+Para realizar operaciones relacionadas al catálogo de funciones. Típicamente usada en programas de control de procesos (Mantenimiento y Listado del Catálogo, Permisos de Grupos y/o Operadores, etc.)
+
 ### RP_CATAL;CATALOGO
 
-Catálogo de la Aplicación
+Leer catálogo de una aplicación.
+
+~~~text
+CALL "RP_CATAL;CATALOGO", CIA$, APLIC, CATAL, LCAT${ALL}, IND_CAT, OPC$
+~~~
 
 - Parámetros:
   
   | Parámetro | E/S | Descripción |
   |:----------|:---:|-------------|
-  |CIA$|E| |
-  |APLIC|E| |
-  |CATAL|E| |
-  |LCAT$\[ALL\]|E| |
-  |IND_CAT|E| |
-  |OPC$|E| |
+  |CIA$|E|Código de Compañía (Normalmente %BASE_CIA_CATA$)|
+  |APLIC|E|Objeto (List_Box o Drop_Box) donde está seleccionada la Aplicación|
+  |CATAL|E|Objeto (Tree_View) donde se va a generar el catálogo|
+  |LCAT$\[ALL\]|S|Líneas del Catálogo (Clave en el archivo CTLCATAL)|
+  |IND_CAT|S|Total de Líneas del Catálogo|
+  |OPC$|E|Opciones Adicionales (Separadas con Espacio)|
+
+  - Opciones:
+  
+    |Opción|Descripción|
+    |:-----|-----------|
+    |SOLO_MENU|No Incluir Procesos, solo sub_menus|
+    |AGREGAR_FIN|Agregar línea <Fin del Catálogo> por sub_menu|
+    |NO_OBJ_CATAL|No hay Objeto (Tree_view) con catálogo|
 
 ~~~text
 CALL "RP_CATAL",%BASE_CIA$,...
@@ -419,13 +437,17 @@ CALL "RP_CATAL",%BASE_CIA$,...
 
 ### RP_CATAL;APLICACIONES
 
-Tabla de Aplicaciones
+Leer tabla de aplicaciones
+
+~~~text
+CALL "RP_CATAL;APLICACIONES", TAB_APL$
+~~~
 
 - Parámetros:
 
   | Parámetro | E/S | Descripción |
   |:----------|:---:|-------------|
-  |TAB_APL$|S|Contiene la lista de aplicaciones de BG|
+  |TAB_APL$|S|Tabla con las aplicaciones (Separadas con \$09\$)|
 
 ~~~text
 CALL "RP_CATAL;APLICACIONES",TAB_APL$
@@ -435,37 +457,155 @@ CALL "RP_CATAL;APLICACIONES",TAB_APL$
 
 ## RP_FECHA
 
+Permite realizar las operaciones asociadas al cálculo, edición, validación, etc. de una o varias fechas.
+
 ### RP_FECHA;AJUSTAR: Ajustar una fecha
 
-Ajusta una fecha, en días, meses y/o años, retornando la fecha resultante.
+Ajuste algebraico de una fecha en días, meses y años.
+
+~~~text
+CALL “RP_FECHA;AJUSTAR”, FECHA_ORIGEN$,DIAS,MESES,AÑOS,FECHA_RESULTADO$,OPCIONES$
+~~~
 
 - Parámetros:
   
-  | Parámetro | E/S | Descripción |
-  |:----------|:---:|-------------|
-  |FECHA_ORIGINAL$|E|Fecha inicial para el cálculo (DDMMAAAA, DD/MM/AAAA, DDMMAA o DD/MM/AA)|
-  |DIAS|E|Ajuste algebraico del día|
-  |MESES|E|Ajuste algebraico del mes|
-  |AÑOS|E|Ajuste algebraico del año|
-  |FECHA_RESULTADO$|S|Fecha resultante, sí la fecha resultante es nula es porque la fecha original es inválida|
-  |OPCIONES$|E|Opciones de la rutina|
+  |Parámetro|E/S|Descripción|
+  |:--------|:-:|-----------|
+  |FECHA_ORIGEN$|E|Fecha de Origen (ddmmaaaa, dd/mm/aaaa, ddmmaa o dd/mm/aa)|
+  |DIAS|E|Ajuste en días (Positivo = adelante, negativo = atrás)|
+  |MESES|E|Ajuste en meses (Positivo = adelante, negativo = atrás)|
+  |AÑOS|E|Ajuste en años (Positivo = adelante, negativo = atrás)|
+  |FECHA_RESULTADO$|S|Fecha Resultante (ddmmaaaa), sí la fecha resultante es nula es porque la fecha original es inválida|
+  |OPCIONES$|E|Opciones Adicionales (Separadas con Espacio)|
 
   - Opciones:
 
     |Opción|Descripción|
     |:-----|-----------|
     |-U|Ajustar hasta el ultimo dia del mes|
-    |-H|Ajustar en dias habiles (DIAS)|
+    |-H|Ajustar días basado en los días hábiles (Archivo CTLCALEN)|
 
 - Ejemplos:
 
 ~~~text
-CALL "RP_FECHA;AJUSTAR","01/10/2025",10,0,0,""
-> 11102025
-CALL "RP_FECHA;AJUSTAR","01/10/2025",0,0,0,"-U"
-> 31102025
-CALL "RP_FECHA;AJUSTAR","01/10/2025",0,1,0,"-H"
-> 01112025
+> CALL "RP_FECHA;AJUSTAR","01/10/2025",10,0,0,FECHA_RESULTADO$,""
+> PRINT FECHA_RESULTADO$
+11102025
+> CALL "RP_FECHA;AJUSTAR","01/10/2025",0,0,0,FECHA_RESULTADO$,"-U"
+> PRINT FECHA_RESULTADO$
+31102025
+> CALL "RP_FECHA;AJUSTAR","01/10/2025",0,1,0,FECHA_RESULTADO$,"-H"
+> PRINT FECHA_RESULTADO$
+01112025
+~~~
+
+[Volver arriba](#rutinas-públicas-rp_xxxxx)
+
+### RP_FECHA;JULIANO: Cálculo del día en juliano
+
+Cálculo del dia juliano y del día dentro del año.
+
+~~~text
+CALL "RP_FECHA;JULIANO", FECHA_ORIGEN$, DJUL, DYEAR
+~~~
+
+- Parámetros:
+
+  |Parámetro|E/S|Descripción|
+  |:--------|:-:|-----------|
+  |FECHA_ORIGEN$|E|Fecha de Origen (ddmmaaaa, dd/mm/aaaa, ddmmaa o dd/mm/aa)|
+  |DJUL|S|Día Juliano (Días desde el año 0000), típicamente se usa para calcular la diferencia de días que hay entre dos fechas|
+  |DYEAR|S|Día dentro del año|
+
+- Ejemplo:
+
+~~~text
+> CALL "RP_FECHA;JULIANO","20071969",JULIANO,AÑO
+> PRINT JULIANO
+718997
+> PRINT AÑO
+201
+~~~
+
+[Volver arriba](#rutinas-públicas-rp_xxxxx)
+
+### RP_FECHA;DIASEM: Día de la semana
+
+Día de la semana de una fecha.
+
+~~~text
+CALL "RP_FECHA;DIASEM", FECHA_ORIGEN$, DSEM, DIA$
+~~~
+
+- Parámetros:
+
+  |Parámetro|E/S|Descripción|
+  |:--------|:-:|-----------|
+  |FECHA_ORIGEN$|E|Fecha de Origen (ddmmaaaa, dd/mm/aaaa, ddmmaa o dd/mm/aa)|
+  |DSEM|S|Día de la semana en número (0 = domingo, 6 = sábado)|
+  |DIA$|S|Día de la semana en letras (Dom,Lun,....,Sab)|
+
+- Ejemplo:
+
+~~~text
+> CALL "RP_FECHA;DIASEM","20071969",DIA,DIA$
+> PRINT DIA
+0
+> PRINT DIA$
+Dom
+~~~
+
+[Volver arriba](#rutinas-públicas-rp_xxxxx)
+
+### RP_FECHA;LETRAS: Fecha en letras
+
+Fecha suministrada escrita en letras.
+
+~~~text
+CALL "RP_FECHA;LETRAS",FECHA_ORIGEN$,FECHA_LETRAS$
+~~~
+
+- Parámetros:
+  
+  |Parámetro|E/S|Descripción|
+  |:--------|:-:|-----------|
+  |FECHA_ORIGEN$|E|Fecha de Origen (ddmmaaaa, dd/mm/aaaa, ddmmaa o dd/mm/aa)|
+  |FECHA_RESULTADO$|S|Fecha Resultante (ddmmaaaa), sí la fecha resultante es nula es porque la fecha original es inválida|
+
+- Ejemplo:
+
+~~~text
+> CALL "RP_FECHA;LETRAS","20071969",DIA$
+> PRINT DIA$
+20 de Julio de 1969
+~~~
+
+[Volver arriba](#rutinas-públicas-rp_xxxxx)
+
+### RP_FECHA;EDAD: Diferencia entre dos fechas
+
+Cálculo de la edad o diferencia entre dos fechas.
+
+~~~text
+CALL "RP_FECHA;EDAD", DESDE$, HASTA$, AÑOS, MESES, DIAS
+~~~
+
+- Parámetros:
+  
+  |Parámetro|E/S|Descripción|
+  |:--------|:-:|-----------|
+  |DESDE$|E|Fecha de Comienzo (ddmmaaaa, dd/mm/aaaa, ddmmaa o dd/mm/aa)|
+  |HASTA$|E|Fecha de Finalización (ddmmaaaa, dd/mm/aaaa, ddmmaa o dd/mm/aa)|
+  |AÑOS|S|Años de edad o diferencia (Número entero)|
+  |MESES|S|Fracción de meses de edad o diferencia|
+  |DIAS|S|Fracción de días de edad o diferencia|
+
+- Ejemplo:
+
+~~~text
+> CALL "RP_FECHA;EDAD","20071969","01082001",AÑOS,MESES,DIAS
+> PRINT AÑOS,MESES,DIAS
+32 0 12
 ~~~
 
 [Volver arriba](#rutinas-públicas-rp_xxxxx)

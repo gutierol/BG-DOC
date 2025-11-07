@@ -27,8 +27,9 @@
     - [RP\_CATAL;APLICACIONES](#rp_catalaplicaciones)
   - [RP\_FECHA](#rp_fecha)
     - [RP\_FECHA;AJUSTAR: Ajustar una fecha](#rp_fechaajustar-ajustar-una-fecha)
-    - [RP\_FECHA;JULIANO: Cálculo del día en juliano](#rp_fechajuliano-cálculo-del-día-en-juliano)
+    - [RP\_FECHA;CALENDARIO: Días entre dos fechas](#rp_fechacalendario-días-entre-dos-fechas)
     - [RP\_FECHA;DIASEM: Día de la semana](#rp_fechadiasem-día-de-la-semana)
+    - [RP\_FECHA;JULIANO: Cálculo del día en juliano](#rp_fechajuliano-cálculo-del-día-en-juliano)
     - [RP\_FECHA;LETRAS: Fecha en letras](#rp_fechaletras-fecha-en-letras)
     - [RP\_FECHA;EDAD: Diferencia entre dos fechas](#rp_fechaedad-diferencia-entre-dos-fechas)
 - [Rutinas Utilitarias (RU\_XXXXX):](#rutinas-utilitarias-ru_xxxxx)
@@ -501,31 +502,24 @@ CALL “RP_FECHA;AJUSTAR”, FECHA_ORIGEN$,DIAS,MESES,AÑOS,FECHA_RESULTADO$,OPC
 
 [Volver arriba](#rutinas-públicas-rp_xxxxx)
 
-### RP_FECHA;JULIANO: Cálculo del día en juliano
+### RP_FECHA;CALENDARIO: Días entre dos fechas
 
-Cálculo del dia juliano y del día dentro del año.
+Calcula los días hábiles, calendario y feriados entre dos fechas
 
 ~~~text
-CALL "RP_FECHA;JULIANO", FECHA_ORIGEN$, DJUL, DYEAR
+CALL “RP_FECHA;CALENDARIO”, DESDE$,HASTA$,CAL{ALL},HAB{ALL},FER{ALL},TIPO$
 ~~~
 
 - Parámetros:
 
   |Parámetro|E/S|Descripción|
   |:--------|:-:|-----------|
-  |FECHA_ORIGEN$|E|Fecha de Origen (ddmmaaaa, dd/mm/aaaa, ddmmaa o dd/mm/aa)|
-  |DJUL|S|Día Juliano (Días desde el año 0000), típicamente se usa para calcular la diferencia de días que hay entre dos fechas|
-  |DYEAR|S|Día dentro del año|
-
-- Ejemplo:
-
-~~~text
-> CALL "RP_FECHA;JULIANO","20071969",JULIANO,AÑO
-> PRINT JULIANO
-718997
-> PRINT AÑO
-201
-~~~
+  |DESDE$|E|Fecha de Comienzo (ddmmaaaa, dd/mm/aaaa, ddmmaa o dd/mm/aa)|
+  |HASTA$|E|Fecha de Finalización (ddmmaaaa, dd/mm/aaaa, ddmmaa o dd/mm/aa)|
+  |CAL\{ALL\}|S|Matriz de 7 posiciones con los días calendario (0=domingos, 1=lunes, ..., 6=sábados, 7=total)|
+  |HAB\{ALL\}|S|Matriz de 7 posiciones con los días hábiles (0=domingos, 1=lunes, ..., 6=sábados, 7=total)|
+  |FER\{ALL\}|S|Matriz de 7 posiciones con los días feriados (0=domingos, 1=lunes, ..., 6=sábados, 7=total). Se basa en el archivo CTLCALEN|
+  |TIPO$|E|Tipo de Feriado a tomar (N=Nacional, B=Bancario, F=Compañía, ""=Cualquiera)|
 
 [Volver arriba](#rutinas-públicas-rp_xxxxx)
 
@@ -553,6 +547,34 @@ CALL "RP_FECHA;DIASEM", FECHA_ORIGEN$, DSEM, DIA$
 0
 > PRINT DIA$
 Dom
+~~~
+
+[Volver arriba](#rutinas-públicas-rp_xxxxx)
+
+### RP_FECHA;JULIANO: Cálculo del día en juliano
+
+Cálculo del dia juliano y del día dentro del año.
+
+~~~text
+CALL "RP_FECHA;JULIANO", FECHA_ORIGEN$, DJUL, DYEAR
+~~~
+
+- Parámetros:
+
+  |Parámetro|E/S|Descripción|
+  |:--------|:-:|-----------|
+  |FECHA_ORIGEN$|E|Fecha de Origen (ddmmaaaa, dd/mm/aaaa, ddmmaa o dd/mm/aa)|
+  |DJUL|S|Día Juliano (Días desde el año 0000), típicamente se usa para calcular la diferencia de días que hay entre dos fechas|
+  |DYEAR|S|Día dentro del año|
+
+- Ejemplo:
+
+~~~text
+> CALL "RP_FECHA;JULIANO","20071969",JULIANO,AÑO
+> PRINT JULIANO
+718997
+> PRINT AÑO
+201
 ~~~
 
 [Volver arriba](#rutinas-públicas-rp_xxxxx)

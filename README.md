@@ -22,26 +22,31 @@
   - [FN%tabla: Busca un valor en una variable](#fntabla-busca-un-valor-en-una-variable)
   - [FN%tbl$: Traduce acentos en un texto](#fntbl-traduce-acentos-en-un-texto)
 - [Rutinas Públicas (RP\_XXXXX):](#rutinas-públicas-rp_xxxxx)
-  - [RP\_CATAL](#rp_catal)
-    - [RP\_CATAL;CATALOGO](#rp_catalcatalogo)
-    - [RP\_CATAL;APLICACIONES](#rp_catalaplicaciones)
+  - [RP\_CATAL: Manejo del catálogo](#rp_catal-manejo-del-catálogo)
+    - [RP\_CATAL;CATALOGO: Leer catálogo de una aplicación](#rp_catalcatalogo-leer-catálogo-de-una-aplicación)
+    - [RP\_CATAL;APLICACIONES: Leer tabla de aplicaciones](#rp_catalaplicaciones-leer-tabla-de-aplicaciones)
   - [RP\_FECHA](#rp_fecha)
     - [RP\_FECHA;AJUSTAR: Ajustar una fecha](#rp_fechaajustar-ajustar-una-fecha)
     - [RP\_FECHA;CALENDARIO: Días entre dos fechas](#rp_fechacalendario-días-entre-dos-fechas)
     - [RP\_FECHA;DIASEM: Día de la semana](#rp_fechadiasem-día-de-la-semana)
+    - [RP\_FECHA;EDAD: Diferencia entre dos fechas](#rp_fechaedad-diferencia-entre-dos-fechas)
+    - [RP\_FECHA;EDITAR: Validar y editar una fecha](#rp_fechaeditar-validar-y-editar-una-fecha)
     - [RP\_FECHA;JULIANO: Cálculo del día en juliano](#rp_fechajuliano-cálculo-del-día-en-juliano)
     - [RP\_FECHA;LETRAS: Fecha en letras](#rp_fechaletras-fecha-en-letras)
-    - [RP\_FECHA;EDAD: Diferencia entre dos fechas](#rp_fechaedad-diferencia-entre-dos-fechas)
+    - [RP\_FECHA;VALIDATOR: Validar una fecha](#rp_fechavalidator-validar-una-fecha)
+    - [RP\_FECHA;VALIDATOR\_MES: Validar un mes](#rp_fechavalidator_mes-validar-un-mes)
+  - [RP\_FILE](#rp_file)
+    - [RP\_FILE;OPEN: Apertura de archivos](#rp_fileopen-apertura-de-archivos)
 - [Rutinas Utilitarias (RU\_XXXXX):](#rutinas-utilitarias-ru_xxxxx)
   - [RU\_COPY](#ru_copy)
 
-# [Funciones Globales:](#funciones-globales)
+## [Funciones Globales:](#funciones-globales)
 
 Funciones de usuario definidas de forma global para mejorar la codificación en los programas.
 
 [Volver arriba](#top)
 
-## FN%acum: Acumula un campo númerico de un archivo
+### FN%acum: Acumula un campo númerico de un archivo
 
 ~~~text
 FN%acum(LOCAL archivo$, LOCAL campo$, LOCAL clave$, LOCAL opciones$)
@@ -76,7 +81,7 @@ Retorna la acumulación de un *campo$* numérico en un *archivo$* de los registr
 
 [Volver arriba](#funciones-globales)
 
-## FN%fecha$: Formatea una fecha
+### FN%fecha$: Formatea una fecha
 
 ~~~text
 fn%fecha$(LOCAL fecha$)
@@ -101,7 +106,7 @@ Retorna una variable que contiene una fecha válida end formato ddmmaaaa, format
 
 [Volver arriba](#funciones-globales)
 
-## FN%fecinv$: Invierte una fecha
+### FN%fecinv$: Invierte una fecha
 
 ~~~text
 FN%fecinv$(LOCAL fecha$)
@@ -126,7 +131,7 @@ Retorna el valor enviado (ddmmaaaa) de forma invertida: aaaammaa.
 
 [Volver arriba](#funciones-globales)
 
-## FN%fecha_letras$: Fecha en letras
+### FN%fecha_letras$: Fecha en letras
 
 ~~~text
 FN%fecha_letras$(LOCAL fecha$)
@@ -151,7 +156,7 @@ Retorna la fecha enviada en letra, para ser usada por ejemplo en cartas.
 
 [Volver arriba](#funciones-globales)
 
-## FN%find$: Busca un valor de un campo en un archivo
+### FN%find$: Busca un valor de un campo en un archivo
 
 ~~~text
 FN%find$(LOCAL archivo$, LOCAL campo$, LOCAL clave$)
@@ -180,7 +185,7 @@ MONICA GUADALUPE
 
 [Volver arriba](#funciones-globales)
 
-## FN%mes$: Nombre de un mes
+### FN%mes$: Nombre de un mes
 
 ~~~text
 FN%mes$(LOCAL mes$)
@@ -205,7 +210,7 @@ Octubre
 
 [Volver arriba](#funciones-globales)
 
-## FN%mescrito$: Monto escrito
+### FN%mescrito$: Monto escrito
 
 ~~~text
 FN%mescrito$(LOCAL monto)
@@ -230,7 +235,7 @@ VEINTICUATRO MIL QUINIENTOS VEINTIOCHO CON 12 CENTIMOS
 
 [Volver arriba](#funciones-globales)
 
-## FN%no_todo: Que la explique JL
+### FN%no_todo: Que la explique JL
 
 ~~~text
 FN%no_todo(LOCAL num_ctl, LOCAL cond$, LOCAL botones$, LOCAL archivo$, LOCAL posic$)
@@ -258,7 +263,7 @@ FN%no_todo(listbox.ctl, "","REC.TIPO=""75""","INVGRUPO","")
 
 [Volver arriba](#funciones-globales)
 
-## FN%ope_valido: Operador válido para una función específica
+### FN%ope_valido: Operador válido para una función específica
 
 ~~~text
 FN%ope_valido(LOCAL funcion$)
@@ -283,7 +288,7 @@ Retorna verdadero (1) sí el usuario actual (**%base_login$**), esta autorizado 
 
 [Volver arriba](#funciones-globales)
 
-## FN%pos: Busca un texto en otro texto
+### FN%pos: Busca un texto en otro texto
 
 ~~~text
 FN%pos(LOCAL texto1$, LOCAL texto2$)
@@ -309,7 +314,7 @@ Compara *texto1$* dentro de *texto2$* sin importar que contengan acentos, mayús
 
 [Volver arriba](#funciones-globales)
 
-## FN%precision: Ajustar precisión a un monto
+### FN%precision: Ajustar precisión a un monto
 
 ~~~text
 FN%precision(LOCAL valor, LOCAL decimales)
@@ -335,7 +340,7 @@ Retorna el *valor* ajustado a la precision de *decimales*.
 
 [Volver arriba](#funciones-globales)
 
-## FN%tabla: Busca un valor en una variable
+### FN%tabla: Busca un valor en una variable
 
 ~~~text
 FN%tabla(LOCAL valor$, LOCAL tabla$, LOCAL longitud)
@@ -364,7 +369,7 @@ Retorna verdadero (1) sí el elemento *valor$* se encuentra contenido dentro de 
 
 [Volver arriba](#funciones-globales)
 
-## FN%tbl$: Traduce acentos en un texto
+### FN%tbl$: Traduce acentos en un texto
 
 ~~~text
 FN%tbl$(LOCAL lp, LOCAL lin$)
@@ -393,22 +398,22 @@ Traduce acentos en una cadena *lin$* para la impresión directa por el canal *lp
 
 [Volver arriba](#funciones-globales)
 
-# [Rutinas Públicas (RP_XXXXX):](#rutinas-públicas-rp_xxxxx)
+## [Rutinas Públicas (RP_XXXXX):](#rutinas-públicas-rp_xxxxx)
 
 Definición de lo que son las rutinas públicas.
 
 [Volver arriba](#top)
 
-## RP_CATAL
+### RP_CATAL: Manejo del catálogo
 
 Para realizar operaciones relacionadas al catálogo de funciones. Típicamente usada en programas de control de procesos (Mantenimiento y Listado del Catálogo, Permisos de Grupos y/o Operadores, etc.)
 
-### RP_CATAL;CATALOGO
+#### RP_CATAL;CATALOGO: Leer catálogo de una aplicación
 
 Leer catálogo de una aplicación.
 
 ~~~text
-CALL "RP_CATAL;CATALOGO", CIA$, APLIC, CATAL, LCAT${ALL}, IND_CAT, OPC$
+CALL "RP_CATAL;CATALOGO",CIA$, APLIC, CATAL, LCAT${ALL}, IND_CAT, OPC$
 ~~~
 
 - Parámetros:
@@ -418,7 +423,7 @@ CALL "RP_CATAL;CATALOGO", CIA$, APLIC, CATAL, LCAT${ALL}, IND_CAT, OPC$
   |CIA$|E|Código de Compañía (Normalmente %BASE_CIA_CATA$)|
   |APLIC|E|Objeto (List_Box o Drop_Box) donde está seleccionada la Aplicación|
   |CATAL|E|Objeto (Tree_View) donde se va a generar el catálogo|
-  |LCAT$\[ALL\]|S|Líneas del Catálogo (Clave en el archivo CTLCATAL)|
+  |LCAT$\{ALL\}|S|Líneas del Catálogo (Clave en el archivo CTLCATAL)|
   |IND_CAT|S|Total de Líneas del Catálogo|
   |OPC$|E|Opciones Adicionales (Separadas con Espacio)|
 
@@ -430,18 +435,14 @@ CALL "RP_CATAL;CATALOGO", CIA$, APLIC, CATAL, LCAT${ALL}, IND_CAT, OPC$
     |AGREGAR_FIN|Agregar línea <Fin del Catálogo> por sub_menu|
     |NO_OBJ_CATAL|No hay Objeto (Tree_view) con catálogo|
 
-~~~text
-CALL "RP_CATAL",%BASE_CIA$,...
-~~~
-
 [Volver arriba](#rutinas-públicas-rp_xxxxx)
 
-### RP_CATAL;APLICACIONES
+#### RP_CATAL;APLICACIONES: Leer tabla de aplicaciones
 
 Leer tabla de aplicaciones
 
 ~~~text
-CALL "RP_CATAL;APLICACIONES", TAB_APL$
+CALL "RP_CATAL;APLICACIONES",TAB_APL$
 ~~~
 
 - Parámetros:
@@ -456,16 +457,16 @@ CALL "RP_CATAL;APLICACIONES",TAB_APL$
 
 [Volver arriba](#rutinas-públicas-rp_xxxxx)
 
-## RP_FECHA
+### RP_FECHA
 
 Permite realizar las operaciones asociadas al cálculo, edición, validación, etc. de una o varias fechas.
 
-### RP_FECHA;AJUSTAR: Ajustar una fecha
+#### RP_FECHA;AJUSTAR: Ajustar una fecha
 
 Ajuste algebraico de una fecha en días, meses y años.
 
 ~~~text
-CALL “RP_FECHA;AJUSTAR”, FECHA_ORIGEN$,DIAS,MESES,AÑOS,FECHA_RESULTADO$,OPCIONES$
+CALL “RP_FECHA;AJUSTAR”,FECHA_ORIGEN$,DIAS,MESES,AÑOS,FECHA_RESULTADO$,OPCIONES$
 ~~~
 
 - Parámetros:
@@ -502,12 +503,12 @@ CALL “RP_FECHA;AJUSTAR”, FECHA_ORIGEN$,DIAS,MESES,AÑOS,FECHA_RESULTADO$,OPC
 
 [Volver arriba](#rutinas-públicas-rp_xxxxx)
 
-### RP_FECHA;CALENDARIO: Días entre dos fechas
+#### RP_FECHA;CALENDARIO: Días entre dos fechas
 
 Calcula los días hábiles, calendario y feriados entre dos fechas
 
 ~~~text
-CALL “RP_FECHA;CALENDARIO”, DESDE$,HASTA$,CAL{ALL},HAB{ALL},FER{ALL},TIPO$
+CALL “RP_FECHA;CALENDARIO”,DESDE$,HASTA$,CAL{ALL},HAB{ALL},FER{ALL},TIPO$
 ~~~
 
 - Parámetros:
@@ -519,16 +520,39 @@ CALL “RP_FECHA;CALENDARIO”, DESDE$,HASTA$,CAL{ALL},HAB{ALL},FER{ALL},TIPO$
   |CAL\{ALL\}|S|Matriz de 7 posiciones con los días calendario (0=domingos, 1=lunes, ..., 6=sábados, 7=total)|
   |HAB\{ALL\}|S|Matriz de 7 posiciones con los días hábiles (0=domingos, 1=lunes, ..., 6=sábados, 7=total)|
   |FER\{ALL\}|S|Matriz de 7 posiciones con los días feriados (0=domingos, 1=lunes, ..., 6=sábados, 7=total). Se basa en el archivo CTLCALEN|
-  |TIPO$|E|Tipo de Feriado a tomar (N=Nacional, B=Bancario, F=Compañía, ""=Cualquiera)|
+  |TIPO$|E|Tipo de Feriado a tomar|
+
+  - Tipo: Tipo de Feriado
+
+    |TIPO$|Descripción|
+    |:--:|-|
+    |N|Nacional|
+    |B|Bancario|
+    |F|Compañía|
+    |""|Cualquiera|
+
+- Ejemplos:
+
+~~~text
+> CALL "RP_FECHA;CALENDARIO","20071969","20081969",CAL[ALL],HAB[ALL],FER[ALL],""
+> PRINT CAL[ALL]
+5 5 5 5 4 4 4 32 => 32 días en total, 5 domingos, 4 sábados
+
+> PRINT HAB[ALL]
+0 5 5 5 4 4 0 23 => 23 días hábiles total, 5 lunes, 4 jueves
+
+> PRINT FER[ALL]
+0 0 0 0 0 0 0 => No hubo días feriados en el periodo
+~~~
 
 [Volver arriba](#rutinas-públicas-rp_xxxxx)
 
-### RP_FECHA;DIASEM: Día de la semana
+#### RP_FECHA;DIASEM: Día de la semana
 
 Día de la semana de una fecha.
 
 ~~~text
-CALL "RP_FECHA;DIASEM", FECHA_ORIGEN$, DSEM, DIA$
+CALL "RP_FECHA;DIASEM",FECHA_ORIGEN$,DSEM,DIA$
 ~~~
 
 - Parámetros:
@@ -551,7 +575,64 @@ Dom
 
 [Volver arriba](#rutinas-públicas-rp_xxxxx)
 
-### RP_FECHA;JULIANO: Cálculo del día en juliano
+#### RP_FECHA;EDAD: Diferencia entre dos fechas
+
+Cálculo de la edad o diferencia entre dos fechas.
+
+~~~text
+CALL "RP_FECHA;EDAD",DESDE$,HASTA$,AÑOS,MESES,DIAS
+~~~
+
+- Parámetros:
+  
+  |Parámetro|E/S|Descripción|
+  |:--------|:-:|-----------|
+  |DESDE$|E|Fecha de Comienzo (ddmmaaaa, dd/mm/aaaa, ddmmaa o dd/mm/aa)|
+  |HASTA$|E|Fecha de Finalización (ddmmaaaa, dd/mm/aaaa, ddmmaa o dd/mm/aa)|
+  |AÑOS|S|Años de edad o diferencia (Número entero)|
+  |MESES|S|Fracción de meses de edad o diferencia|
+  |DIAS|S|Fracción de días de edad o diferencia|
+
+- Ejemplo:
+
+~~~text
+> CALL "RP_FECHA;EDAD","20071969","01082001",AÑOS,MESES,DIAS
+> PRINT AÑOS,MESES,DIAS
+32 0 12
+~~~
+
+[Volver arriba](#rutinas-públicas-rp_xxxxx)
+
+#### RP_FECHA;EDITAR: Validar y editar una fecha
+
+Validar y editar fecha.
+
+~~~text
+CALL "RP_FECHA;EDITAR",FECHA_ORIGEN$,FECHA_SIN_FMT$,FECHA_CON_FMT$
+~~~
+
+- Parámetros:
+
+  |Parámetro|E/S|Descripción|
+  |:--------|:-:|-----------|
+  |FECHA_ORIGEN$|E|Fecha Origen (ddmmaaaa, dd/mm/aaaa, ddmmaa o dd/mm/aa)|
+  |FECHA_SIN_FMT$|S|Fecha en formato ddmmaaaa (""=no es válida)|
+  |FECHA_CON_FMT$|S|Fecha en formato dd/mm/aaaa (""=no es válida)|
+
+- Ejemplo:
+
+~~~text
+> CALL "RP_FECHA;EDITAR","200769",FECHA1$,FECHA2$
+> PRINT FECHA1$
+20071969
+
+> PRINT FECHA2$
+20/07/1969
+~~~
+
+[Volver arriba](#rutinas-públicas-rp_xxxxx)
+
+#### RP_FECHA;JULIANO: Cálculo del día en juliano
 
 Cálculo del dia juliano y del día dentro del año.
 
@@ -579,7 +660,7 @@ CALL "RP_FECHA;JULIANO", FECHA_ORIGEN$, DJUL, DYEAR
 
 [Volver arriba](#rutinas-públicas-rp_xxxxx)
 
-### RP_FECHA;LETRAS: Fecha en letras
+#### RP_FECHA;LETRAS: Fecha en letras
 
 Fecha suministrada escrita en letras.
 
@@ -604,41 +685,103 @@ CALL "RP_FECHA;LETRAS",FECHA_ORIGEN$,FECHA_LETRAS$
 
 [Volver arriba](#rutinas-públicas-rp_xxxxx)
 
-### RP_FECHA;EDAD: Diferencia entre dos fechas
+#### RP_FECHA;VALIDATOR: Validar una fecha
 
-Cálculo de la edad o diferencia entre dos fechas.
+Validar una fecha desde NOMADS.
 
 ~~~text
-CALL "RP_FECHA;EDAD", DESDE$, HASTA$, AÑOS, MESES, DIAS
+CALL "RP_FECHA;VALIDATOR",FECHA_ORIGEN$,ERR$,TAG$,OLD$,EOM$
 ~~~
 
 - Parámetros:
-  
+
   |Parámetro|E/S|Descripción|
   |:--------|:-:|-----------|
-  |DESDE$|E|Fecha de Comienzo (ddmmaaaa, dd/mm/aaaa, ddmmaa o dd/mm/aa)|
-  |HASTA$|E|Fecha de Finalización (ddmmaaaa, dd/mm/aaaa, ddmmaa o dd/mm/aa)|
-  |AÑOS|S|Años de edad o diferencia (Número entero)|
-  |MESES|S|Fracción de meses de edad o diferencia|
-  |DIAS|S|Fracción de días de edad o diferencia|
+  |FECHA_ORIGEN$|E|Fecha a validar (ddmmaaaa)|
+  |ERR$|S|Mensaje de error (""=No hubo error)|
+  |TAG$|E|Tag de usuario para el objeto|
+  |OLD$|E|Valor anterior del campo|
+  |EOM$|E|Valor de EOM (Forma de Input)|
 
 - Ejemplo:
+La llamada la hace NOMADS automáticamente cuando tiene RP_FECHA;VALIDATOR en el campo "VALIDATOR" del objeto.
+
+[Volver arriba](#rutinas-públicas-rp_xxxxx)
+
+#### RP_FECHA;VALIDATOR_MES: Validar un mes
 
 ~~~text
-> CALL "RP_FECHA;EDAD","20071969","01082001",AÑOS,MESES,DIAS
-> PRINT AÑOS,MESES,DIAS
-32 0 12
+CALL "RP_FECHA;VALIDATOR_MES", FECHA_ORIGEN$,ERR$,TAG$,OLD$,EOM$
+~~~
+
+- Parámetros:
+
+  |Parámetro|E/S|Descripción|
+  |:--------|:-:|-----------|
+  |FECHA_ORIGEN$|E|Fecha a validar (mmaaaa)|
+  |ERR$|S|Mensaje de error (""=No hubo error)|
+  |TAG$|E|Tag de usuario para el objeto|
+  |OLD$|E|Valor anterior del campo|
+  |EOM$|E|Valor de EOM (Forma de Input)|
+
+- Ejemplo:
+La llamada la hace NOMADS automáticamente cuando tiene RP_FECHA;VALIDATOR_MES en el campo "VALIDATOR" del objeto.
+
+[Volver arriba](#rutinas-públicas-rp_xxxxx)
+
+### RP_FILE
+
+Permite realizar las operaciones rutinarias relacionadas a archivos. Aunque algunas de ellas básicamente reemplazan verbos de PxPlus, deben ser utilizados para mantener un estándar y ampliar las posibilidades (ODBC, ORACLE, etc.)
+
+#### RP_FILE;OPEN: Apertura de archivos
+
+Apertura de archivos, incluido su diccionario de datos. Puede remplazar la directiva OPEN().
+
+~~~text
+CALL "RP_FILE;OPEN",NOMBRE$,CANAL[,OPC$]
+~~~
+
+- Parámetros:
+
+  |Parámetro|E/S|Descripción|
+  |:--------|:-:|-----------|
+  |NOMBRE$|E|Nombre del Archivo a abrir. El archivo será abierto de la forma (IOL=*) para tomar el diccionario de datos interno. Ver directiva OPEN de PxPlus|
+  |CANAL|E/S|Canal en el que se abrió el archivo (0=No se pudo abrir). Como entrada sí se acompaña de la opción USAR_CANAL|
+  |OPC$|E|Opciones|
+
+  - Opciones:
+
+    |Opción|Descripción|
+    |:-----|-----------|
+    |NO_IOL|Abrir el archivo sin usar el diccionario de datos interno (IOL=*)|
+    |NO_ERROR|No mostrar ventana de error si no se puede abrir|
+    |USAR_CANAL|Abrir archivo en CANAL especificado|
+
+- Ejemplos:
+
+Abrir un archivo:
+
+~~~text
+> CALL "RP_FILE;OPEN","MGADESCR",CANDES
+> PRINT LST(IOL(CANDES))
+IOLIST  CIA$,CUENTA$,DESC_CTA$,TITULO$,CENTRO$,AUXIL$,OTROS1$,OTROS2$,OTROS3$
+~~~
+
+Abrir un directorio: 
+
+~~~text
+> CALL "RP_FILE;OPEN","C:\MIS DOCUMENTOS",DISCO_C,"NO_IOL NO_ERROR" 
 ~~~
 
 [Volver arriba](#rutinas-públicas-rp_xxxxx)
 
-# [Rutinas Utilitarias (RU_XXXXX):](#rutinas-utilitarias-ru_xxxxx)
+## [Rutinas Utilitarias (RU_XXXXX):](#rutinas-utilitarias-ru_xxxxx)
 
 Definición de lo que son las rutinas utilitarias.
 
 [Volver arriba](#top)
 
-## RU_COPY
+### RU_COPY
 
 Copia de registros.
 

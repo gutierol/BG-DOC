@@ -36,7 +36,17 @@
     - [RP\_FECHA;VALIDATOR: Validar una fecha](#rp_fechavalidator-validar-una-fecha)
     - [RP\_FECHA;VALIDATOR\_MES: Validar un mes](#rp_fechavalidator_mes-validar-un-mes)
   - [RP\_FILE](#rp_file)
+    - [RP\_FILE;ABRIR\_ARCHIVOS\_DATOS: Abrir archivos de una aplicación](#rp_fileabrir_archivos_datos-abrir-archivos-de-una-aplicación)
+    - [RP\_FILE;ABRIR\_ARCHIVOS\_DATOS\_BLANCO: Abrir los archivos de una aplicación y llenar campos](#rp_fileabrir_archivos_datos_blanco-abrir-los-archivos-de-una-aplicación-y-llenar-campos)
+    - [RP\_FILE;CERRAR\_ARCHIVOS\_DATOS: Cerrar los archivos de una aplicación](#rp_filecerrar_archivos_datos-cerrar-los-archivos-de-una-aplicación)
+    - [RP\_FILE;COPIAR: Copia de registros](#rp_filecopiar-copia-de-registros)
+    - [RP\_FILE;COPIAR\_ARCHIVO: Copiar un archivo completo](#rp_filecopiar_archivo-copiar-un-archivo-completo)
+    - [RP\_FILE;EXPORTAR\_REGISTRO: Exportar registros a un archivo .BGR](#rp_fileexportar_registro-exportar-registros-a-un-archivo-bgr)
+    - [RP\_FILE;IMPORTAR\_REGISTRO: Importar registros a un archivo .BGR](#rp_fileimportar_registro-importar-registros-a-un-archivo-bgr)
     - [RP\_FILE;OPEN: Apertura de archivos](#rp_fileopen-apertura-de-archivos)
+    - [RP\_FILE;PGM\_STR: Grabar un programa en un archivo tipo SERIAL](#rp_filepgm_str-grabar-un-programa-en-un-archivo-tipo-serial)
+    - [RP\_FILE;REMOVE: Eliminación de registros](#rp_fileremove-eliminación-de-registros)
+    - [RP\_FILE;WORK: Genera nombre de archivo de trabajo](#rp_filework-genera-nombre-de-archivo-de-trabajo)
 - [Rutinas Utilitarias (RU\_XXXXX):](#rutinas-utilitarias-ru_xxxxx)
   - [RU\_COPY](#ru_copy)
 
@@ -733,6 +743,34 @@ La llamada la hace NOMADS automáticamente cuando tiene RP_FECHA;VALIDATOR_MES e
 
 Permite realizar las operaciones rutinarias relacionadas a archivos. Aunque algunas de ellas básicamente reemplazan verbos de <a href="https://home.pvxplus.com/" target="_blank">PxPlus</a>, deben ser utilizados para mantener un estándar y ampliar las posibilidades (ODBC, ORACLE, etc.)
 
+#### RP_FILE;ABRIR_ARCHIVOS_DATOS: Abrir archivos de una aplicación
+
+[Volver arriba](#rutinas-públicas-rp_xxxxx)
+
+#### RP_FILE;ABRIR_ARCHIVOS_DATOS_BLANCO: Abrir los archivos de una aplicación y llenar campos
+
+[Volver arriba](#rutinas-públicas-rp_xxxxx)
+
+#### RP_FILE;CERRAR_ARCHIVOS_DATOS: Cerrar los archivos de una aplicación
+
+[Volver arriba](#rutinas-públicas-rp_xxxxx)
+
+#### RP_FILE;COPIAR: Copia de registros
+
+[Volver arriba](#rutinas-públicas-rp_xxxxx)
+
+#### RP_FILE;COPIAR_ARCHIVO: Copiar un archivo completo
+
+[Volver arriba](#rutinas-públicas-rp_xxxxx)
+
+#### RP_FILE;EXPORTAR_REGISTRO: Exportar registros a un archivo .BGR
+
+[Volver arriba](#rutinas-públicas-rp_xxxxx)
+
+#### RP_FILE;IMPORTAR_REGISTRO: Importar registros a un archivo .BGR
+
+[Volver arriba](#rutinas-públicas-rp_xxxxx)
+
 #### RP_FILE;OPEN: Apertura de archivos
 
 Apertura de archivos, incluido su diccionario de datos. Puede remplazar la directiva <a href="https://manual.pvxplus.com/PXPLUS/directives/open.htm" target="_blank">OPEN()</a>.
@@ -772,6 +810,18 @@ Abrir un directorio:
 ~~~text
 > CALL "RP_FILE;OPEN","C:\MIS DOCUMENTOS",DISCO_C,"NO_IOL NO_ERROR" 
 ~~~
+
+[Volver arriba](#rutinas-públicas-rp_xxxxx)
+
+#### RP_FILE;PGM_STR: Grabar un programa en un archivo tipo SERIAL
+
+[Volver arriba](#rutinas-públicas-rp_xxxxx)
+
+#### RP_FILE;REMOVE: Eliminación de registros
+
+[Volver arriba](#rutinas-públicas-rp_xxxxx)
+
+#### RP_FILE;WORK: Genera nombre de archivo de trabajo
 
 [Volver arriba](#rutinas-públicas-rp_xxxxx)
 

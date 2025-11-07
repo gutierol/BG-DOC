@@ -23,8 +23,8 @@
   - [FN%tbl$: Traduce acentos en un texto](#fntbl-traduce-acentos-en-un-texto)
 - [Rutinas Públicas (RP\_XXXXX):](#rutinas-públicas-rp_xxxxx)
   - [RP\_CATAL: Manejo del catálogo](#rp_catal-manejo-del-catálogo)
-    - [RP\_CATAL;CATALOGO: Leer catálogo de una aplicación](#rp_catalcatalogo-leer-catálogo-de-una-aplicación)
     - [RP\_CATAL;APLICACIONES: Leer tabla de aplicaciones](#rp_catalaplicaciones-leer-tabla-de-aplicaciones)
+    - [RP\_CATAL;CATALOGO: Leer catálogo de una aplicación](#rp_catalcatalogo-leer-catálogo-de-una-aplicación)
   - [RP\_FECHA](#rp_fecha)
     - [RP\_FECHA;AJUSTAR: Ajustar una fecha](#rp_fechaajustar-ajustar-una-fecha)
     - [RP\_FECHA;CALENDARIO: Días entre dos fechas](#rp_fechacalendario-días-entre-dos-fechas)
@@ -408,6 +408,26 @@ Definición de lo que son las rutinas públicas.
 
 Para realizar operaciones relacionadas al catálogo de funciones. Típicamente usada en programas de control de procesos (Mantenimiento y Listado del Catálogo, Permisos de Grupos y/o Operadores, etc.)
 
+#### RP_CATAL;APLICACIONES: Leer tabla de aplicaciones
+
+Leer tabla de aplicaciones
+
+~~~text
+CALL "RP_CATAL;APLICACIONES",TAB_APL$
+~~~
+
+- Parámetros:
+
+  | Parámetro | E/S | Descripción |
+  |:----------|:---:|-------------|
+  |TAB_APL$|S|Tabla con las aplicaciones (Separadas con \$09\$)|
+
+~~~text
+CALL "RP_CATAL;APLICACIONES",TAB_APL$
+~~~
+
+[Volver arriba](#rutinas-públicas-rp_xxxxx)
+
 #### RP_CATAL;CATALOGO: Leer catálogo de una aplicación
 
 Leer catálogo de una aplicación.
@@ -434,26 +454,6 @@ CALL "RP_CATAL;CATALOGO",CIA$, APLIC, CATAL, LCAT${ALL}, IND_CAT, OPC$
     |SOLO_MENU|No Incluir Procesos, solo sub_menus|
     |AGREGAR_FIN|Agregar línea <Fin del Catálogo> por sub_menu|
     |NO_OBJ_CATAL|No hay Objeto (Tree_view) con catálogo|
-
-[Volver arriba](#rutinas-públicas-rp_xxxxx)
-
-#### RP_CATAL;APLICACIONES: Leer tabla de aplicaciones
-
-Leer tabla de aplicaciones
-
-~~~text
-CALL "RP_CATAL;APLICACIONES",TAB_APL$
-~~~
-
-- Parámetros:
-
-  | Parámetro | E/S | Descripción |
-  |:----------|:---:|-------------|
-  |TAB_APL$|S|Tabla con las aplicaciones (Separadas con \$09\$)|
-
-~~~text
-CALL "RP_CATAL;APLICACIONES",TAB_APL$
-~~~
 
 [Volver arriba](#rutinas-públicas-rp_xxxxx)
 

@@ -731,11 +731,11 @@ La llamada la hace NOMADS automáticamente cuando tiene RP_FECHA;VALIDATOR_MES e
 
 ### RP_FILE
 
-Permite realizar las operaciones rutinarias relacionadas a archivos. Aunque algunas de ellas básicamente reemplazan verbos de PxPlus, deben ser utilizados para mantener un estándar y ampliar las posibilidades (ODBC, ORACLE, etc.)
+Permite realizar las operaciones rutinarias relacionadas a archivos. Aunque algunas de ellas básicamente reemplazan verbos de <a href="https://home.pvxplus.com/" target="_blank">PxPlus</a>, deben ser utilizados para mantener un estándar y ampliar las posibilidades (ODBC, ORACLE, etc.)
 
 #### RP_FILE;OPEN: Apertura de archivos
 
-Apertura de archivos, incluido su diccionario de datos. Puede remplazar la directiva OPEN().
+Apertura de archivos, incluido su diccionario de datos. Puede remplazar la directiva <a href="https://manual.pvxplus.com/PXPLUS/directives/open.htm" target="_blank">OPEN()</a>.
 
 ~~~text
 CALL "RP_FILE;OPEN",NOMBRE$,CANAL[,OPC$]
@@ -745,7 +745,7 @@ CALL "RP_FILE;OPEN",NOMBRE$,CANAL[,OPC$]
 
   |Parámetro|E/S|Descripción|
   |:--------|:-:|-----------|
-  |NOMBRE$|E|Nombre del Archivo a abrir. El archivo será abierto de la forma (IOL=*) para tomar el diccionario de datos interno. Ver directiva OPEN de PxPlus|
+  |NOMBRE$|E|Nombre del Archivo a abrir. El archivo será abierto de la forma (IOL=*) para tomar el diccionario de datos interno. Ver directiva <a href="https://manual.pvxplus.com/PXPLUS/directives/open.htm" target="_blank">OPEN()</a> de <a href="https://home.pvxplus.com/" target="_blank">PxPlus</a>|
   |CANAL|E/S|Canal en el que se abrió el archivo (0=No se pudo abrir). Como entrada sí se acompaña de la opción USAR_CANAL|
   |OPC$|E|Opciones|
 

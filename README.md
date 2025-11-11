@@ -1,5 +1,5 @@
 <!-- title: BASE Gráfico -->
-# BASE Gráfico<!-- omit from toc -->
+# BASE Gráfico &reg;
 
 ## Índice de Ayuda para Asesores<!-- omit from toc -->
 
@@ -7,48 +7,56 @@
 
 ---
 
-- [Funciones Globales:](#funciones-globales)
-  - [FN%acum: Acumula un campo númerico de un archivo](#fnacum-acumula-un-campo-númerico-de-un-archivo)
-  - [FN%fecha$: Formatea una fecha](#fnfecha-formatea-una-fecha)
-  - [FN%fecinv$: Invierte una fecha](#fnfecinv-invierte-una-fecha)
-  - [FN%fecha\_letras$: Fecha en letras](#fnfecha_letras-fecha-en-letras)
-  - [FN%find$: Busca un valor de un campo en un archivo](#fnfind-busca-un-valor-de-un-campo-en-un-archivo)
-  - [FN%mes$: Nombre de un mes](#fnmes-nombre-de-un-mes)
-  - [FN%mescrito$: Monto escrito](#fnmescrito-monto-escrito)
-  - [FN%no\_todo: Que la explique JL](#fnno_todo-que-la-explique-jl)
-  - [FN%ope\_valido: Operador válido para una función específica](#fnope_valido-operador-válido-para-una-función-específica)
-  - [FN%pos: Busca un texto en otro texto](#fnpos-busca-un-texto-en-otro-texto)
-  - [FN%precision: Ajustar precisión a un monto](#fnprecision-ajustar-precisión-a-un-monto)
-  - [FN%tabla: Busca un valor en una variable](#fntabla-busca-un-valor-en-una-variable)
-  - [FN%tbl$: Traduce acentos en un texto](#fntbl-traduce-acentos-en-un-texto)
-- [Rutinas Públicas (RP\_XXXXX):](#rutinas-públicas-rp_xxxxx)
-  - [RP\_CATAL: Manejo del catálogo](#rp_catal-manejo-del-catálogo)
-    - [RP\_CATAL;APLICACIONES: Leer tabla de aplicaciones](#rp_catalaplicaciones-leer-tabla-de-aplicaciones)
-    - [RP\_CATAL;CATALOGO: Leer catálogo de una aplicación](#rp_catalcatalogo-leer-catálogo-de-una-aplicación)
-  - [RP\_FECHA](#rp_fecha)
-    - [RP\_FECHA;AJUSTAR: Ajustar una fecha](#rp_fechaajustar-ajustar-una-fecha)
-    - [RP\_FECHA;CALENDARIO: Días entre dos fechas](#rp_fechacalendario-días-entre-dos-fechas)
-    - [RP\_FECHA;DIASEM: Día de la semana](#rp_fechadiasem-día-de-la-semana)
-    - [RP\_FECHA;EDAD: Diferencia entre dos fechas](#rp_fechaedad-diferencia-entre-dos-fechas)
-    - [RP\_FECHA;EDITAR: Validar y editar una fecha](#rp_fechaeditar-validar-y-editar-una-fecha)
-    - [RP\_FECHA;JULIANO: Cálculo del día en juliano](#rp_fechajuliano-cálculo-del-día-en-juliano)
-    - [RP\_FECHA;LETRAS: Fecha en letras](#rp_fechaletras-fecha-en-letras)
-    - [RP\_FECHA;VALIDATOR: Validar una fecha](#rp_fechavalidator-validar-una-fecha)
-    - [RP\_FECHA;VALIDATOR\_MES: Validar un mes](#rp_fechavalidator_mes-validar-un-mes)
-  - [RP\_FILE](#rp_file)
-    - [RP\_FILE;ABRIR\_ARCHIVOS\_DATOS: Abrir archivos de una aplicación](#rp_fileabrir_archivos_datos-abrir-archivos-de-una-aplicación)
-    - [RP\_FILE;ABRIR\_ARCHIVOS\_DATOS\_BLANCO: Abrir los archivos de una aplicación y llenar campos](#rp_fileabrir_archivos_datos_blanco-abrir-los-archivos-de-una-aplicación-y-llenar-campos)
-    - [RP\_FILE;CERRAR\_ARCHIVOS\_DATOS: Cerrar los archivos de una aplicación](#rp_filecerrar_archivos_datos-cerrar-los-archivos-de-una-aplicación)
-    - [RP\_FILE;COPIAR: Copia de registros](#rp_filecopiar-copia-de-registros)
-    - [RP\_FILE;COPIAR\_ARCHIVO: Copiar un archivo completo](#rp_filecopiar_archivo-copiar-un-archivo-completo)
-    - [RP\_FILE;EXPORTAR\_REGISTRO: Exportar registros a un archivo .BGR](#rp_fileexportar_registro-exportar-registros-a-un-archivo-bgr)
-    - [RP\_FILE;IMPORTAR\_REGISTRO: Importar registros a un archivo .BGR](#rp_fileimportar_registro-importar-registros-a-un-archivo-bgr)
-    - [RP\_FILE;OPEN: Apertura de archivos](#rp_fileopen-apertura-de-archivos)
-    - [RP\_FILE;PGM\_STR: Grabar un programa en un archivo tipo SERIAL](#rp_filepgm_str-grabar-un-programa-en-un-archivo-tipo-serial)
-    - [RP\_FILE;REMOVE: Eliminación de registros](#rp_fileremove-eliminación-de-registros)
-    - [RP\_FILE;WORK: Genera nombre de archivo de trabajo](#rp_filework-genera-nombre-de-archivo-de-trabajo)
-- [Rutinas Utilitarias (RU\_XXXXX):](#rutinas-utilitarias-ru_xxxxx)
-  - [RU\_COPY](#ru_copy)
+- [BASE Gráfico ®](#base-gráfico-)
+  - [Funciones Globales:](#funciones-globales)
+    - [FN%acum: Acumula un campo númerico de un archivo](#fnacum-acumula-un-campo-númerico-de-un-archivo)
+    - [FN%fecha$: Formatea una fecha](#fnfecha-formatea-una-fecha)
+    - [FN%fecha\_letras$: Fecha en letras](#fnfecha_letras-fecha-en-letras)
+    - [FN%fecinv$: Invierte una fecha](#fnfecinv-invierte-una-fecha)
+    - [FN%find$: Busca un valor de un campo en un archivo](#fnfind-busca-un-valor-de-un-campo-en-un-archivo)
+    - [FN%mes$: Nombre de un mes](#fnmes-nombre-de-un-mes)
+    - [FN%mescrito$: Monto escrito](#fnmescrito-monto-escrito)
+    - [FN%no\_todo: Que la explique JL](#fnno_todo-que-la-explique-jl)
+    - [FN%ope\_valido: Operador válido para una función específica](#fnope_valido-operador-válido-para-una-función-específica)
+    - [FN%pos: Busca un texto en otro texto](#fnpos-busca-un-texto-en-otro-texto)
+    - [FN%precision: Ajustar precisión a un monto](#fnprecision-ajustar-precisión-a-un-monto)
+    - [FN%tabla: Busca un valor en una variable](#fntabla-busca-un-valor-en-una-variable)
+    - [FN%tbl$: Traduce acentos en un texto](#fntbl-traduce-acentos-en-un-texto)
+  - [Rutinas Públicas (RP\_XXXXX):](#rutinas-públicas-rp_xxxxx)
+    - [RP\_CATAL: Manejo del catálogo](#rp_catal-manejo-del-catálogo)
+      - [RP\_CATAL;APLICACIONES: Leer tabla de aplicaciones](#rp_catalaplicaciones-leer-tabla-de-aplicaciones)
+      - [RP\_CATAL;CATALOGO: Leer catálogo de una aplicación](#rp_catalcatalogo-leer-catálogo-de-una-aplicación)
+    - [RP\_FECHA](#rp_fecha)
+      - [RP\_FECHA;AJUSTAR: Ajustar una fecha](#rp_fechaajustar-ajustar-una-fecha)
+      - [RP\_FECHA;CALENDARIO: Días entre dos fechas](#rp_fechacalendario-días-entre-dos-fechas)
+      - [RP\_FECHA;DIASEM: Día de la semana](#rp_fechadiasem-día-de-la-semana)
+      - [RP\_FECHA;EDAD: Diferencia entre dos fechas](#rp_fechaedad-diferencia-entre-dos-fechas)
+      - [RP\_FECHA;EDITAR: Validar y editar una fecha](#rp_fechaeditar-validar-y-editar-una-fecha)
+      - [RP\_FECHA;JULIANO: Cálculo del día en juliano](#rp_fechajuliano-cálculo-del-día-en-juliano)
+      - [RP\_FECHA;LETRAS: Fecha en letras](#rp_fechaletras-fecha-en-letras)
+      - [RP\_FECHA;VALIDATOR: Validar una fecha](#rp_fechavalidator-validar-una-fecha)
+      - [RP\_FECHA;VALIDATOR\_MES: Validar un mes](#rp_fechavalidator_mes-validar-un-mes)
+    - [RP\_FILE](#rp_file)
+      - [RP\_FILE;ABRIR\_ARCHIVOS\_DATOS: Abrir archivos de una aplicación](#rp_fileabrir_archivos_datos-abrir-archivos-de-una-aplicación)
+      - [RP\_FILE;ABRIR\_ARCHIVOS\_DATOS\_BLANCO: Abrir los archivos de una aplicación y llenar campos](#rp_fileabrir_archivos_datos_blanco-abrir-los-archivos-de-una-aplicación-y-llenar-campos)
+      - [RP\_FILE;CERRAR\_ARCHIVOS\_DATOS: Cerrar los archivos de una aplicación](#rp_filecerrar_archivos_datos-cerrar-los-archivos-de-una-aplicación)
+      - [RP\_FILE;COPIAR: Copia de registros](#rp_filecopiar-copia-de-registros)
+      - [RP\_FILE;COPIAR\_ARCHIVO: Copiar un archivo completo](#rp_filecopiar_archivo-copiar-un-archivo-completo)
+      - [RP\_FILE;EXPORTAR\_REGISTRO: Exportar registros](#rp_fileexportar_registro-exportar-registros)
+      - [RP\_FILE;IMPORTAR\_REGISTRO: Importar registros](#rp_fileimportar_registro-importar-registros)
+      - [RP\_FILE;OPEN: Apertura de archivos](#rp_fileopen-apertura-de-archivos)
+      - [RP\_FILE;PGM\_STR: Grabar un programa en un archivo tipo SERIAL](#rp_filepgm_str-grabar-un-programa-en-un-archivo-tipo-serial)
+      - [RP\_FILE;REMOVE: Eliminación de registros](#rp_fileremove-eliminación-de-registros)
+      - [RP\_FILE;WORK: Genera nombre de archivo de trabajo](#rp_filework-genera-nombre-de-archivo-de-trabajo)
+    - [RP\_FORMA: Impresión de Formatos](#rp_forma-impresión-de-formatos)
+    - [RP\_GRID: Utilidades para objetos tipo GRID](#rp_grid-utilidades-para-objetos-tipo-grid)
+    - [RP\_GUI: Utilidades para Entorno  Gráfico](#rp_gui-utilidades-para-entorno--gráfico)
+    - [RP\_LISTV: Utilidades para objetos tipo LIST\_VIEW](#rp_listv-utilidades-para-objetos-tipo-list_view)
+    - [RP\_PARAM: Lectura de parámetros y control de la aplicación](#rp_param-lectura-de-parámetros-y-control-de-la-aplicación)
+    - [RP\_QUERY: Despliegue o consulta de valores para seleccionar](#rp_query-despliegue-o-consulta-de-valores-para-seleccionar)
+    - [RP\_REP: Manejo de Reportes](#rp_rep-manejo-de-reportes)
+  - [Rutinas Utilitarias (RU\_XXXXX):](#rutinas-utilitarias-ru_xxxxx)
+    - [RU\_COPY](#ru_copy)
 
 ## [Funciones Globales:](#funciones-globales)
 
@@ -79,13 +87,14 @@ Retorna la acumulación de un *campo$* numérico en un *archivo$* de los registr
   
   | Opción | Descripción |
   |:-------|-------------|
+  |""|Sin opciones|
   |KNO\[número_de_llave\]|Llave o índice del archivo a usar|
   |CND\[Condición\]|Condición que deben cumplir los registros|
 
 - Ejemplo:
 
 ~~~text
-> PRINT FN%acum("FACENCAB","MONTO","HLS"+"200001","KNO[0] CND[REC.TIPO$=""FA""]")
+-> PRINT FN%acum("FACENCAB","MONTO","HLS"+"200001","KNO[0] CND[REC.TIPO$=""FA""]")
 8752336.98
 ~~~
 
@@ -110,33 +119,8 @@ Retorna una variable que contiene una fecha válida end formato ddmmaaaa, format
 - Ejemplo:
 
 ~~~text
-> PRINT FN%fecha$("24102025")
+-> PRINT FN%fecha$("24102025")
 24/10/2025
-~~~
-
-[Volver arriba](#funciones-globales)
-
-### FN%fecinv$: Invierte una fecha
-
-~~~text
-FN%fecinv$(LOCAL fecha$)
-~~~
-
-- Descripción:
-
-Retorna el valor enviado (ddmmaaaa) de forma invertida: aaaammaa.
-
-- Argumentos:
-  
-  |Argumento|Descripción|
-  |:--------|-----------|
-  |fecha$|Fecha ddmmaaaa a invertir|
-
-- Ejemplo:
-
-~~~text
-> PRINT FN%fecinv$("24102025")
-20251024
 ~~~
 
 [Volver arriba](#funciones-globales)
@@ -160,8 +144,33 @@ Retorna la fecha enviada en letra, para ser usada por ejemplo en cartas.
 - Ejemplo:
 
 ~~~text
-> PRINT FN%fecha_letras$("24102025")
+-> PRINT FN%fecha_letras$("24102025")
 24 de Octubre de 2025
+~~~
+
+[Volver arriba](#funciones-globales)
+
+### FN%fecinv$: Invierte una fecha
+
+~~~text
+FN%fecinv$(LOCAL fecha$)
+~~~
+
+- Descripción:
+
+Retorna el valor enviado (ddmmaaaa) de forma invertida: aaaammaa.
+
+- Argumentos:
+  
+  |Argumento|Descripción|
+  |:--------|-----------|
+  |fecha$|Fecha ddmmaaaa a invertir|
+
+- Ejemplo:
+
+~~~text
+-> PRINT FN%fecinv$("24102025")
+20251024
 ~~~
 
 [Volver arriba](#funciones-globales)
@@ -187,9 +196,9 @@ Retorna el valor del *campo$* contenido en el registro con llave primaria *clave
 - Ejemplo:
 
 ~~~text
-> PRINT FN%find$("CTLCIAS","CIA_NOM","HLS")
+-> PRINT FN%find$("CTLCIAS","CIA_NOM","HLS")
 H.L. Sistemas S.R.L.
-> PRINT FN%find$("NOMDESCR","NOMBRE","HLS"+"0003/002  ")
+-> PRINT FN%find$("NOMDESCR","NOMBRE","HLS"+"0003/002  ")
 MONICA GUADALUPE
 ~~~
 
@@ -214,7 +223,7 @@ Retorna el nombre en letras del *mes$* en números.
 - Ejemplo:
 
 ~~~text
-> PRINT FN%mes$("10")
+-> PRINT FN%mes$("10")
 Octubre
 ~~~
 
@@ -239,7 +248,7 @@ Retorna el número enviado en letras.
 - Ejemplo:
 
 ~~~text
-> PRINT FN%mescrito$(24528.12)
+-> PRINT FN%mescrito$(24528.12)
 VEINTICUATRO MIL QUINIENTOS VEINTIOCHO CON 12 CENTIMOS
 ~~~
 
@@ -292,7 +301,7 @@ Retorna verdadero (1) sí el usuario actual (**%base_login$**), esta autorizado 
 - Ejemplo:
 
 ~~~text
-> PRINT FN%ope_valido("VER_SALDOS")
+-> PRINT FN%ope_valido("VER_SALDOS")
 1
 ~~~
 
@@ -318,7 +327,7 @@ Compara *texto1$* dentro de *texto2$* sin importar que contengan acentos, mayús
 - Ejemplo:
 
 ~~~text
-> PRINT fn%pos("ÁéÍóÚ","aeIOu")
+-> PRINT fn%pos("ÁéÍóÚ","aeIOu")
 1
 ~~~
 
@@ -344,7 +353,7 @@ Retorna el *valor* ajustado a la precision de *decimales*.
 - Ejemplo:
   
 ~~~text
-> PRINT FN%precision(249.02193822,3)
+-> PRINT FN%precision(249.02193822,3)
 249.022
 ~~~
 
@@ -370,10 +379,10 @@ Retorna verdadero (1) sí el elemento *valor$* se encuentra contenido dentro de 
 - Ejemplo:
 
 ~~~text
-> tabla$="01020304"
-> PRINT FN%tabla$("10",tabla$,2)
+-> tabla$="01020304"
+-> PRINT FN%tabla$("10",tabla$,2)
 0
-> PRINT FN%tabla$("02",tabla$,2)
+-> PRINT FN%tabla$("02",tabla$,2)
 1
 ~~~
 
@@ -399,11 +408,11 @@ Traduce acentos en una cadena *lin$* para la impresión directa por el canal *lp
 - Ejemplo:
 
 ~~~text
-> OPEN(unt)"*windev*"
-> PRINT (lfo)fn%tbl$(lfo,"ÁéÍóÚ")
-> PRINT fn%tbl$(lfo,"ÁéÍóÚ")
+-> OPEN(unt)"*windev*"
+-> PRINT (lfo)fn%tbl$(lfo,"ÁéÍóÚ")
+-> PRINT fn%tbl$(lfo,"ÁéÍóÚ")
  ‚¡¢£
-> CLOSE(lfo)
+-> CLOSE(lfo)
 ~~~
 
 [Volver arriba](#funciones-globales)
@@ -461,6 +470,7 @@ CALL "RP_CATAL;CATALOGO",CIA$, APLIC, CATAL, LCAT${ALL}, IND_CAT, OPC$
   
     |Opción|Descripción|
     |:-----|-----------|
+    |""|Sin opciones|
     |SOLO_MENU|No Incluir Procesos, solo sub_menus|
     |AGREGAR_FIN|Agregar línea <Fin del Catálogo> por sub_menu|
     |NO_OBJ_CATAL|No hay Objeto (Tree_view) con catálogo|
@@ -494,20 +504,21 @@ CALL “RP_FECHA;AJUSTAR”,FECHA_ORIGEN$,DIAS,MESES,AÑOS,FECHA_RESULTADO$,OPCI
 
     |Opción|Descripción|
     |:-----|-----------|
+    |""|Sin opciones|
     |-U|Ajustar hasta el ultimo dia del mes|
     |-H|Ajustar días basado en los días hábiles (Archivo CTLCALEN)|
 
 - Ejemplos:
 
 ~~~text
-> CALL "RP_FECHA;AJUSTAR","01/10/2025",10,0,0,FECHA_RESULTADO$,""
-> PRINT FECHA_RESULTADO$
+-> CALL "RP_FECHA;AJUSTAR","01/10/2025",10,0,0,FECHA_RESULTADO$,""
+-> PRINT FECHA_RESULTADO$
 11102025
-> CALL "RP_FECHA;AJUSTAR","01/10/2025",0,0,0,FECHA_RESULTADO$,"-U"
-> PRINT FECHA_RESULTADO$
+-> CALL "RP_FECHA;AJUSTAR","01/10/2025",0,0,0,FECHA_RESULTADO$,"-U"
+-> PRINT FECHA_RESULTADO$
 31102025
-> CALL "RP_FECHA;AJUSTAR","01/10/2025",0,1,0,FECHA_RESULTADO$,"-H"
-> PRINT FECHA_RESULTADO$
+-> CALL "RP_FECHA;AJUSTAR","01/10/2025",0,1,0,FECHA_RESULTADO$,"-H"
+-> PRINT FECHA_RESULTADO$
 01112025
 ~~~
 
@@ -544,15 +555,15 @@ CALL “RP_FECHA;CALENDARIO”,DESDE$,HASTA$,CAL{ALL},HAB{ALL},FER{ALL},TIPO$
 - Ejemplos:
 
 ~~~text
-> CALL "RP_FECHA;CALENDARIO","20071969","20081969",CAL[ALL],HAB[ALL],FER[ALL],""
-> PRINT CAL[ALL]
-5 5 5 5 4 4 4 32 => 32 días en total, 5 domingos, 4 sábados
+-> CALL "RP_FECHA;CALENDARIO","20071969","20081969",CAL[ALL],HAB[ALL],FER[ALL],""
+-> PRINT CAL[ALL]
+5 5 5 5 4 4 4 32 ! 32 días en total, 5 domingos, 4 sábados
 
-> PRINT HAB[ALL]
-0 5 5 5 4 4 0 23 => 23 días hábiles total, 5 lunes, 4 jueves
+-> PRINT HAB[ALL]
+0 5 5 5 4 4 0 23 ! 23 días hábiles total, 5 lunes, 4 jueves
 
-> PRINT FER[ALL]
-0 0 0 0 0 0 0 => No hubo días feriados en el periodo
+-> PRINT FER[ALL]
+0 0 0 0 0 0 0 ! No hubo días feriados en el periodo
 ~~~
 
 [Volver arriba](#rutinas-públicas-rp_xxxxx)
@@ -576,10 +587,10 @@ CALL "RP_FECHA;DIASEM",FECHA_ORIGEN$,DSEM,DIA$
 - Ejemplo:
 
 ~~~text
-> CALL "RP_FECHA;DIASEM","20071969",DIA,DIA$
-> PRINT DIA
+-> CALL "RP_FECHA;DIASEM","20071969",DIA,DIA$
+-> PRINT DIA
 0
-> PRINT DIA$
+-> PRINT DIA$
 Dom
 ~~~
 
@@ -606,8 +617,8 @@ CALL "RP_FECHA;EDAD",DESDE$,HASTA$,AÑOS,MESES,DIAS
 - Ejemplo:
 
 ~~~text
-> CALL "RP_FECHA;EDAD","20071969","01082001",AÑOS,MESES,DIAS
-> PRINT AÑOS,MESES,DIAS
+-> CALL "RP_FECHA;EDAD","20071969","01082001",AÑOS,MESES,DIAS
+-> PRINT AÑOS,MESES,DIAS
 32 0 12
 ~~~
 
@@ -632,11 +643,11 @@ CALL "RP_FECHA;EDITAR",FECHA_ORIGEN$,FECHA_SIN_FMT$,FECHA_CON_FMT$
 - Ejemplo:
 
 ~~~text
-> CALL "RP_FECHA;EDITAR","200769",FECHA1$,FECHA2$
-> PRINT FECHA1$
+-> CALL "RP_FECHA;EDITAR","200769",FECHA1$,FECHA2$
+-> PRINT FECHA1$
 20071969
 
-> PRINT FECHA2$
+-> PRINT FECHA2$
 20/07/1969
 ~~~
 
@@ -661,10 +672,10 @@ CALL "RP_FECHA;JULIANO", FECHA_ORIGEN$, DJUL, DYEAR
 - Ejemplo:
 
 ~~~text
-> CALL "RP_FECHA;JULIANO","20071969",JULIANO,AÑO
-> PRINT JULIANO
+-> CALL "RP_FECHA;JULIANO","20071969",JULIANO,AÑO
+-> PRINT JULIANO
 718997
-> PRINT AÑO
+-> PRINT AÑO
 201
 ~~~
 
@@ -688,8 +699,8 @@ CALL "RP_FECHA;LETRAS",FECHA_ORIGEN$,FECHA_LETRAS$
 - Ejemplo:
 
 ~~~text
-> CALL "RP_FECHA;LETRAS","20071969",DIA$
-> PRINT DIA$
+-> CALL "RP_FECHA;LETRAS","20071969",DIA$
+-> PRINT DIA$
 20 de Julio de 1969
 ~~~
 
@@ -745,29 +756,200 @@ Permite realizar las operaciones rutinarias relacionadas a archivos. Aunque algu
 
 #### RP_FILE;ABRIR_ARCHIVOS_DATOS: Abrir archivos de una aplicación
 
+Abrir todos los archivos de una aplicación, según se especifica en CTLFORAR, serán abiertos y los canales correspondientes así como su "IOLIST" serán identificados con su nombre.
+
+~~~text
+PERFORM "RP_FILE;ABRIR_ARCHIVOS_DATOS"
+~~~
+
+- Variables a definir antes de la ejecución:
+
+  |Variable|E/S|Descripción|
+  |:--------|:-:|-----------|
+  |KAPL$|E|Código de la aplicación. (""=activa)|
+
+- Ejemplo:
+
+~~~text
+KPAL$="10" ! Aplicación de Nómina
+PERFORM "RP_FILE;ABRIR_ARCHIVOS_DATOS"
+
+->? NOMDPTOS
+15
+
+->? LST(IOL(NOMDPTOS$))
+IOLIST CIA$,CODIGO$,DESCRIP$
+~~~
+
 [Volver arriba](#rutinas-públicas-rp_xxxxx)
 
 #### RP_FILE;ABRIR_ARCHIVOS_DATOS_BLANCO: Abrir los archivos de una aplicación y llenar campos
+
+Abrir todos los archivos de una aplicación, según se especifica en CTLFORAR, para imprimir los modelos de los formatos.
+
+~~~text
+PERFORM "RP_FILE;ABRIR_ARCHIVOS_DATOS_BLANCOS"
+~~~
+
+- Variables a definir antes de la ejecución:
+
+  |Variable|E/S|Descripción|
+  |:--------|:-:|-----------|
+  |KAPL$|E|Código de la aplicación. (""=activa)|
+
+- Ejemplo:
+
+~~~text
+KPAL$="10" ! Aplicación de Nómina
+PERFORM "RP_FILE;ABRIR_ARCHIVOS_DATOS_BLANCOS"
+~~~
 
 [Volver arriba](#rutinas-públicas-rp_xxxxx)
 
 #### RP_FILE;CERRAR_ARCHIVOS_DATOS: Cerrar los archivos de una aplicación
 
+Cerrar todos los archivos de una aplicación, según se especifica en CTLFORAR.
+
+~~~text
+PERFORM "RP_FILE;ABRIR_ARCHIVOS_DATOS_BLANCOS"
+~~~
+
+- Variables a definir antes de la ejecución:
+
+  |Variable|E/S|Descripción|
+  |:--------|:-:|-----------|
+  |TAB_CAN$|E|Tabla de canales abiertos por "RP_FILE;ABRIR_ARCHIVOS_DATOS"|
+
+- Ejemplo:
+
+~~~text
+KPAL$="10" ! Aplicación de Nómina
+PERFORM "RP_FILE;ABRIR_ARCHIVOS_DATOS_BLANCOS"
+
+PERFORM "RP_FILE;CERRAR_ARCHIVOS_DATOS"
+~~~
+
 [Volver arriba](#rutinas-públicas-rp_xxxxx)
 
 #### RP_FILE;COPIAR: Copia de registros
+
+Copiar registros de un archivo origen a un archivo destino.
+
+~~~text
+CALL “RP_FILE;COPIAR”, CANAL1,CANAL2,KNUM,POSIC$,EXEC$
+~~~
+
+- Parámetros:
+
+  |Parámetro|E/S|Descripción|
+  |:--------|:-:|-----------|
+  |CANAL1|E|Canal donde está abierto el archivo de origen|
+  |CANAL2|E|Canal donde está abierto el archivo de destino|
+  |KNUM|E|Número de clave de ordenación (0=principal)|
+  |POSIC$|E|Prefijo de posicionamiento (clave de copia)|
+  |EXEC$|E|Comando a ejecutar antes del <a href="https://manual.pvxplus.com/PXPLUS/directives/write.htm" target="_blank">WRITE()</a> de la copia|
+
+- Ejemplo:
+
+Copia todas las cuentas de la compañía "HLS" a la compañía "LAT":
+
+~~~text
+> CALL "RP_FILE;OPEN","MGADESCR",CANDES1
+> CALL "RP_FILE;OPEN","MGADESCR",CANDES2
+> CALL "RP_FILE;COPIAR",CANDES1,CANDES2,0,"HLS","REC.CIA$="+QUO+"LAT"+QUO
+~~~
 
 [Volver arriba](#rutinas-públicas-rp_xxxxx)
 
 #### RP_FILE;COPIAR_ARCHIVO: Copiar un archivo completo
 
+Copiar un archivo completo, de forma física.
+
+~~~text
+CALL "RP_FILE;COPIAR_ARCHIVO",ORIGEN$,DESTINO$,OK
+~~~
+
+- Parámetros:
+
+  |Parámetro|E/S|Descripción|
+  |:--------|:-:|-----------|
+  |ORIGEN$|E|Nombre del archivo original|
+  |DESTINO$|E|Nombre del archivo copia|
+  |OK|S|Resultado de la copia (OK=1, No OK=0)|
+
+- Ejemplo:
+
+Copiar un archivo a través de la red vía Windx:
+
+~~~text
+CALL "RP_FILE;COPIAR_ARCHIVO","FOTO.BMP",%BASE_WDX$+"FOTO.BMP",OK
+-> ? OK
+1
+~~~
+
 [Volver arriba](#rutinas-públicas-rp_xxxxx)
 
-#### RP_FILE;EXPORTAR_REGISTRO: Exportar registros a un archivo .BGR
+#### RP_FILE;EXPORTAR_REGISTRO: Exportar registros
+
+Permite la exportación de registros de BASE Gráfico &reg; a archivo plano con extensión .BGR
+
+~~~text
+CALL "RP_FILE;EXPORTAR_REGISTRO",CAN_SER,CAN_ORI,KPOS$,TOTAL
+~~~
+
+- Parámetros:
+
+  |Parámetro|E/S|Descripción|
+  |:--------|:-:|-----------|
+  |CAN_SER|E|Canal donde está abierto el archivo serial (con extensión .BGR)|
+  |CAN_ORI|E|Canal donde está abierto el archivo origen (<a href="https://manual.pvxplus.com/PXPLUS/PxPlus%20User%20Guide/File%20Handling/Data%20Files/Keyed%20Files.htm" target="_blank">Keyed Files</a>)|
+  |KPOS$|E|Clave de Posicionamiento|
+  |TOTAL|S|Total de registros exportados|
+
+- Ejemplos:
+
+Crear un archivo serial que contenga todos los registros de la compañía para 2 archivos.
+
+~~~text
+CALL "RP_FILE;EXPORTAR_REGISTRO",TXT,NOMDESCR,%BASE_CIA$,T
+CALL "RP_FILE;EXPORTAR_REGISTRO",TXT,NOMHISNO,%BASE_CIA$,T
+~~~
 
 [Volver arriba](#rutinas-públicas-rp_xxxxx)
 
-#### RP_FILE;IMPORTAR_REGISTRO: Importar registros a un archivo .BGR
+#### RP_FILE;IMPORTAR_REGISTRO: Importar registros
+
+Permite la importación de registros desde un archivo plano con extensión .BGR a un archivo de BASE Grafico &reg;.
+
+~~~text
+CALL "RP_FILE;IMPORTAR_REGISTRO",CAN_SER,TAB_FILE$,CANALES$,OK,OPC$
+~~~
+
+- Parámetros:
+
+  |Parámetro|E/S|Descripción|
+  |:--------|:-:|-----------|
+  |CAN_SER|E|Canal donde está abierto el archivo serial (con extensión .BGR)|
+  |TAB_FILE$|E|Tabla de archivos válidos para la importación|
+  |CANALES$|E|Template: Canales donde quedan abiertos los archivos MEMORY de trabajo|
+  |OK|S|Resultado de la importación|
+  |OPC$|E|Opciones adicionales|
+
+  - Opciones:
+
+    |Opciones|Descripción|
+    |:-------|-----------|
+    |""|Sin opción| 
+    |NO_CIA|No usar la compañía|
+
+- Ejemplo:
+
+~~~text
+CALL "RP_FILE;IMPORTAR_REGISTROS",TXT,"NOMDESCR,NOMHISNO",CANAL$,OK,""
+SELECT *,REC=DES$ FROM CANAL.NOMDESCR BEGIN "" END $FF$
+LIST_BOX LOAD EMP.CTL,0,DES.CODIGO$+SEP+ES.NOMBRE$
+NEXT RECORD
+~~~
 
 [Volver arriba](#rutinas-públicas-rp_xxxxx)
 
@@ -791,6 +973,7 @@ CALL "RP_FILE;OPEN",NOMBRE$,CANAL[,OPC$]
 
     |Opción|Descripción|
     |:-----|-----------|
+    |""|Sin opciones|
     |NO_IOL|Abrir el archivo sin usar el diccionario de datos interno (IOL=*)|
     |NO_ERROR|No mostrar ventana de error si no se puede abrir|
     |USAR_CANAL|Abrir archivo en CANAL especificado|
@@ -800,28 +983,130 @@ CALL "RP_FILE;OPEN",NOMBRE$,CANAL[,OPC$]
 Abrir un archivo:
 
 ~~~text
-> CALL "RP_FILE;OPEN","MGADESCR",CANDES
-> PRINT LST(IOL(CANDES))
+-> CALL "RP_FILE;OPEN","MGADESCR",CANDES
+-> PRINT LST(IOL(CANDES))
 IOLIST  CIA$,CUENTA$,DESC_CTA$,TITULO$,CENTRO$,AUXIL$,OTROS1$,OTROS2$,OTROS3$
 ~~~
 
 Abrir un directorio: 
 
 ~~~text
-> CALL "RP_FILE;OPEN","C:\MIS DOCUMENTOS",DISCO_C,"NO_IOL NO_ERROR" 
+-> CALL "RP_FILE;OPEN","C:\MIS DOCUMENTOS",DISCO_C,"NO_IOL NO_ERROR" 
 ~~~
 
 [Volver arriba](#rutinas-públicas-rp_xxxxx)
 
 #### RP_FILE;PGM_STR: Grabar un programa en un archivo tipo SERIAL
 
+Graba un programa a un archivo plano.
+
+~~~text
+CALL "RP_FILE;PGM_STR",IN$,OUT$
+~~~
+
+- Parámetros:
+  
+  |Parámetro|E/S|Descripción|
+  |:--------|:-:|-----------|
+  |IN$|E|Nombre del programa a convertir|
+  |OUT$|E|Nombre del archivo SERIAL resultante (no debe existir)|
+
+- Ejemplo:
+  
+~~~text
+ARCH$="NOMCTL40.TXT"
+ERASE ARCH$,ERR=*NEXT
+CALL "RP_FILE;PGM_STR","NOMCTL40",ARCH$
+~~~
+
 [Volver arriba](#rutinas-públicas-rp_xxxxx)
 
 #### RP_FILE;REMOVE: Eliminación de registros
 
+Elimina registros de un archivo.
+
+~~~text
+CALL "RP_FILE;REMOVE",CANAL,KNUM,POSIC$
+~~~
+
+- Parámetros:
+
+  |Parámetro|E/S|Descripción|
+  |:--------|:-:|-----------|
+  |CANAL|E|Canal donde está abierto el archivo|
+  |KNUM|E|Número de clave de ordenación (0=principal)|
+  |POSIC$|E|Prefijo de posicionamiento (clave de eliminación)|
+
+- Ejemplo:
+
+Eliminar todas las cuentas de la compañía HLS
+
+~~~text
+-> CALL "RP_FILE;OPEN","MGADESCR",CANDES
+-> CALL "RP_FILE;REMOVE",CANDES,0,"HLS" 
+~~~
+
 [Volver arriba](#rutinas-públicas-rp_xxxxx)
 
 #### RP_FILE;WORK: Genera nombre de archivo de trabajo
+
+Genera un nombre de archivo de trabajo en el directorio temporal del sistema operativo.
+
+~~~text
+CALL "RP_FILE;WORK",ARCHIVO$
+~~~
+
+- Parámetros:
+
+  |Parámetro|E/S|Descripción|
+  |:--------|:-:|-----------|
+  |ARCHIVO$|S|Nombre del archivo de trabajo a crear|
+
+- Ejemplo:
+
+~~~text
+-> CALL “RP_FILE;WORK”,ARCHIVO$
+-> ? ARCHIVO$
+C:\WINDOWS\TEMP\WRK1717.JL
+~~~
+
+[Volver arriba](#rutinas-públicas-rp_xxxxx)
+
+### RP_FORMA: Impresión de Formatos
+
+Perimite preparar e imprimir un formato de impresión definido.
+
+Debe ser llamado con el verbo <a href="https://manual.pvxplus.com/PXPLUS/directives/perform.htm" target="_blank">PERFORM</a> de <a href="https://home.pvxplus.com/" target="_blank">PxPlus</a> para compartir todas las variables del programa.
+
+Esta rutina se basa en la definición de formatos (CTLSYS80) que contempla cada aplicación.
+
+Con %SEL_MULTIPLE=1 antes de la llamada a la rutina le estamos indicando que se pueden imprimir múltiples documentos antes de cerrar la impresión, por ejemplo al imprimir los recibos de pago de nómina.
+
+### RP_GRID: Utilidades para objetos tipo GRID
+
+Permite simplificar algunas funciones típicas asociadas a los objetos tipo <a href="https://manual.pvxplus.com/PXPLUS/directives/grid.htm" target="_blank">GRID</a> (rejilla).
+
+### RP_GUI: Utilidades para Entorno  Gráfico
+
+Permite simplificar algunas funciones típicas asociadas a los objetos y el entorno gráfico en general.
+
+### RP_LISTV: Utilidades para objetos tipo LIST_VIEW
+
+Permite simplificar algunas funciones típicas asociadas a los objetos tipo <a href="https://manual.pvxplus.com/PXPLUS/control_object_properties/listview_properties.htm" target="_blank">LIST_VIEW</a> (Lista estilo reporte).
+
+### RP_PARAM: Lectura de parámetros y control de la aplicación
+
+Carga los valores de los parámetros (por ejemplo: Estructura del comprobante, cuenta de resultado) y controles (por ejemplo: último cierre, último precierre) de la compañía para una aplicación dada.
+
+### RP_QUERY: Despliegue o consulta de valores para seleccionar
+
+Permite mostrar la lista de valores posibles para un campo específico.
+
+Esta lista puede ser tomada de un archivo o de una tabla predefinida.
+
+### RP_REP: Manejo de Reportes
+
+Para realizar todas al operaciones relacionadas a la emisión de reportes.
 
 [Volver arriba](#rutinas-públicas-rp_xxxxx)
 
@@ -842,3 +1127,10 @@ CALL "RU_COPY"
 ~~~
 
 [Volver arriba](#rutinas-utilitarias-ru_xxxxx)
+
+[
+<a href="https://home.pvxplus.com/" target="_blank">PxPlus</a>from toc -->
+<a href="https://manual.pvxplus.com/PXPLUS/directives/perform.htm" target="_blank">PERFORM</a>
+<a href="https://manual.pvxplus.com/PXPLUS/directives/grid.htm" target="_blank">GRID</a>
+<a href="https://manual.pvxplus.com/PXPLUS/control_object_properties/listview_properties.htm target="_blank">LIST_VIEW</a>
+]: #

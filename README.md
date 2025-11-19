@@ -64,10 +64,10 @@
       - [RP\_GRID;DES\_COLUMNAS: Desactivar columnas en el GRID](#rp_griddes_columnas-desactivar-columnas-en-el-grid)
       - [RP\_GRID;GRABAR\_GRID: Grabar valores en una línea indicada](#rp_gridgrabar_grid-grabar-valores-en-una-línea-indicada)
       - [RP\_GRID;LEER\_LINEA: Leer valores de una línea dada](#rp_gridleer_linea-leer-valores-de-una-línea-dada)
-      - [RP\_GRID;LEER\_LINEA\_ACTUAL: Leer línea actual](#rp_gridleer_linea_actual-leer-línea-actual)
-      - [RP\_GRID;PREPARAR: Preparar inicialmente el GRID](#rp_gridpreparar-preparar-inicialmente-el-grid)
       - [RP\_GRID;INS\_LINEA: Insertar una línea al GRID renumerando la columna descriptiva (0)](#rp_gridins_linea-insertar-una-línea-al-grid-renumerando-la-columna-descriptiva-0)
+      - [RP\_GRID;LEER\_LINEA\_ACTUAL: Leer línea actual](#rp_gridleer_linea_actual-leer-línea-actual)
       - [RP\_GRID;ORDENAR: Ordenar el GRID](#rp_gridordenar-ordenar-el-grid)
+      - [RP\_GRID;PREPARAR: Preparar inicialmente el GRID](#rp_gridpreparar-preparar-inicialmente-el-grid)
     - [RP\_GUI: Utilidades para Entorno  Gráfico](#rp_gui-utilidades-para-entorno--gráfico)
     - [RP\_LISTV: Utilidades para objetos tipo LIST\_VIEW](#rp_listv-utilidades-para-objetos-tipo-list_view)
     - [RP\_PARAM: Lectura de parámetros y control de la aplicación](#rp_param-lectura-de-parámetros-y-control-de-la-aplicación)
@@ -1417,53 +1417,6 @@ CALL "RP_GRID;LEER_LINEA",GRID_DAT.CTL,LINEA,VAL_GRID${all}
 
 [Volver arriba](#rutinas-públicas-rp_xxxxx)
 
-#### RP_GRID;LEER_LINEA_ACTUAL: Leer línea actual
-
-~~~text
-CALL "RP_GRID;LEER_LINEA_ACTUAL",OBJETO,COLUM,LINEA,LINEA${all}
-~~~
-
-- Parámetros:
-  
-  |Parámetro|E/S|Descripción|
-  |:--------|:-:|-----------|
-  |OBJETO|E|Número de control de objeto asociado al <a href="https://manual.pvxplus.com/PXPLUS/directives/grid.htm" target="_blank">GRID</a>|
-  |COLUM|S|Columna actual|
-  |LINEA|S|Línea actual|
-  |LINEA$\{all\}|S|Valores de las celdas de la línea actual|
-
-- Ejemplo:
-
-~~~text
-CALL "RP_GRID;LEER_LINEA_ACTUAL",GRID_DAT.CTL,COLUM,LINEA,VAL_GRID${all}
-~~~
-
-[Volver arriba](#rutinas-públicas-rp_xxxxx)
-
-#### RP_GRID;PREPARAR: Preparar inicialmente el GRID
-
-~~~text
-CALL "RP_GRID;PREPARAR",OBJETO,TITULO$,VAL_IN$,ULT_COLACT,NUCOL
-~~~
-
-- Parámetros:
-  
-  |Parámetro|E/S|Descripción|
-  |:--------|:-:|-----------|
-  |OBJETO|E|Número de control de objeto asociado al <a href="https://manual.pvxplus.com/PXPLUS/directives/grid.htm" target="_blank">GRID</a>|
-  |TITULO$|E|Descripción título que se colocará en la columna 0 (Ej. Línea)|
-  |VAL_IN$|E|Valor inicial para la primera línea en la columna 0 (Ej. 001)|
-  |ULT_COLACT|E|Número de la última columna activa (visible)|
-  |NUCOL|E|Número de columnas invisibles a agregar al final del GRID|
-
-- Ejemplo:
-
-~~~text
-CALL "RP_GRID;PREPARAR",GRID_DAT.CTL,"Linea","001",8,NCOL-8
-~~~
-
-[Volver arriba](#rutinas-públicas-rp_xxxxx)
-
 #### RP_GRID;INS_LINEA: Insertar una línea al GRID renumerando la columna descriptiva (0)
 
 ~~~text
@@ -1489,6 +1442,29 @@ CALL "RP_GRID;INS_LINEA",GRID_DAT.CTL,TNLIN,LIN,8
 
 [Volver arriba](#rutinas-públicas-rp_xxxxx)
 
+#### RP_GRID;LEER_LINEA_ACTUAL: Leer línea actual
+
+~~~text
+CALL "RP_GRID;LEER_LINEA_ACTUAL",OBJETO,COLUM,LINEA,LINEA${all}
+~~~
+
+- Parámetros:
+  
+  |Parámetro|E/S|Descripción|
+  |:--------|:-:|-----------|
+  |OBJETO|E|Número de control de objeto asociado al <a href="https://manual.pvxplus.com/PXPLUS/directives/grid.htm" target="_blank">GRID</a>|
+  |COLUM|S|Columna actual|
+  |LINEA|S|Línea actual|
+  |LINEA$\{all\}|S|Valores de las celdas de la línea actual|
+
+- Ejemplo:
+
+~~~text
+CALL "RP_GRID;LEER_LINEA_ACTUAL",GRID_DAT.CTL,COLUM,LINEA,VAL_GRID${all}
+~~~
+
+[Volver arriba](#rutinas-públicas-rp_xxxxx)
+
 #### RP_GRID;ORDENAR: Ordenar el GRID
 
 ~~~text
@@ -1509,6 +1485,30 @@ Forma de ordenamiento (A= Ascendente, D = Descendente)|
 
 ~~~text
 CALL "RP_GRID;ORDENAR",GRID_DAT.CTL,"4,2,1F","A",""
+~~~
+
+[Volver arriba](#rutinas-públicas-rp_xxxxx)
+
+#### RP_GRID;PREPARAR: Preparar inicialmente el GRID
+
+~~~text
+CALL "RP_GRID;PREPARAR",OBJETO,TITULO$,VAL_IN$,ULT_COLACT,NUCOL
+~~~
+
+- Parámetros:
+  
+  |Parámetro|E/S|Descripción|
+  |:--------|:-:|-----------|
+  |OBJETO|E|Número de control de objeto asociado al <a href="https://manual.pvxplus.com/PXPLUS/directives/grid.htm" target="_blank">GRID</a>|
+  |TITULO$|E|Descripción título que se colocará en la columna 0 (Ej. Línea)|
+  |VAL_IN$|E|Valor inicial para la primera línea en la columna 0 (Ej. 001)|
+  |ULT_COLACT|E|Número de la última columna activa (visible)|
+  |NUCOL|E|Número de columnas invisibles a agregar al final del GRID|
+
+- Ejemplo:
+
+~~~text
+CALL "RP_GRID;PREPARAR",GRID_DAT.CTL,"Linea","001",8,NCOL-8
 ~~~
 
 [Volver arriba](#rutinas-públicas-rp_xxxxx)

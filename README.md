@@ -36,7 +36,7 @@
       - [RP\_FECHA;LETRAS: Fecha en letras](#rp_fechaletras-fecha-en-letras)
       - [RP\_FECHA;VALIDATOR: Validar una fecha](#rp_fechavalidator-validar-una-fecha)
       - [RP\_FECHA;VALIDATOR\_MES: Validar un mes](#rp_fechavalidator_mes-validar-un-mes)
-    - [RP\_FILE](#rp_file)
+    - [RP\_FILE: Operaciones sobre archivos](#rp_file-operaciones-sobre-archivos)
       - [RP\_FILE;ABRIR\_ARCHIVOS\_DATOS: Abrir archivos de una aplicación](#rp_fileabrir_archivos_datos-abrir-archivos-de-una-aplicación)
       - [RP\_FILE;ABRIR\_ARCHIVOS\_DATOS\_BLANCO: Abrir los archivos de una aplicación y llenar campos](#rp_fileabrir_archivos_datos_blanco-abrir-los-archivos-de-una-aplicación-y-llenar-campos)
       - [RP\_FILE;CERRAR\_ARCHIVOS\_DATOS: Cerrar los archivos de una aplicación](#rp_filecerrar_archivos_datos-cerrar-los-archivos-de-una-aplicación)
@@ -768,7 +768,7 @@ La llamada la hace NOMADS automáticamente cuando tiene RP_FECHA;VALIDATOR_MES e
 
 [Volver arriba](#rutinas-públicas-rp_xxxxx)
 
-### RP_FILE
+### RP_FILE: Operaciones sobre archivos
 
 Permite realizar las operaciones rutinarias relacionadas a archivos. Aunque algunas de ellas básicamente reemplazan verbos de <a href="https://home.pvxplus.com/" target="_blank">PxPlus</a>, deben ser utilizados para mantener un estándar y ampliar las posibilidades (ODBC, ORACLE, etc.)
 

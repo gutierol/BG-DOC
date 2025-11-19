@@ -58,13 +58,13 @@
       - [RP\_GRID;ACT\_CHECKMARK: Activar botones de chequeo en el GRID](#rp_gridact_checkmark-activar-botones-de-chequeo-en-el-grid)
       - [RP\_GRID;ACT\_COLUMNAS: Activar columnas en el GRID](#rp_gridact_columnas-activar-columnas-en-el-grid)
       - [RP\_GRID;AD\_LINEA: Agregar una línea al GRID](#rp_gridad_linea-agregar-una-línea-al-grid)
+      - [RP\_GRID;COLUMNAS: Prepara plantilla con variables de columnas](#rp_gridcolumnas-prepara-plantilla-con-variables-de-columnas)
       - [RP\_GRID;DEL\_LINEA: Elimina una línea del GRID renumerando la columna descriptiva (0)](#rp_griddel_linea-elimina-una-línea-del-grid-renumerando-la-columna-descriptiva-0)
       - [RP\_GRID;DES\_BOTONES: Desactivar botones en el GRID](#rp_griddes_botones-desactivar-botones-en-el-grid)
       - [RP\_GRID;DES\_COLUMNAS: Desactivar columnas en el GRID](#rp_griddes_columnas-desactivar-columnas-en-el-grid)
-      - [RP\_GRID;LEER\_LINEA\_ACTUAL: Leer línea actual](#rp_gridleer_linea_actual-leer-línea-actual)
-      - [RP\_GRID;LEER\_LINEA: Leer valores de una línea dada](#rp_gridleer_linea-leer-valores-de-una-línea-dada)
       - [RP\_GRID;GRABAR\_GRID: Grabar valores en una línea indicada](#rp_gridgrabar_grid-grabar-valores-en-una-línea-indicada)
-      - [RP\_GRID;COLUMNAS: Prepara plantilla con variables de columnas](#rp_gridcolumnas-prepara-plantilla-con-variables-de-columnas)
+      - [RP\_GRID;LEER\_LINEA: Leer valores de una línea dada](#rp_gridleer_linea-leer-valores-de-una-línea-dada)
+      - [RP\_GRID;LEER\_LINEA\_ACTUAL: Leer línea actual](#rp_gridleer_linea_actual-leer-línea-actual)
       - [RP\_GRID;PREPARAR: Preparar inicialmente el GRID](#rp_gridpreparar-preparar-inicialmente-el-grid)
       - [RP\_GRID;INS\_LINEA: Insertar una línea al GRID renumerando la columna descriptiva (0)](#rp_gridins_linea-insertar-una-línea-al-grid-renumerando-la-columna-descriptiva-0)
       - [RP\_GRID;ORDENAR: Ordenar el GRID](#rp_gridordenar-ordenar-el-grid)
@@ -1275,6 +1275,30 @@ CALL "RP_GRID;AD_LINEA",GRID_DAT.CTL,8,LIN
 
 [Volver arriba](#rutinas-públicas-rp_xxxxx)
 
+#### RP_GRID;COLUMNAS: Prepara plantilla con variables de columnas
+
+~~~text
+CALL "RP_GRID;COLUMNAS",OBJETO,VAL$,CL$,NCOL
+~~~
+
+- Parámetros:
+  
+  |Parámetro|E/S|Descripción|
+  |:--------|:-:|-----------|
+  |OBJETO|E|Número de control de objeto asociado al <a href="https://manual.pvxplus.com/PXPLUS/directives/grid.htm" target="_blank">GRID</a>|
+  |VAL$|E|Nombre de las columnas separadas con coma|
+  |CL$|S|plantilla con los nombres de las columnas como campos|
+  |NCOL|S|Número total de columnas|
+
+- Ejemplo:
+
+~~~text
+VAL$="CTA,BCTA,CCO,BCCO,AUX,BAUX,REF,DEB,CRE,"
+CALL "RP_GRID;COLUMNAS",GRID_DAT.CTL,VAL$,CL$,NCOL
+~~~
+
+[Volver arriba](#rutinas-públicas-rp_xxxxx)
+
 #### RP_GRID;DEL_LINEA: Elimina una línea del GRID renumerando la columna descriptiva (0)
 
 ~~~text
@@ -1347,10 +1371,10 @@ CALL "RP_GRID;DES_COLUMNAS",GRID_DAT.CTL,VAL$,LINEA
 
 [Volver arriba](#rutinas-públicas-rp_xxxxx)
 
-#### RP_GRID;LEER_LINEA_ACTUAL: Leer línea actual
+#### RP_GRID;GRABAR_GRID: Grabar valores en una línea indicada
 
 ~~~text
-CALL "RP_GRID;LEER_LINEA_ACTUAL",OBJETO,COLUM,LINEA,LINEA${all}
+CALL "RP_GRID;GRABAR_GRID",OBJETO,LINEA,LINEA${all}
 ~~~
 
 - Parámetros:
@@ -1358,14 +1382,14 @@ CALL "RP_GRID;LEER_LINEA_ACTUAL",OBJETO,COLUM,LINEA,LINEA${all}
   |Parámetro|E/S|Descripción|
   |:--------|:-:|-----------|
   |OBJETO|E|Número de control de objeto asociado al <a href="https://manual.pvxplus.com/PXPLUS/directives/grid.htm" target="_blank">GRID</a>|
-  |COLUM|S|Columna actual|
-  |LINEA|S|Línea actual|
-  |LINEA$\{all\}|S|Valores de las celdas de la línea actual|
+  |LINEA|E|Línea a grabar|
+  |LINEA$\{all\}|E|Valores de las celdas de la línea indicada|
 
 - Ejemplo:
 
 ~~~text
-CALL "RP_GRID;LEER_LINEA_ACTUAL",GRID_DAT.CTL,COLUM,LINEA,VAL_GRID${all}
+LINEA=1
+CALL "RP_GRID;GRABAR_LINEA",GRID_DAT.CTL,LINEA,VAL_GRID${all}
 ~~~
 
 [Volver arriba](#rutinas-públicas-rp_xxxxx)
@@ -1393,10 +1417,10 @@ CALL "RP_GRID;LEER_LINEA",GRID_DAT.CTL,LINEA,VAL_GRID${all}
 
 [Volver arriba](#rutinas-públicas-rp_xxxxx)
 
-#### RP_GRID;GRABAR_GRID: Grabar valores en una línea indicada
+#### RP_GRID;LEER_LINEA_ACTUAL: Leer línea actual
 
 ~~~text
-CALL "RP_GRID;GRABAR_GRID",OBJETO,LINEA,LINEA${all}
+CALL "RP_GRID;LEER_LINEA_ACTUAL",OBJETO,COLUM,LINEA,LINEA${all}
 ~~~
 
 - Parámetros:
@@ -1404,38 +1428,14 @@ CALL "RP_GRID;GRABAR_GRID",OBJETO,LINEA,LINEA${all}
   |Parámetro|E/S|Descripción|
   |:--------|:-:|-----------|
   |OBJETO|E|Número de control de objeto asociado al <a href="https://manual.pvxplus.com/PXPLUS/directives/grid.htm" target="_blank">GRID</a>|
-  |LINEA|E|Línea a grabar|
-  |LINEA$\{all\}|E|Valores de las celdas de la línea indicada|
+  |COLUM|S|Columna actual|
+  |LINEA|S|Línea actual|
+  |LINEA$\{all\}|S|Valores de las celdas de la línea actual|
 
 - Ejemplo:
 
 ~~~text
-LINEA=1
-CALL "RP_GRID;GRABAR_LINEA",GRID_DAT.CTL,LINEA,VAL_GRID${all}
-~~~
-
-[Volver arriba](#rutinas-públicas-rp_xxxxx)
-
-#### RP_GRID;COLUMNAS: Prepara plantilla con variables de columnas
-
-~~~text
-CALL "RP_GRID;COLUMNAS",OBJETO,VAL$,CL$,NCOL
-~~~
-
-- Parámetros:
-  
-  |Parámetro|E/S|Descripción|
-  |:--------|:-:|-----------|
-  |OBJETO|E|Número de control de objeto asociado al <a href="https://manual.pvxplus.com/PXPLUS/directives/grid.htm" target="_blank">GRID</a>|
-  |VAL$|E|Nombre de las columnas separadas con coma|
-  |CL$|S|plantilla con los nombres de las columnas como campos|
-  |NCOL|S|Número total de columnas|
-
-- Ejemplo:
-
-~~~text
-VAL$="CTA,BCTA,CCO,BCCO,AUX,BAUX,REF,DEB,CRE,"
-CALL "RP_GRID;COLUMNAS",GRID_DAT.CTL,VAL$,CL$,NCOL
+CALL "RP_GRID;LEER_LINEA_ACTUAL",GRID_DAT.CTL,COLUM,LINEA,VAL_GRID${all}
 ~~~
 
 [Volver arriba](#rutinas-públicas-rp_xxxxx)

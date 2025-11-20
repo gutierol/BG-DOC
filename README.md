@@ -69,7 +69,15 @@
       - [RP\_GRID;ORDENAR: Ordenar el GRID](#rp_gridordenar-ordenar-el-grid)
       - [RP\_GRID;PREPARAR: Preparar inicialmente el GRID](#rp_gridpreparar-preparar-inicialmente-el-grid)
     - [RP\_GUI: Utilidades para Entorno  Gráfico](#rp_gui-utilidades-para-entorno--gráfico)
+      - [RP\_GUI;CAMBIO\_FOLDER: Cambiar pestaña (FOLDER) activa](#rp_guicambio_folder-cambiar-pestaña-folder-activa)
+      - [RP\_GUI;COMIENZO\_PROCESO: Ventana de proceso (Comienzo)](#rp_guicomienzo_proceso-ventana-de-proceso-comienzo)
+      - [RP\_GUI;CONTINUAR\_PROCESO: Ventana de proceso (Continuar)](#rp_guicontinuar_proceso-ventana-de-proceso-continuar)
+      - [RP\_GUI;FIN\_PROCESO: Ventana de proceso (Finalización)](#rp_guifin_proceso-ventana-de-proceso-finalización)
+      - [RP\_GUI;DIALOGUE: Crear ventana de diálogo](#rp_guidialogue-crear-ventana-de-diálogo)
+      - [RP\_GUI;MENU\_DISABLE: Deshabilitar opciones del MENU](#rp_guimenu_disable-deshabilitar-opciones-del-menu)
+      - [RP\_GUI;MENU\_ENABLE: Habilitar opciones del MENU](#rp_guimenu_enable-habilitar-opciones-del-menu)
       - [RP\_GUI;SEL\_LIST: Selecciona una valor de una lista](#rp_guisel_list-selecciona-una-valor-de-una-lista)
+      - [RP\_GUI;UNT\_OBJETO: Tomar próximo número de objeto disponible](#rp_guiunt_objeto-tomar-próximo-número-de-objeto-disponible)
     - [RP\_LISTV: Utilidades para objetos tipo LIST\_VIEW](#rp_listv-utilidades-para-objetos-tipo-list_view)
     - [RP\_PARAM: Lectura de parámetros y control de la aplicación](#rp_param-lectura-de-parámetros-y-control-de-la-aplicación)
     - [RP\_QUERY: Despliegue o consulta de valores para seleccionar](#rp_query-despliegue-o-consulta-de-valores-para-seleccionar)
@@ -1520,6 +1528,165 @@ Permite simplificar algunas funciones típicas asociadas a los objetos y el ento
 
 [Volver arriba](#rutinas-públicas-rp_xxxxx)
 
+
+#### RP_GUI;CAMBIO_FOLDER: Cambiar pestaña (FOLDER) activa
+
+Cambiar la pestaña activa en un objeto <a href="https://manual.pvxplus.com/PXPLUS/NOMADS%20Graphical%20Application/Creating%20Panel%20Controls/Folder%20Controls/Overview.htm" target="_blank">FOLDER</a> de <a href="https://manual.pvxplus.com/PXPLUS/NOMADS%20Graphical%20Application/NOMADS%20Development/Getting%20Started.htm" target="_blank">NOMADS</a>.
+
+~~~text
+PERFORM "RP_GUI;CAMBIO_FOLDER"
+~~~
+
+- Variables a definir antes de la ejecución:
+
+  |Variable|E/S|Descripción|
+  |:--------|:-:|-----------|
+  |NEXT_FOLDER|E|Número de control asociado a la pestaña. <a href="https://manual.pvxplus.com/PXPLUS/NOMADS%20Graphical%20Application/NOMADS%20Development/Getting%20Started.htm" target="_blank">NOMADS</a> lo asigna a FLDR.<nombre_de_la_pestaña>.CTL. La pestaña debe estar activa para poder tomar los valores de los objetos que están dentro de ella|
+
+- Ejemplo:
+
+~~~text
+LET NEXT_FOLDER=FLDR.SEL_COSTOS.CTL
+PERFORM "RP_GUI;CAMBIO_FOLDER"
+~~~
+
+[Volver arriba](#rutinas-públicas-rp_xxxxx)
+
+#### RP_GUI;COMIENZO_PROCESO: Ventana de proceso (Comienzo)
+
+~~~text
+CALL "RP_GUI;COMIENZO_PROCESO",TIT$,PROC$
+~~~~
+
+- Parámetros:
+  
+  |Parámetro|E/S|Descripción|
+  |:--------|:-:|-----------|
+  |TIT$|E|Título de la ventana de proceso|
+  |PROC$|S|TEMPLATE con valores propios de la rutina (reservado)|
+
+- Ejemplo:
+
+~~~text
+CALL "RP_GUI;COMIENZO_PROCESO", "Grabando Reporte",PR$
+~~~
+
+[Volver arriba](#rutinas-públicas-rp_xxxxx)
+
+#### RP_GUI;CONTINUAR_PROCESO: Ventana de proceso (Continuar)
+
+~~~text
+CALL "RP_GUI;CONTINUAR_PROCESO",VALOR$,PROC$
+~~~
+
+- Parámetros:
+  
+  |Parámetro|E/S|Descripción|
+  |:--------|:-:|-----------|
+  |VALOR$|E|Valor STRING a ser desplegado en la ventana de proceso|
+  |PROC$|E/S|TEMPLATE con valores propios de la rutina (reservado)|
+
+- Ejemplo:
+
+~~~text
+CALL "RP_GUI;CONTINUAR_PROCESO","Línea: "+STR(LIN),PR$
+~~~
+
+[Volver arriba](#rutinas-públicas-rp_xxxxx)
+
+#### RP_GUI;FIN_PROCESO: Ventana de proceso (Finalización)
+
+~~~text
+CALL "RP_GUI;FIN_PROCESO",PROC$
+~~~
+
+- Parámetros:
+  
+  |Parámetro|E/S|Descripción|
+  |:--------|:-:|-----------|
+  |PROC$|S|TEMPLATE con valores propios de la rutina (reservado)|
+
+- Ejemplo:
+
+~~~text
+CALL "RP_GUI;FIN_PROCESO",PR$
+~~~
+
+[Volver arriba](#rutinas-públicas-rp_xxxxx)
+
+#### RP_GUI;DIALOGUE: Crear ventana de diálogo
+
+~~~text
+CALL "RP_GUI;DIALOGUE",NUM_WIN,COL,FIL,ANCHO,ALTO,TITULO$,OPC$
+~~~
+
+- Parámetros:
+  
+  |Parámetro|E/S|Descripción|
+  |:--------|:-:|-----------|
+  |NUM_WIN|S|Número de ventana (CTL) asignado|
+  |COL|E|Columna inicial (posición)|
+  |FIL|E|Fila inicial (posición)|
+  |ANCHO|E|Ancho de la ventana|
+  |ALTO|E|Alto de la ventana|
+  |TITULO$|E|Título de la ventana|
+  |OPC$|E|Opciones adicionales separadas por un espacio|
+
+- Opciones:
+
+    |Opción|Descripción|
+    |:-----|-----------|
+    |""|Sin opciones|
+    |CEN|centrar ventana en la pantalla|
+    |IZQ|pegar a la izquierda de la pantalla|
+    |DER|pegar a la derecha de la pantalla|
+    |SUP|pegar al borde superior de la pantalla|
+    |INF|pegar al borde inferior de la pantalla|
+    |WINDOW|Venta normal (no de diálogo)|
+    |PVX|opciones propias del mnemónico 'DIALOGUE' de <a href="https://home.pvxplus.com/" target="_blank">PxPlus</a>|
+
+[Volver arriba](#rutinas-públicas-rp_xxxxx)
+
+#### RP_GUI;MENU_DISABLE: Deshabilitar opciones del MENU
+
+~~~text
+CALL "RP_GUI;MENU_DISABLE",OPC$
+~~~
+
+- Parámetros:
+  
+  |Parámetro|E/S|Descripción|
+  |:--------|:-:|-----------|
+  |OPC$|E|Opciones a deshabilitar separadas con coma. En <a href="https://home.pvxplus.com/" target="_blank">PxPlus</a> las opciones del MENU están identificadas por su tecla de acceso rápido (la que está subrayada).|
+
+- Ejemplo:
+
+~~~text
+CALL "RP_GUI;MENU_DISABLE","DA,DC,DM,E"
+~~~
+
+[Volver arriba](#rutinas-públicas-rp_xxxxx)
+
+#### RP_GUI;MENU_ENABLE: Habilitar opciones del MENU
+
+~~~text
+CALL "RP_GUI;MENU_ENABLE",OPC$
+~~~
+
+- Parámetros:
+  
+  |Parámetro|E/S|Descripción|
+  |:--------|:-:|-----------|
+  |OPC$|E|Opciones a habilitar separadas con coma. En <a href="https://home.pvxplus.com/" target="_blank">PxPlus</a> las opciones del MENU están identificadas por su tecla de acceso rápido (la que está subrayada).|
+
+- Ejemplo:
+
+~~~text
+CALL "RP_GUI;MENU_ENABLE","DA,DC,DM,E"
+~~~
+
+[Volver arriba](#rutinas-públicas-rp_xxxxx)
+
 #### RP_GUI;SEL_LIST: Selecciona una valor de una lista
 
 Selecciona una valor de una lista (<a href="https://manual.pvxplus.com/PXPLUS/directives/drop_box.htm" target="_blank">DROP_BOX</a>, 
@@ -1542,6 +1709,26 @@ Seleccionar el estado civil en un <a href="https://manual.pvxplus.com/PXPLUS/dir
 
 ~~~text
 CALL "RP_GUI;SEL_LIST",EDO_CIVIL.CTL,DES.CIVIL$
+~~~
+
+[Volver arriba](#rutinas-públicas-rp_xxxxx)
+
+#### RP_GUI;UNT_OBJETO: Tomar próximo número de objeto disponible
+
+~~~text
+CALL "RP_GUI;UNT_OBJETO",OBJETO
+~~~
+
+- Parámetros:
+  
+  |Parámetro|E/S|Descripción|
+  |:--------|:-:|-----------|
+  |OBJETO|S|Número de objeto disponible|
+
+- Ejemplo:
+
+~~~text
+CALL "RP_GUI;UNT_OBJETO",ACEPTAR
 ~~~
 
 [Volver arriba](#rutinas-públicas-rp_xxxxx)
@@ -1591,10 +1778,13 @@ CALL "RU_COPY"
 [Volver arriba](#rutinas-utilitarias-ru_xxxxx)
 
 [
-<a href="https://home.pvxplus.com/" target="_blank">PxPlus</a>from toc -->
+<a href="https://home.pvxplus.com/" target="_blank">PxPlus</a>
 <a href="https://manual.pvxplus.com/PXPLUS/directives/perform.htm" target="_blank">PERFORM</a>
 <a href="https://manual.pvxplus.com/PXPLUS/directives/grid.htm" target="_blank">GRID</a>
 <a href="https://manual.pvxplus.com/PXPLUS/control_object_properties/listview_properties.htm" target="_blank">LIST_VIEW</a>
 <a href="https://manual.pvxplus.com/PXPLUS/directives/drop_box.htm" target="_blank">DROP_BOX</a>
 <a href="https://manual.pvxplus.com/PXPLUS/directives/list_box.htm" target="_blank">LIST_BOX</a>
+<a href="https://manual.pvxplus.com/PXPLUS/NOMADS%20Graphical%20Application/Creating%20Panel%20Controls/Folder%20Controls/Overview.htm" target="_blank">FOLDER</a>
+<a href="https://manual.pvxplus.com/PXPLUS/NOMADS%20Graphical%20Application/NOMADS%20Development/Getting%20Started.htm" target="_blank">NOMADS</a>
+<a href="" target="_blank"></a>
 ]: #

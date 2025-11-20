@@ -69,6 +69,7 @@
       - [RP\_GRID;ORDENAR: Ordenar el GRID](#rp_gridordenar-ordenar-el-grid)
       - [RP\_GRID;PREPARAR: Preparar inicialmente el GRID](#rp_gridpreparar-preparar-inicialmente-el-grid)
     - [RP\_GUI: Utilidades para Entorno  Gráfico](#rp_gui-utilidades-para-entorno--gráfico)
+      - [RP\_GUI;SEL\_LIST: Selecciona una valor de una lista](#rp_guisel_list-selecciona-una-valor-de-una-lista)
     - [RP\_LISTV: Utilidades para objetos tipo LIST\_VIEW](#rp_listv-utilidades-para-objetos-tipo-list_view)
     - [RP\_PARAM: Lectura de parámetros y control de la aplicación](#rp_param-lectura-de-parámetros-y-control-de-la-aplicación)
     - [RP\_QUERY: Despliegue o consulta de valores para seleccionar](#rp_query-despliegue-o-consulta-de-valores-para-seleccionar)
@@ -1519,6 +1520,33 @@ Permite simplificar algunas funciones típicas asociadas a los objetos y el ento
 
 [Volver arriba](#rutinas-públicas-rp_xxxxx)
 
+#### RP_GUI;SEL_LIST: Selecciona una valor de una lista
+
+Selecciona una valor de una lista (<a href="https://manual.pvxplus.com/PXPLUS/directives/drop_box.htm" target="_blank">DROP_BOX</a>, 
+<a href="https://manual.pvxplus.com/PXPLUS/directives/list_box.htm" target="_blank">LIST_BOX</a>, etc)
+
+~~~text
+CALL "RP_GUI;SEL_LIST",OBJETO,VALOR$
+~~~
+
+- Parámetros:
+  
+  |Parámetro|E/S|Descripción|
+  |:--------|:-:|-----------|
+  |OBJETO|E|Número de control de objeto asociado al <a href="https://manual.pvxplus.com/PXPLUS/directives/drop_box.htm" target="_blank">DROP_BOX</a>, 
+<a href="https://manual.pvxplus.com/PXPLUS/directives/list_box.htm" target="_blank">LIST_BOX</a>, etc|
+  |VALOR$|E|Valor a seleccionar (por comienzo de la línea). Si no existe en la lista se seleccionará el primero.|
+
+- Ejemplo:
+
+Seleccionar el estado civil en un <a href="https://manual.pvxplus.com/PXPLUS/directives/list_box.htm" target="_blank">LIST_BOX</a>
+
+~~~text
+CALL "RP_GUI;SEL_LIST",EDO_CIVIL.CTL,DES.CIVIL$
+~~~
+
+[Volver arriba](#rutinas-públicas-rp_xxxxx)
+
 ### RP_LISTV: Utilidades para objetos tipo LIST_VIEW
 
 Permite simplificar algunas funciones típicas asociadas a los objetos tipo <a href="https://manual.pvxplus.com/PXPLUS/control_object_properties/listview_properties.htm" target="_blank">LIST_VIEW</a> (Lista estilo reporte).
@@ -1567,5 +1595,7 @@ CALL "RU_COPY"
 <a href="https://home.pvxplus.com/" target="_blank">PxPlus</a>from toc -->
 <a href="https://manual.pvxplus.com/PXPLUS/directives/perform.htm" target="_blank">PERFORM</a>
 <a href="https://manual.pvxplus.com/PXPLUS/directives/grid.htm" target="_blank">GRID</a>
-<a href="https://manual.pvxplus.com/PXPLUS/control_object_properties/listview_properties.htm target="_blank">LIST_VIEW</a>
+<a href="https://manual.pvxplus.com/PXPLUS/control_object_properties/listview_properties.htm" target="_blank">LIST_VIEW</a>
+<a href="https://manual.pvxplus.com/PXPLUS/directives/drop_box.htm" target="_blank">DROP_BOX</a>
+<a href="https://manual.pvxplus.com/PXPLUS/directives/list_box.htm" target="_blank">LIST_BOX</a>
 ]: #

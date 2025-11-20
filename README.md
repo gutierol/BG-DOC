@@ -74,9 +74,12 @@
       - [RP\_GUI;CONTINUAR\_PROCESO: Ventana de proceso (Continuar)](#rp_guicontinuar_proceso-ventana-de-proceso-continuar)
       - [RP\_GUI;FIN\_PROCESO: Ventana de proceso (Finalización)](#rp_guifin_proceso-ventana-de-proceso-finalización)
       - [RP\_GUI;DIALOGUE: Crear ventana de diálogo](#rp_guidialogue-crear-ventana-de-diálogo)
+      - [RP\_GUI;INPUT: Lectura (INPUT) en entorno gráfico (No aplica para NOMADS)](#rp_guiinput-lectura-input-en-entorno-gráfico-no-aplica-para-nomads)
       - [RP\_GUI;MENU\_DISABLE: Deshabilitar opciones del MENU](#rp_guimenu_disable-deshabilitar-opciones-del-menu)
       - [RP\_GUI;MENU\_ENABLE: Habilitar opciones del MENU](#rp_guimenu_enable-habilitar-opciones-del-menu)
+      - [RP\_GUI;PREPARA\_SELECT: Leer LIST\_BOX y preparación valores](#rp_guiprepara_select-leer-list_box-y-preparación-valores)
       - [RP\_GUI;SEL\_LIST: Selecciona una valor de una lista](#rp_guisel_list-selecciona-una-valor-de-una-lista)
+      - [RP\_GUI;SIZE: Tomar el tamaño de la ventana](#rp_guisize-tomar-el-tamaño-de-la-ventana)
       - [RP\_GUI;UNT\_OBJETO: Tomar próximo número de objeto disponible](#rp_guiunt_objeto-tomar-próximo-número-de-objeto-disponible)
     - [RP\_LISTV: Utilidades para objetos tipo LIST\_VIEW](#rp_listv-utilidades-para-objetos-tipo-list_view)
     - [RP\_PARAM: Lectura de parámetros y control de la aplicación](#rp_param-lectura-de-parámetros-y-control-de-la-aplicación)
@@ -1645,6 +1648,50 @@ CALL "RP_GUI;DIALOGUE",NUM_WIN,COL,FIL,ANCHO,ALTO,TITULO$,OPC$
     |WINDOW|Venta normal (no de diálogo)|
     |PVX|opciones propias del mnemónico 'DIALOGUE' de <a href="https://home.pvxplus.com/" target="_blank">PxPlus</a>|
 
+- Ejemplo:
+
+~~~text
+CALL "RP_GUI;DIALOGUE",WIN,0,0,20,30,"Selección de Operadores", "CEN  PVX=X*c"
+~~~
+
+[Volver arriba](#rutinas-públicas-rp_xxxxx)
+
+#### RP_GUI;INPUT: Lectura (INPUT) en entorno gráfico (No aplica para NOMADS)
+
+~~~text
+CALL "RP_GUI;INPUT",NUM_CTL,NUM:WIN,CTL_SYS,OPC$
+~~~
+
+- Parámetros:
+  
+  |Parámetro|E/S|Descripción|
+  |:--------|:-:|-----------|
+  |NUM_CTL|S|Número de control donde se generó el evento|
+  |NUM_WIN|S|Número de ventana donde se generó el evento|
+  |CTL_SYS|S|Valor de control de BASE (no de <a href="https://home.pvxplus.com/" target="_blank">PxPlus</a>). 9=Cerrar ventana|
+  |OPC$|E|Opciones|
+
+- Opciones:
+
+    |Opción|Descripción|
+    |:-----|-----------|
+    |""|Sin opciones|
+    |TAB|Interpreta tabulador como enter|
+    |CAPTION|Muestra en la barra de título el número de objeto que tiene el foco|
+
+- Ejemplo:
+
+~~~text
+salir=0
+REPEAT
+CALL "RP_GUI;INPUT",CTL_ULT,NUM_WIN,CTL_SYS,""
+IF CTL_SYS=9 THEN salir=1
+.
+.
+UNTIL salir
+
+~~~
+
 [Volver arriba](#rutinas-públicas-rp_xxxxx)
 
 #### RP_GUI;MENU_DISABLE: Deshabilitar opciones del MENU
@@ -1687,6 +1734,39 @@ CALL "RP_GUI;MENU_ENABLE","DA,DC,DM,E"
 
 [Volver arriba](#rutinas-públicas-rp_xxxxx)
 
+#### RP_GUI;PREPARA_SELECT: Leer LIST_BOX y preparación valores
+
+Leer un <a href="https://manual.pvxplus.com/PXPLUS/directives/list_box.htm" target="_blank">LIST_BOX</a> y preparación valores para condicionar un <a href="https://manual.pvxplus.com/PXPLUS/directives/select.htm" target="_blank">SELECT</a>
+
+~~~text
+CALL "RP_GUI;PREPARA_SELECT",PREF$,LISTBOX,LONGITUD,COMIENZO$,FIN$,TABLA$,OPC$
+~~~
+
+- Parámetros:
+  
+  |Parámetro|E/S|Descripción|
+  |:--------|:-:|-----------|
+  |PREF$|E|Prefijo se posicionamiento (Normalmente %BASE_CIA$)|
+  |LISTBOX|E|Número de objeto del <a href="https://manual.pvxplus.com/PXPLUS/directives/list_box.htm" target="_blank">LIST_BOX</a>|
+  |LONGITUD|E|Largo de la clave de selección sin prefijo (Ej. 12 en MGADESCR)|
+  |COMIENZO$|S|Clave de comienzo|
+  |FIN$|S|Clave de finalización|
+  |TABLA$|S|Tabla con los códigos válidos|
+  |OPC$|S|Opciones Adicionales (Para uso futuro)|
+
+- Ejemplo:
+
+~~~text
+CALL "RP_GUI;PREPARA_SELECT",%BASE_CIA$,SEL_CTAS.CTL,12,DESDE$,HASTA$,TABLA_DES$,""
+SELECT *,REC=DES$ FROM "MGADESCR" BEGIN DESDE$ END HASTA$ WHERE POS(DES.CUENTA$=TABLA_DES$,12)
+.
+.
+.
+NEXT RECORD
+~~~
+
+[Volver arriba](#rutinas-públicas-rp_xxxxx)
+
 #### RP_GUI;SEL_LIST: Selecciona una valor de una lista
 
 Selecciona una valor de una lista (<a href="https://manual.pvxplus.com/PXPLUS/directives/drop_box.htm" target="_blank">DROP_BOX</a>, 
@@ -1709,6 +1789,33 @@ Seleccionar el estado civil en un <a href="https://manual.pvxplus.com/PXPLUS/dir
 
 ~~~text
 CALL "RP_GUI;SEL_LIST",EDO_CIVIL.CTL,DES.CIVIL$
+~~~
+
+[Volver arriba](#rutinas-públicas-rp_xxxxx)
+
+#### RP_GUI;SIZE: Tomar el tamaño de la ventana
+
+~~~text
+CALL "RP_GUI;SIZE",ANCHO_CAR,ALTO_CAR,ANCHO_VENP,ALTO_VENP,ANCHO_VENC,ALTO_VENC
+~~~
+
+- Parámetros:
+  
+  |Parámetro|E/S|Descripción|
+  |:--------|:-:|-----------|
+  |ANCHO_CAR|S|Ancho del caracter en pixels|
+  |ALTO_CAR|S|Alto del caracter en pixels|
+  |ANCHO_VENP|S|Ancho de la ventana en pixels|
+  |ALTO_VENP|S|Alto de la ventana en pixels|
+  |ANCHO_VENC|S|Ancho de la ventana en caracteres|
+  |ALTO_VENC|S|Alto de la ventana en carcateres|
+
+- Ejemplo:
+
+~~~text
+->CALL "RP_GUI;SIZE",C1,C2,C3,C4,C5,C6
+->PRINT C1,C2,C3,C4,C5,C6
+ 8 15 800 553 100 36
 ~~~
 
 [Volver arriba](#rutinas-públicas-rp_xxxxx)
@@ -1786,5 +1893,7 @@ CALL "RU_COPY"
 <a href="https://manual.pvxplus.com/PXPLUS/directives/list_box.htm" target="_blank">LIST_BOX</a>
 <a href="https://manual.pvxplus.com/PXPLUS/NOMADS%20Graphical%20Application/Creating%20Panel%20Controls/Folder%20Controls/Overview.htm" target="_blank">FOLDER</a>
 <a href="https://manual.pvxplus.com/PXPLUS/NOMADS%20Graphical%20Application/NOMADS%20Development/Getting%20Started.htm" target="_blank">NOMADS</a>
+<a href="https://manual.pvxplus.com/PXPLUS/directives/select.htm" target="_blank">SELECT</a>
 <a href="" target="_blank"></a>
+
 ]: #

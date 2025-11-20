@@ -1533,8 +1533,7 @@ CALL "RP_GUI;SEL_LIST",OBJETO,VALOR$
   
   |Parámetro|E/S|Descripción|
   |:--------|:-:|-----------|
-  |OBJETO|E|Número de control de objeto asociado al <a href="https://manual.pvxplus.com/PXPLUS/directives/drop_box.htm" target="_blank">DROP_BOX</a>, 
-<a href="https://manual.pvxplus.com/PXPLUS/directives/list_box.htm" target="_blank">LIST_BOX</a>, etc|
+  |OBJETO|E|Número de control de objeto asociado al <a href="https://manual.pvxplus.com/PXPLUS/directives/drop_box.htm" target="_blank">DROP_BOX</a>, <a href="https://manual.pvxplus.com/PXPLUS/directives/list_box.htm" target="_blank">LIST_BOX</a>, etc|
   |VALOR$|E|Valor a seleccionar (por comienzo de la línea). Si no existe en la lista se seleccionará el primero.|
 
 - Ejemplo:

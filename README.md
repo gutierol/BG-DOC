@@ -82,9 +82,16 @@
       - [RP\_GUI;SIZE: Tomar el tamaño de la ventana](#rp_guisize-tomar-el-tamaño-de-la-ventana)
       - [RP\_GUI;UNT\_OBJETO: Tomar próximo número de objeto disponible](#rp_guiunt_objeto-tomar-próximo-número-de-objeto-disponible)
     - [RP\_LISTV: Utilidades para objetos tipo LIST\_VIEW](#rp_listv-utilidades-para-objetos-tipo-list_view)
+      - [RP\_LISTV;COLUMNAS: Prepara TEMPLATE con variables de columnas](#rp_listvcolumnas-prepara-template-con-variables-de-columnas)
+      - [RP\_LISTV;GRABAR\_LISTV: Grabar valores en una línea indicada](#rp_listvgrabar_listv-grabar-valores-en-una-línea-indicada)
+      - [RP\_LISTV;LEER\_LINEA: Leer línea actual](#rp_listvleer_linea-leer-línea-actual)
+      - [RP\_LISTV;LEER\_LINEA\_IND: Leer valores de una línea indicada](#rp_listvleer_linea_ind-leer-valores-de-una-línea-indicada)
+      - [RP\_LISTV;PREPARAR: Preparar inicialmente el LIST\_VIEW](#rp_listvpreparar-preparar-inicialmente-el-list_view)
     - [RP\_PARAM: Lectura de parámetros y control de la aplicación](#rp_param-lectura-de-parámetros-y-control-de-la-aplicación)
+      - [RP\_PARAM: Genera un TEMPLATE con los parámetros y controles](#rp_param-genera-un-template-con-los-parámetros-y-controles)
     - [RP\_QUERY: Despliegue o consulta de valores para seleccionar](#rp_query-despliegue-o-consulta-de-valores-para-seleccionar)
     - [RP\_REP: Manejo de Reportes](#rp_rep-manejo-de-reportes)
+      - [RP\_REP;FORMATO: Preparar columnas y datos del reporte](#rp_repformato-preparar-columnas-y-datos-del-reporte)
   - [Rutinas Utilitarias (RU\_XXXXX):](#rutinas-utilitarias-ru_xxxxx)
     - [RU\_COPY](#ru_copy)
 
@@ -1635,7 +1642,7 @@ CALL "RP_GUI;DIALOGUE",NUM_WIN,COL,FIL,ANCHO,ALTO,TITULO$,OPC$
   |TITULO$|E|Título de la ventana|
   |OPC$|E|Opciones adicionales separadas por un espacio|
 
-- Opciones:
+  - Opciones:
 
     |Opción|Descripción|
     |:-----|-----------|
@@ -1671,7 +1678,7 @@ CALL "RP_GUI;INPUT",NUM_CTL,NUM:WIN,CTL_SYS,OPC$
   |CTL_SYS|S|Valor de control de BASE (no de <a href="https://home.pvxplus.com/" target="_blank">PxPlus</a>). 9=Cerrar ventana|
   |OPC$|E|Opciones|
 
-- Opciones:
+  - Opciones:
 
     |Opción|Descripción|
     |:-----|-----------|
@@ -1846,9 +1853,156 @@ Permite simplificar algunas funciones típicas asociadas a los objetos tipo <a h
 
 [Volver arriba](#rutinas-públicas-rp_xxxxx)
 
+#### RP_LISTV;COLUMNAS: Prepara TEMPLATE con variables de columnas
+
+~~~text
+CALL "RP_LISTV;COLUMNAS",VAL$,CL$,NCOL
+~~~
+
+- Parámetros:
+  
+  |Parámetro|E/S|Descripción|
+  |:--------|:-:|-----------|
+  |VAL$|E|Nombre de las columnas separadas con coma|
+  |CL$|S|TEMPLATE con los nombres de las columnas como campos|
+  |NCOL|S|Número de columnas|
+
+- Ejemplo:
+
+~~~text
+VAL$="CTA,BCTA,CCO,BCCO,AUX,BAUX,REF,DEB,CRE,"
+CALL "RP_LISTV;COLUMNAS",VAL$,CL$,NCOL
+~~~
+
+[Volver arriba](#rutinas-públicas-rp_xxxxx)
+
+#### RP_LISTV;GRABAR_LISTV: Grabar valores en una línea indicada
+
+~~~text
+CALL "RP_LISTV;GRABAR_LISTV",OBJETO,LINEA,NCOL,LINEA${all}
+~~~
+
+- Parámetros:
+  
+  |Parámetro|E/S|Descripción|
+  |:--------|:-:|-----------|
+  |OBJETO|E|Número de control de objeto asociado al <a href="https://manual.pvxplus.com/PXPLUS/control_object_properties/listview_properties.htm" target="_blank">LIST_VIEW</a>|
+  |LINEA|E|Línea a grabar|
+  |NCOL|E|Número de columnas|
+  |LINEA$\{all\}|E|Valores de las columnas de la línea indicada|
+
+- Ejemplo:
+
+~~~text
+CALL "RP_LISTV;LEER_LINEA_IND",LIST_DAT.CTL,3,5,VAL_LIST${all}
+~~~
+
+[Volver arriba](#rutinas-públicas-rp_xxxxx)
+
+#### RP_LISTV;LEER_LINEA: Leer línea actual
+
+~~~text
+CALL "RP_LISTV;LEER_LINEA",OBJETO,LINEA,NCOL,LINEA${all}
+~~~
+
+- Parámetros:
+  
+  |Parámetro|E/S|Descripción|
+  |:--------|:-:|-----------|
+  |OBJETO|E|Número de control de objeto asociado al <a href="https://manual.pvxplus.com/PXPLUS/control_object_properties/listview_properties.htm" target="_blank">LIST_VIEW</a>|
+  |LINEA|S|Línea actual|
+  |NCOL|E|Número de columnas|
+  |LINEA$\{all\}|S|Valores de las columnas de la línea actual|
+
+- Ejemplo:
+
+~~~text
+CALL "RP_LISTV;LEER_LINEA",LIST_DAT.CTL,LINEA,5,VAL_LIST${all}
+~~~
+
+[Volver arriba](#rutinas-públicas-rp_xxxxx)
+
+#### RP_LISTV;LEER_LINEA_IND: Leer valores de una línea indicada
+
+~~~text
+CALL "RP_LISTV;LEER_LINEA_IND",OBJETO,LINEA,NCOL,LINEA${all}
+~~~
+
+- Parámetros:
+  
+  |Parámetro|E/S|Descripción|
+  |:--------|:-:|-----------|
+  |OBJETO|E|Número de control de objeto asociado al <a href="https://manual.pvxplus.com/PXPLUS/control_object_properties/listview_properties.htm" target="_blank">LIST_VIEW</a>|
+  |LINEA|E|Línea a leer|
+  |NCOL|E|Número de columnas|
+  |LINEA$\{all\}|E|Valores de las columnas de la línea indicada|
+
+- Ejemplo:
+
+~~~text
+CALL "RP_LISTV;LEER_LINEA_IND",LIST_DAT.CTL,3,5,VAL_LIST${all}
+~~~
+
+[Volver arriba](#rutinas-públicas-rp_xxxxx)
+
+#### RP_LISTV;PREPARAR: Preparar inicialmente el LIST_VIEW
+
+~~~text
+CALL "RP_LISTV;PREPARAR",OBJETO,ULT_COLACT,NUCOL
+~~~
+
+- Parámetros:
+  
+  |Parámetro|E/S|Descripción|
+  |:--------|:-:|-----------|
+  |OBJETO|E|Número de control de objeto asociado al <a href="https://manual.pvxplus.com/PXPLUS/control_object_properties/listview_properties.htm" target="_blank">LIST_VIEW</a>|
+  |ULT_COLACT|E|Número de la última columna activa (visible)|
+  |NUCOL|E|Número de columnas invisibles a agregar al final del <a href="https://manual.pvxplus.com/PXPLUS/control_object_properties/listview_properties.htm" target="_blank">LIST_VIEW</a>|
+
+- Ejemplo:
+
+~~~text
+CALL "RP_LISTV;PREPARAR",LIST_DAT.CTL,8,NCOL-8
+~~~
+
+[Volver arriba](#rutinas-públicas-rp_xxxxx)
+
 ### RP_PARAM: Lectura de parámetros y control de la aplicación
 
-Carga los valores de los parámetros (por ejemplo: Estructura del comprobante, cuenta de resultado) y controles (por ejemplo: último cierre, último precierre) de la compañía para una aplicación dada.
+Carga los valores de los parámetros (por ejemplo: Estructura del comprobante, cuenta de resultado) y controles (por ejemplo: último cierre, último pre-cierre) de la compañía para una aplicación dada.
+
+#### RP_PARAM: Genera un TEMPLATE con los parámetros y controles
+
+~~~text
+CALL "RP_PARAM",APL$,PAR$,CTR$
+~~~
+
+- Parámetros:
+  
+  |Parámetro|E/S|Descripción|
+  |:--------|:-:|-----------|
+  |APL$|E|Aplicación (MGA,INV,CTA,FAC,COM,PRV,BAN,AFI,NOM)|
+  |PAR$|S|Parámetros (Template)|
+  |CTR$|S|Controles (Template)|
+
+- Ejemplo:
+
+~~~text
+-> CALL "RP_PARAM",MGA,PAR$,CTR$
+
+-> PRINT LST(IOL(PAR$))
+iolist CIA$,FISCAL$,ESTR_COMP$,CTAS_NOM$,CTA_RESULT$,CTA_PERD_DIFC$, 
+CTA_INGR_DIFC$,CBA_DIF$
+
+-> PRINT PAR.ESTR_COMP$
+AAMMNNNN
+
+-> PRINT LST(IOL(CTR$))
+iolist CIA$,CIERRE$,PRECIERRE$
+
+-> PRINT CTR.CIERRE$
+31012000
+~~~
 
 [Volver arriba](#rutinas-públicas-rp_xxxxx)
 
@@ -1863,6 +2017,56 @@ Esta lista puede ser tomada de un archivo o de una tabla predefinida.
 ### RP_REP: Manejo de Reportes
 
 Para realizar todas al operaciones relacionadas a la emisión de reportes.
+
+[Volver arriba](#rutinas-públicas-rp_xxxxx)
+
+#### RP_REP;FORMATO: Preparar columnas y datos del reporte
+
+~~~text
+CALL "RP_REP; FORMATO",LP,REP$,FMT$,OPC$
+~~~
+
+- Parámetros:
+  
+  |Parámetro|E/S|Descripción|
+  |:--------|:-:|-----------|
+  |LP|S|Canal donde queda abierta la impresora (0 = no está abierta)|
+  |REP$|S|TEMPLATE con la información y controles del reporte
+  |FMT$|E|Formato para definir las columnas (\[\<DESCRIPCIÓN\>\]\<ANCHO\> )|
+  |OPC$|E|Opciones Adicionales (Separadas con Espacio)|
+
+  - TEMPLATE REP$:
+    |Variable|Valor|
+    |:-------|-----|
+    |REP.CLIN|Contador de líneas|
+    |REP.CPAG|Contador de páginas|
+    |REP.TLIN|Total de líneas por página|
+    |REP.ANCH|Ancho del reporte|
+    |REP.*|Columnas (Ej. REP.CIA,REP.NOM,REP.SALDO)|
+
+
+  - Opciones:
+
+    |Opción|Descripción|
+    |:-----|-----------|
+    |""|Sin opciones|
+    |COL\[xx\]|Ancho del reporte (default=132)|
+    |CIA\[xx\]|Nombre de la Compañía (default = activa)|
+    |TIT\[xx\]|Título del reporte (default = función activa del catálogo)|
+    |REP\[xx\]|Nombre del programa (default = proceso activo del catálogo)|
+    |SUB\[xx\]|Sub_titulo|
+    |SU2\[xx\]|Sub_titulo (segunda línea)|
+    |COR\[xx\]|Correspondiente, etc.|
+    |LI2\[xx\]|Segunda línea, datos adicionales|
+    |SEP\[xx\]|Separación entre columnas (default = 1)|
+    |ADI\[xx\]|Líneas adicionales antes del encabezado de columnas (Separadas por \\)|
+    |FLG\[xx\]|Flags o banderas adicionales|
+    |MAR\[xx\]|Margen izquierdo para las columnas|
+
+- Ejemplo:
+
+~~~text
+~~~
 
 [Volver arriba](#rutinas-públicas-rp_xxxxx)
 

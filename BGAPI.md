@@ -21,3 +21,11 @@
 /bgapi.php/CTL/CONEXION_OK/
 ```
 
+- [x] FACTURAS_CRM
+- [x] FACTURAS_TODO
+- [x] FACTURAS
+- [x] PRODUCTOS
+- [x] OPORTUNIDADES
+- [ ] INVENTARIO
+- [x] CLIENTES
+- [ ] 

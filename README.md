@@ -1,9 +1,9 @@
 <!-- title: BASE Gráfico -->
 # BASE Gráfico &reg;
 
-## Índice de Ayuda para Asesores<!-- omit from toc -->
-
 [![BASE Gráfico](https://basegrafico.com/img/logo-image.png)](https://basegrafico.com/)
+
+## Índice de Ayuda para Asesores<!-- omit from toc -->
 
 ---
 

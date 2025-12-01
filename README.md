@@ -68,12 +68,37 @@
       - [RP\_GRID;LEER\_LINEA\_ACTUAL: Leer línea actual](#rp_gridleer_linea_actual-leer-línea-actual)
       - [RP\_GRID;ORDENAR: Ordenar el GRID](#rp_gridordenar-ordenar-el-grid)
       - [RP\_GRID;PREPARAR: Preparar inicialmente el GRID](#rp_gridpreparar-preparar-inicialmente-el-grid)
+    - [RP\_GRIDN: Utilidades para objetos tipo GRID (nuevo)](#rp_gridn-utilidades-para-objetos-tipo-grid-nuevo)
+      - [RP\_GRIDN;ACT\_BOTONES: Activar botones en el GRID](#rp_gridnact_botones-activar-botones-en-el-grid)
+      - [RP\_GRIDN;ACT\_CHECKMARK: Activar botones de chequeo en el GRID](#rp_gridnact_checkmark-activar-botones-de-chequeo-en-el-grid)
+      - [RP\_GRIDN;ACT\_COLUMNAS: Activar columnas en el GRID](#rp_gridnact_columnas-activar-columnas-en-el-grid)
+      - [RP\_GRIDN;AD\_LINEA: Agregar una línea al GRID](#rp_gridnad_linea-agregar-una-línea-al-grid)
+      - [RP\_GRIDN;COPIAR: Preparar la copia de una línea del GRID](#rp_gridncopiar-preparar-la-copia-de-una-línea-del-grid)
+      - [RP\_GRIDN;CREATE: Leer formato, crear y preparar el GRID](#rp_gridncreate-leer-formato-crear-y-preparar-el-grid)
+      - [RP\_GRIDN;DEL\_LINEA: Elimina una línea del GRID renumerando la columna descriptiva (0)](#rp_gridndel_linea-elimina-una-línea-del-grid-renumerando-la-columna-descriptiva-0)
+      - [RP\_GRIDN;DES\_BOTONES: Desactivar botones en el GRID](#rp_gridndes_botones-desactivar-botones-en-el-grid)
+      - [RP\_GRIDN;ELIMINAR\_LINEA: Eliminar una línea del GRID](#rp_gridneliminar_linea-eliminar-una-línea-del-grid)
+      - [RP\_GRIDN;FOCUS: Acciones a tomar cuando el GRID recibe el foco](#rp_gridnfocus-acciones-a-tomar-cuando-el-grid-recibe-el-foco)
+      - [RP\_GRIDN;GRABAR\_GRID: Grabar valores en una línea indicada](#rp_gridngrabar_grid-grabar-valores-en-una-línea-indicada)
+      - [RP\_GRIDN;INS\_LINEA: Insertar una línea al GRID renumerando la columna descriptiva (0)](#rp_gridnins_linea-insertar-una-línea-al-grid-renumerando-la-columna-descriptiva-0)
+      - [RP\_GRIDN;INSERTAR\_LINEA: Insertar una línea en el GRID](#rp_gridninsertar_linea-insertar-una-línea-en-el-grid)
+      - [RP\_GRIDN;LEER\_LINEA: Leer valores de una línea indicada](#rp_gridnleer_linea-leer-valores-de-una-línea-indicada)
+      - [RP\_GRIDN;LEER\_LINEA\_ACTUAL: Leer línea actual](#rp_gridnleer_linea_actual-leer-línea-actual)
+      - [RP\_GRIDN;LOGIC: Acciones a tomar al seleccionar una celda del GRID](#rp_gridnlogic-acciones-a-tomar-al-seleccionar-una-celda-del-grid)
+      - [RP\_GRIDN;MOVER\_LINEA: Mover o preparar el movimiento de una línea del GRID](#rp_gridnmover_linea-mover-o-preparar-el-movimiento-de-una-línea-del-grid)
+      - [RP\_GRIDN;ORDENAR: Ordenar el GRID](#rp_gridnordenar-ordenar-el-grid)
+      - [RP\_GRIDN;PEGAR\_LINEA: Pegar la línea copiada o movida en el sitio actual del GRID](#rp_gridnpegar_linea-pegar-la-línea-copiada-o-movida-en-el-sitio-actual-del-grid)
     - [RP\_GUI: Utilidades para Entorno  Gráfico](#rp_gui-utilidades-para-entorno--gráfico)
       - [RP\_GUI;CAMBIO\_FOLDER: Cambiar pestaña (FOLDER) activa](#rp_guicambio_folder-cambiar-pestaña-folder-activa)
+      - [RP\_GUI;CENTRAR\_TITULOS: Centrar títulos de LIST\_BOX o GRID](#rp_guicentrar_titulos-centrar-títulos-de-list_box-o-grid)
+      - [RP\_GUI;COMIENZO\_GRABACION: Comienzo de la grabación](#rp_guicomienzo_grabacion-comienzo-de-la-grabación)
       - [RP\_GUI;COMIENZO\_PROCESO: Ventana de proceso (Comienzo)](#rp_guicomienzo_proceso-ventana-de-proceso-comienzo)
       - [RP\_GUI;CONTINUAR\_PROCESO: Ventana de proceso (Continuar)](#rp_guicontinuar_proceso-ventana-de-proceso-continuar)
       - [RP\_GUI;FIN\_PROCESO: Ventana de proceso (Finalización)](#rp_guifin_proceso-ventana-de-proceso-finalización)
       - [RP\_GUI;DIALOGUE: Crear ventana de diálogo](#rp_guidialogue-crear-ventana-de-diálogo)
+      - [RP\_GUI;GRAFICO\_BARRA: Despliegue e impresión de gráficos de barra](#rp_guigrafico_barra-despliegue-e-impresión-de-gráficos-de-barra)
+      - [RP\_GUI;GRAFICO\_PIE: Despliegue e impresión de gráficos de barra](#rp_guigrafico_pie-despliegue-e-impresión-de-gráficos-de-barra)
+      - [RP\_GUI;IMAGEN: Mostrar imagen en ventana](#rp_guiimagen-mostrar-imagen-en-ventana)
       - [RP\_GUI;INPUT: Lectura (INPUT) en entorno gráfico (No aplica para NOMADS)](#rp_guiinput-lectura-input-en-entorno-gráfico-no-aplica-para-nomads)
       - [RP\_GUI;MENU\_DISABLE: Deshabilitar opciones del MENU](#rp_guimenu_disable-deshabilitar-opciones-del-menu)
       - [RP\_GUI;MENU\_ENABLE: Habilitar opciones del MENU](#rp_guimenu_enable-habilitar-opciones-del-menu)
@@ -466,8 +491,6 @@ Para realizar operaciones relacionadas al catálogo de funciones. Típicamente u
 
 #### RP_CATAL;APLICACIONES: Leer tabla de aplicaciones
 
-Leer tabla de aplicaciones
-
 ~~~text
 CALL "RP_CATAL;APLICACIONES",TAB_APL$
 ~~~
@@ -485,8 +508,6 @@ CALL "RP_CATAL;APLICACIONES",TAB_APL$
 [Volver arriba](#rutinas-públicas-rp_xxxxx)
 
 #### RP_CATAL;CATALOGO: Leer catálogo de una aplicación
-
-Leer catálogo de una aplicación.
 
 ~~~text
 CALL "RP_CATAL;CATALOGO",CIA$, APLIC, CATAL, LCAT${ALL}, IND_CAT, OPC$
@@ -1138,9 +1159,9 @@ PERFORM "RP_FORMA;ENCABEZADO"
 
 ~~~text
 ¡ APLICACIÓN: VENTAS
-LET  F_APLIC$="05" 
+F_APLIC$="05" 
 ! CODIGO DEL FORMATO DE IMPRESION SEGUN OPERACION
-LET  F_FORMA$=FACTBOPE.FORMATO$ 
+F_FORMA$=FACTBOPE.FORMATO$ 
 PEFORM "RP_FORMA;ENCABEZADO"
 ~~~
 
@@ -1161,12 +1182,12 @@ Enviar datos del detalle de Factura (programa VTAFAC75)
 ~~~text
 ! CICLO FACDETAL
 SELECT *,REC=FACDETAL$ FROM CANDET BEGIN KENC$ END KENC$+$FF$
-LET FACTBLIN$=""; FIND (FACTBLIN,,REC=FACTBLIN$,KEY=%BASE_CIA$+FACDETAL.TIP_LIN$,KNO=0,DOM=*NEXT)
-LET INVDESCR$=""; FIND (INVDESCR,REC=INVDESCR$,KEY=%BASE_CIA$+FACDETAL.PROD$,KNO=0,DOM=*NEXT)
-LET INVGRUPO$=""; FIND (INVGRUPO,REC=INVGRUPO$,KEY=%BASE_CIA$+INVDESCR.GRUPO$,,KNO=0,DOM=*NEXT)
-LET MONTO=(FACDETAL.CANT*FACDETAL.PRC_UNIT)
-LET MONTO=MONTO-MONTO*FACDETAL.PCTDSC/100
-LET MONTO=MONTO-MONTO*DNETO/100
+FACTBLIN$=""; FIND (FACTBLIN,,REC=FACTBLIN$,KEY=%BASE_CIA$+FACDETAL.TIP_LIN$,KNO=0,DOM=*NEXT)
+INVDESCR$=""; FIND (INVDESCR,REC=INVDESCR$,KEY=%BASE_CIA$+FACDETAL.PROD$,KNO=0,DOM=*NEXT)
+INVGRUPO$=""; FIND (INVGRUPO,REC=INVGRUPO$,KEY=%BASE_CIA$+INVDESCR.GRUPO$,,KNO=0,DOM=*NEXT)
+MONTO=(FACDETAL.CANT*FACDETAL.PRC_UNIT)
+MONTO=MONTO-MONTO*FACDETAL.PCTDSC/100
+MONTO=MONTO-MONTO*DNETO/100
 PERFORM "RP_FORMA;DETALLE"
 NEXT RECORD
 ~~~
@@ -1532,12 +1553,359 @@ CALL "RP_GRID;PREPARAR",GRID_DAT.CTL,"Linea","001",8,NCOL-8
 
 [Volver arriba](#rutinas-públicas-rp_xxxxx)
 
+### RP_GRIDN: Utilidades para objetos tipo GRID (nuevo)
+
+Nueva versión del [RP_GRID](#rp_grid-utilidades-para-objetos-tipo-grid) que permite simplificar el manejo de los objetos tipo <a href="https://manual.pvxplus.com/PXPLUS/directives/grid.htm" target="_blank">GRID</a> (rejilla).
+
+Para esta nueva versión el formato del <a href="https://manual.pvxplus.com/PXPLUS/directives/grid.htm" target="_blank">GRID</a> contenido en el panel se define vacío y es a través del Mantenimiento de Formatos de Grids que se define el formato del mismo.
+
+#### RP_GRIDN;ACT_BOTONES: Activar botones en el GRID
+
+~~~text
+CALL "RP_GRIDN;ACT_BOTONES",OBJETO,LST$,LINEA
+~~~
+
+- Parámetros:
+  
+  |Parámetro|E/S|Descripción|
+  |:--------|:-:|-----------|
+  |OBJETO|E|Número de control de objeto asociado al <a href="https://manual.pvxplus.com/PXPLUS/directives/grid.htm" target="_blank">GRID</a>|
+  |LST$|E|Nombre de las columnas a activar separadas con coma|
+  |LINEA|E|Número de línea|
+
+- Ejemplo:
+
+~~~text
+LST$="BCTA,BCCO,BAUX,"
+LINEA=1
+CALL "RP_GRIDN;ACT_BOTONES",GRID_DAT.CTL,LST$,LINEA
+~~~
+
+[Volver arriba](#rutinas-públicas-rp_xxxxx)
+
+#### RP_GRIDN;ACT_CHECKMARK: Activar botones de chequeo en el GRID
+
+~~~text
+CALL "RP_GRIDN;ACT_CHECKMARK",OBJETO,LST$,LINEA
+~~~
+
+- Parámetros:
+  
+  |Parámetro|E/S|Descripción|
+  |:--------|:-:|-----------|
+  |OBJETO|E|Número de control de objeto asociado al <a href="https://manual.pvxplus.com/PXPLUS/directives/grid.htm" target="_blank">GRID</a>|
+  |LST$|E|Nombre de las columnas a activar separadas con coma|
+  |LINEA|E|Número de línea|
+
+- Ejemplo:
+
+~~~text
+LST$="CONCIL,NO_NONCIL,"
+LIN=1
+CALL “RP_GRIDN;ACT_CHECKMARK",GRID_DAT.CTL,LST$,LIN
+~~~
+
+[Volver arriba](#rutinas-públicas-rp_xxxxx)
+
+
+#### RP_GRIDN;ACT_COLUMNAS: Activar columnas en el GRID
+
+~~~text
+CALL "RP_GRIDN;ACT_COLUMNAS",OBJETO,LST$,LINEA
+~~~
+
+- Parámetros:
+  
+  |Parámetro|E/S|Descripción|
+  |:--------|:-:|-----------|
+  |OBJETO|E|Número de control de objeto asociado al <a href="https://manual.pvxplus.com/PXPLUS/directives/grid.htm" target="_blank">GRID</a>|
+  |LST$|E|Nombre de las columnas a activar separadas con coma|
+  |LINEA|E|Número de línea|
+
+- Ejemplo:
+
+~~~text
+LST$="CTA,CCO,AUX"
+LIN=1
+CALL "RP_GRIDN;ACT_COLUMNAS",GRID_DAT.CTL,LST$,LIN
+~~~
+
+[Volver arriba](#rutinas-públicas-rp_xxxxx)
+
+#### RP_GRIDN;AD_LINEA: Agregar una línea al GRID
+
+~~~text
+CALL "RP_GRIDN;AD_LINEA",OBJETO,ULT_COLACT,LINEA
+~~~
+
+- Parámetros:
+  
+  |Parámetro|E/S|Descripción|
+  |:--------|:-:|-----------|
+  |OBJETO|E|Número de control de objeto asociado al <a href="https://manual.pvxplus.com/PXPLUS/directives/grid.htm" target="_blank">GRID</a>|
+  |ULT_COLACT|E|Número de la última columna activa \(visible\)|
+  |LINEA|E|Número de línea a insertar|
+
+- Ejemplo:
+
+~~~text
+LIN=4
+ULT=8
+CALL "RP_GRIDN;AD_LINEA",GRID_DAT.CTL,ULT,LIN
+~~~
+
+[Volver arriba](#rutinas-públicas-rp_xxxxx)
+
+#### RP_GRIDN;COPIAR: Preparar la copia de una línea del GRID
+
+Se activa en el Panel, menú del <a href="https://manual.pvxplus.com/PXPLUS/directives/grid.htm" target="_blank">GRID</a>, sección Edición, función COPIAR una línea
+
+~~~text
+PERFORM "RP_GRIDN;COPIAR"
+~~~
+
+[Volver arriba](#rutinas-públicas-rp_xxxxx)
+
+#### RP_GRIDN;CREATE: Leer formato, crear y preparar el GRID
+
+Se utiliza en la llamada de Post-Create del Panel. Con esta llamada el RP_GRIDN lee el formato, prepara el <a href="https://manual.pvxplus.com/PXPLUS/directives/grid.htm" target="_blank">GRID</a> definiendo todas sus columnas, deshabilita los botones y columnas indicados y si está definida ejecuta la rutina de Post_Create.
+
+~~~text
+PERFORM "RP_GRIDN;CREATE"
+~~~
+
+[Volver arriba](#rutinas-públicas-rp_xxxxx)
+
+#### RP_GRIDN;DEL_LINEA: Elimina una línea del GRID renumerando la columna descriptiva (0)
+
+Esta opción se usa cuando se quiere eliminar una línea por instrucción del programa principal
+
+~~~text
+CALL "RP_GRIDN;DEL_LINEA",OBJETO,TNLIN,LINEA
+~~~
+
+- Parámetros:
+  
+  |Parámetro|E/S|Descripción|
+  |:--------|:-:|-----------|
+  |OBJETO|E|Número de control de objeto asociado al <a href="https://manual.pvxplus.com/PXPLUS/directives/grid.htm" target="_blank">GRID</a>|
+  |TNLIN|E|Número de la última línea en el <a href="https://manual.pvxplus.com/PXPLUS/directives/grid.htm" target="_blank">GRID</a>|
+  |LINEA|E|Número de línea a eliminar|
+
+- Ejemplo:
+
+~~~text
+NLIN=3
+LIN=1
+CALL "RP_GRIDN;DEL_LINEA",GRID_DAT.CTL,NLIN,LIN
+~~~
+
+[Volver arriba](#rutinas-públicas-rp_xxxxx)
+
+#### RP_GRIDN;DES_BOTONES: Desactivar botones en el GRID
+
+~~~text
+CALL "RP_GRIDN;DES_BOTONES",OBJETO,LST$,LINEA
+~~~
+
+- Parámetros:
+  
+  |Parámetro|E/S|Descripción|
+  |:--------|:-:|-----------|
+  |OBJETO|E|Número de control de objeto asociado al <a href="https://manual.pvxplus.com/PXPLUS/directives/grid.htm" target="_blank">GRID</a>|
+  |LST$|E|Nombre de las columnas a desactivar separadas con coma|
+  |LINEA|E|Número de línea|
+
+- Ejemplo:
+
+~~~text
+LST$="CTA,CCO,AUX,"
+LIN=1
+CALL "RP_GRIDN;DES_COLUMNAS",GRID_DAT.CTL,LST$,LIN
+~~~
+
+[Volver arriba](#rutinas-públicas-rp_xxxxx)
+
+#### RP_GRIDN;ELIMINAR_LINEA: Eliminar una línea del GRID
+
+Se activa en el Panel, menú del <a href="https://manual.pvxplus.com/PXPLUS/directives/grid.htm" target="_blank">GRID</a>, sección Edición, función ELIMINAR una línea.
+
+~~~text
+PERFORM "RP_GRIDN;ELIMINAR_LINEA"
+~~~
+
+[Volver arriba](#rutinas-públicas-rp_xxxxx)
+
+#### RP_GRIDN;FOCUS: Acciones a tomar cuando el GRID recibe el foco
+
+Se utiliza en la llamada de "When Receiving Focus" del Panel.
+
+~~~text
+PERFORM "RP_GRIDN;FOCUS"
+~~~
+
+[Volver arriba](#rutinas-públicas-rp_xxxxx)
+
+#### RP_GRIDN;GRABAR_GRID: Grabar valores en una línea indicada
+
+~~~text
+CALL "RP_GRIDN;GRABAR_GRID",OBJETO,LINEA,LINEA${all}
+~~~
+
+- Parámetros:
+  
+  |Parámetro|E/S|Descripción|
+  |:--------|:-:|-----------|
+  |OBJETO|E|Número de control de objeto asociado al <a href="https://manual.pvxplus.com/PXPLUS/directives/grid.htm" target="_blank">GRID</a>|
+  |LINEA|E|Línea a grabar|
+  |LINEA$\{all\}|E|Valores a grabar en cada una de las celdas de la línea referida|
+
+- Ejemplo:
+
+~~~text
+CALL "RP_GRIDN;GRABAR_GRID",GRID_DAT.CTL,LINEA,VAL_GRID${all}
+~~~
+
+[Volver arriba](#rutinas-públicas-rp_xxxxx)
+
+#### RP_GRIDN;INS_LINEA: Insertar una línea al GRID renumerando la columna descriptiva (0)
+
+~~~text
+CALL "RP_GRIDN;INS_LINEA",OBJETO,TNLIN,LINEA,ULT_COLACT
+~~~
+
+- Parámetros:
+  
+  |Parámetro|E/S|Descripción|
+  |:--------|:-:|-----------|
+  |OBJETO|E|Número de control de objeto asociado al <a href="https://manual.pvxplus.com/PXPLUS/directives/grid.htm" target="_blank">GRID</a>|
+  |TNLIN|E|Número de la última línea en el <a href="https://manual.pvxplus.com/PXPLUS/directives/grid.htm" target="_blank">GRID</a>|
+  |LINEA|E|Número de línea a insertar|
+  |ULT_COLACT|E|Número de la última columna activa (visible)|
+
+- Ejemplo:
+
+~~~text
+NLIN=3
+ULT=8
+CALL "RP_GRIDN;INS_LINEA",GRID_DAT.CTL,NLIN,LIN,ULT
+~~~
+
+[Volver arriba](#rutinas-públicas-rp_xxxxx)
+
+#### RP_GRIDN;INSERTAR_LINEA: Insertar una línea en el GRID
+
+Se activa en el Panel, menú del <a href="https://manual.pvxplus.com/PXPLUS/directives/grid.htm" target="_blank">GRID</a>, sección Edición, función INSERTAR una línea.
+
+~~~text
+PERFORM "RP_GRIDN;INSERTAR_LINEA"
+~~~
+
+[Volver arriba](#rutinas-públicas-rp_xxxxx)
+
+#### RP_GRIDN;LEER_LINEA: Leer valores de una línea indicada
+
+~~~text
+CALL “RP_GRIDN;LEER_LINEA”,OBJETO,LINEA,LINEA${all}
+~~~
+
+- Parámetros:
+  
+  |Parámetro|E/S|Descripción|
+  |:--------|:-:|-----------|
+  |OBJETO|E|Número de control de objeto asociado al <a href="https://manual.pvxplus.com/PXPLUS/directives/grid.htm" target="_blank">GRID</a>|
+  |LINEA|E|Línea a leer|
+  |LINEA$\{all\}|S|Valores correspondientes a cada una de las celdas de la línea referida|
+
+- Ejemplo:
+
+~~~text
+CALL "RP_GRIDN;LEER_LINEA",GRID_DAT.CTL,VAL_GRID${all}
+~~~
+
+[Volver arriba](#rutinas-públicas-rp_xxxxx)
+
+#### RP_GRIDN;LEER_LINEA_ACTUAL: Leer línea actual
+
+~~~text
+CALL “RP_GRIDN;LEER_LINEA_ACTUAL”,OBJETO,COLUM,LINEA,LINEA${all}
+~~~
+
+- Parámetros:
+  
+  |Parámetro|E/S|Descripción|
+  |:--------|:-:|-----------|
+  |OBJETO|E|Número de control de objeto asociado al <a href="https://manual.pvxplus.com/PXPLUS/directives/grid.htm" target="_blank">GRID</a>|
+  |COLUM|S|Columna actual|
+  |LINEA|S|Línea actual|
+  |LINEA$\{all\}|S|Valores correspondientes a cada una de las celdas de la línea actual|
+
+- Ejemplo:
+
+~~~text
+CALL "RP_GRIDN;LEER_LINEA_ACTUAL",GRID_DAT.CTL,COLUM,LINEA,VAL_GRID${all}
+~~~
+
+[Volver arriba](#rutinas-públicas-rp_xxxxx)
+
+#### RP_GRIDN;LOGIC: Acciones a tomar al seleccionar una celda del GRID
+
+Se utiliza en la llamada de Logic del Panel.
+
+~~~text
+PERFORM "RP_GRIDN;LOGIC"
+~~~
+
+[Volver arriba](#rutinas-públicas-rp_xxxxx)
+
+#### RP_GRIDN;MOVER_LINEA: Mover o preparar el movimiento de una línea del GRID
+
+Se activa en el Panel, menú del <a href="https://manual.pvxplus.com/PXPLUS/directives/grid.htm" target="_blank">GRID</a>, sección Edición, función MOVER una línea
+
+~~~text
+PERFORM "RP_GRIDN;MOVER_LINEA"
+~~~
+
+[Volver arriba](#rutinas-públicas-rp_xxxxx)
+
+#### RP_GRIDN;ORDENAR: Ordenar el GRID
+
+~~~text
+CALL "RP_GRIDN;ORDENAR",OBJETO,LSTORDE$,TIPORDE$,OPC$
+~~~
+
+- Parámetros:
+  
+  |Parámetro|E/S|Descripción|
+  |:--------|:-:|-----------|
+  |OBJETO|E|Número de control de objeto asociado al <a href="https://manual.pvxplus.com/PXPLUS/directives/grid.htm" target="_blank">GRID</a>|
+  |LSTORDE$|E|Lista de columnas separadas con coma por donde se va a ordenar el <a href="https://manual.pvxplus.com/PXPLUS/directives/grid.htm" target="_blank">GRID</a>. x,x,xF (xF = columna de fecha) |
+  |TIPORDE$|E|Forma de ordenamiento \(A= Ascendente, D = Descendente\)|
+  |OPC$|E|Opciones adicionales (Para uso futuro)|
+
+- Ejemplo:
+
+~~~text
+CALL "RP_GRIDN;ORDENAR",GRID_DAT.CTL,"4,2,1F","A",""
+~~~
+
+[Volver arriba](#rutinas-públicas-rp_xxxxx)
+
+#### RP_GRIDN;PEGAR_LINEA: Pegar la línea copiada o movida en el sitio actual del GRID
+
+Se activa en el Panel, menú del <a href="https://manual.pvxplus.com/PXPLUS/directives/grid.htm" target="_blank">GRID</a>, sección Edición, función PEGAR una línea.
+
+~~~text
+PERFORM "RP_GRIDN;PEGAR_LINEA"
+~~~
+
+[Volver arriba](#rutinas-públicas-rp_xxxxx)
+
 ### RP_GUI: Utilidades para Entorno  Gráfico
 
 Permite simplificar algunas funciones típicas asociadas a los objetos y el entorno gráfico en general.
 
 [Volver arriba](#rutinas-públicas-rp_xxxxx)
-
 
 #### RP_GUI;CAMBIO_FOLDER: Cambiar pestaña (FOLDER) activa
 
@@ -1556,9 +1924,38 @@ PERFORM "RP_GUI;CAMBIO_FOLDER"
 - Ejemplo:
 
 ~~~text
-LET NEXT_FOLDER=FLDR.SEL_COSTOS.CTL
+NEXT_FOLDER=FLDR.SEL_COSTOS.CTL
 PERFORM "RP_GUI;CAMBIO_FOLDER"
 ~~~
+
+[Volver arriba](#rutinas-públicas-rp_xxxxx)
+
+#### RP_GUI;CENTRAR_TITULOS: Centrar títulos de LIST_BOX o GRID
+
+~~~text
+CALL "RP_GUI;CENTRAR_TITULOS",NUM_CTL
+~~~
+
+- Parámetros
+
+  |Parámetro|E/S|Descripción|
+  |:--------|:-:|-----------|
+  |NUM_CTL|E|Número de control asociado al objeto <a href="https://manual.pvxplus.com/PXPLUS/directives/grid.htm" target="_blank">GRID</a> o <a href="https://manual.pvxplus.com/PXPLUS/directives/list_box.htm" target="_blank">LIST_BOX</a>|
+
+[Volver arriba](#rutinas-públicas-rp_xxxxx)
+
+#### RP_GUI;COMIENZO_GRABACION: Comienzo de la grabación
+
+~~~text
+CALL "RP_GUI;COMIENZO_GRABACION",TIT$,TEMP$
+~~~
+
+- Parámetros:
+  
+  |Parámetro|E/S|Descripción|
+  |:--------|:-:|-----------|
+  |TIT$|E|Título de la ventana de proceso|
+  |TEMP$|E|Mensaje de información|
 
 [Volver arriba](#rutinas-públicas-rp_xxxxx)
 
@@ -1663,6 +2060,106 @@ CALL "RP_GUI;DIALOGUE",WIN,0,0,20,30,"Selección de Operadores", "CEN  PVX=X*c"
 
 [Volver arriba](#rutinas-públicas-rp_xxxxx)
 
+#### RP_GUI;GRAFICO_BARRA: Despliegue e impresión de gráficos de barra
+
+~~~text
+CALL "RP_GUI;GRAFICO_BARRA",CANMEM,PREF$,COL,FIL,ANCHO,ALTO,TITULO$,OPCIONES$
+~~~
+
+- Parámetros:
+  
+  |Parámetro|E/S|Descripción|
+  |:--------|:-:|-----------|
+  |CANMEM|E|Canal del archivo de memoria que contiene los datos acumulados|
+  |PREF$|E|Prefijo que identifica los registros a ser tomados en cuenta|
+  |COL|E|Columna inicial (posición)|
+  |FIL|E|Fila inicial (posición)|
+  |ANCHO|E|Ancho de la gráfica|
+  |ALTO|E|Alto de la gráfica|
+  |TITULO$|E|Título del gráfico|
+  |OPC$|E|Opciones adicionales separadas por un espacio|
+
+El archivo de memoria debe tener el formato siguiente:
+
+Clave conformada por el PREF$ (sí lo hay) mas la clave específica de acumulación.
+
+- Campos:
+  
+  |Campo|Descripción|
+  |:---:|-----------|
+  |\[1\]|Acumulación|
+  |\[2\]|Leyenda que aparecerá al pié de la barra|
+  
+  - Opciones:
+
+    |Opción|Descripción|
+    |:-----|-----------|
+    |""|Sin opciones|
+    |IMPR_MULTIPLE|Cuando se va a imprimir el gráfico esta opción indica que queremos imprimir más gráficos en la misma página.|
+    |AGRUPAR=NN|Para unir cada NN barras|
+    |ANGULO_REF=XXX|Angulo para mostrar la referencia en el eje ‘Y’. Por defecto 325|
+    |FUENTE_REF=NN,TT,AA|Nombre, tamaño y atributos de la fuente para mostrar en el eje 'Y'|
+
+[Volver arriba](#rutinas-públicas-rp_xxxxx)
+
+#### RP_GUI;GRAFICO_PIE: Despliegue e impresión de gráficos de barra
+
+~~~text
+CALL "RP_GUI;GRAFICO_PIE",CANMEM,PREF$,COL,FIL,RADIO,TITULO$,COL_LEY,FIL_LEY,ANC_LEY,ALT_LEY,OPCIONES$
+~~~
+
+- Parámetros:
+  
+  |Parámetro|E/S|Descripción|
+  |:--------|:-:|-----------|
+  |CANMEM|E|Canal del archivo de memoria que contiene los datos acumulados|
+  |PREF$|E|Prefijo que identifica los registros a ser tomados en cuenta|
+  |COL|E|Columna inicial (posición)|
+  |FIL|E|Fila inicial (posición)|
+  |RADIO|E|Radio de la torta|
+  |TITULO$|E|Título del gráfico|
+  |COL_LEY|E|Columna para el despliegue de la leyenda|
+  |FIL_LEY|E|Fila para el despliegue de la leyenda|
+  |ANC_LEY|E|Ancho de la leyenda|
+  |ALT_LEY|E|Alto de la leyenda|
+  |OPCIONES$|E|Opciones adicionales separadas por un espacio|
+
+El archivo de memoria debe tener el formato siguiente:
+
+Clave conformada por el PREF$ (sí lo hay) mas la clave específica de acumulación.
+
+- Campos:
+  
+  |Campo|Descripción|
+  |:---:|-----------|
+  |\[1\]|Acumulación|
+  |\[2\]|Leyenda que aparecerá en el pedazo de torta|
+  
+  - Opciones:
+
+    |Opción|Descripción|
+    |:-----|-----------|
+    |""|Sin opciones|
+    |CUADRO_LEYENDA|Si se quiere imprimir al pie un cuadro con la leyenda|
+    |IMPR_MULTIPLE|Cuando se va a imprimir el gráfico esta opción indica que queremos imprimir más gráficos en la misma página.|
+
+[Volver arriba](#rutinas-públicas-rp_xxxxx)
+
+#### RP_GUI;IMAGEN: Mostrar imagen en ventana
+
+~~~text
+CALL "RP_GUI;IMAGEN",IDE_WIN$,ARCHIVO$
+~~~
+
+- Parámetros:
+  
+  |Parámetro|E/S|Descripción|
+  |:--------|:-:|-----------|
+  |IDE_WIN$|E| |
+  |ARCHIVO$|E|Archivo donde está la imagen|
+
+[Volver arriba](#rutinas-públicas-rp_xxxxx)
+
 #### RP_GUI;INPUT: Lectura (INPUT) en entorno gráfico (No aplica para NOMADS)
 
 ~~~text
@@ -1696,7 +2193,6 @@ IF CTL_SYS=9 THEN salir=1
 .
 .
 UNTIL salir
-
 ~~~
 
 [Volver arriba](#rutinas-públicas-rp_xxxxx)
@@ -2092,9 +2588,9 @@ CALL "RU_COPY"
 <a href="https://home.pvxplus.com/" target="_blank">PxPlus</a>
 <a href="https://manual.pvxplus.com/PXPLUS/directives/perform.htm" target="_blank">PERFORM</a>
 <a href="https://manual.pvxplus.com/PXPLUS/directives/grid.htm" target="_blank">GRID</a>
+<a href="https://manual.pvxplus.com/PXPLUS/directives/list_box.htm" target="_blank">LIST_BOX</a>
 <a href="https://manual.pvxplus.com/PXPLUS/control_object_properties/listview_properties.htm" target="_blank">LIST_VIEW</a>
 <a href="https://manual.pvxplus.com/PXPLUS/directives/drop_box.htm" target="_blank">DROP_BOX</a>
-<a href="https://manual.pvxplus.com/PXPLUS/directives/list_box.htm" target="_blank">LIST_BOX</a>
 <a href="https://manual.pvxplus.com/PXPLUS/NOMADS%20Graphical%20Application/Creating%20Panel%20Controls/Folder%20Controls/Overview.htm" target="_blank">FOLDER</a>
 <a href="https://manual.pvxplus.com/PXPLUS/NOMADS%20Graphical%20Application/NOMADS%20Development/Getting%20Started.htm" target="_blank">NOMADS</a>
 <a href="https://manual.pvxplus.com/PXPLUS/directives/select.htm" target="_blank">SELECT</a>

@@ -117,9 +117,12 @@
     - [RP\_QUERY: Despliegue o consulta de valores para seleccionar](#rp_query-despliegue-o-consulta-de-valores-para-seleccionar)
     - [RP\_REP: Manejo de Reportes](#rp_rep-manejo-de-reportes)
       - [RP\_REP;FORMATO: Preparar columnas y datos del reporte](#rp_repformato-preparar-columnas-y-datos-del-reporte)
-    - [RP\_SYS:Rutinas varias del sistema](#rp_sysrutinas-varias-del-sistema)
+    - [RP\_SYS: Rutinas varias del sistema](#rp_sys-rutinas-varias-del-sistema)
       - [RP\_SYS;ALINEACION: Alineación de un texto](#rp_sysalineacion-alineación-de-un-texto)
       - [RP\_SYS;ANTIGUEDAD: Análisis de la antigüedad](#rp_sysantiguedad-análisis-de-la-antigüedad)
+      - [RP\_SYS;AUDIT\_PISTA: Pista de auditoría](#rp_sysaudit_pista-pista-de-auditoría)
+      - [RP\_SYS;CAMBIO\_MONEDA: Tasa de cambio registrada en CTLMONCA](#rp_syscambio_moneda-tasa-de-cambio-registrada-en-ctlmonca)
+      - [RP\_SYS;DESCUENTOS: Validación y cálculo de varios descuentos](#rp_sysdescuentos-validación-y-cálculo-de-varios-descuentos)
   - [Rutinas Utilitarias (RU\_XXXXX):](#rutinas-utilitarias-ru_xxxxx)
     - [RU\_COPY](#ru_copy)
 
@@ -2544,7 +2547,6 @@ CALL "RP_REP;FORMATO",LP,REP$,FMT$,OPC$
     |REP.ANCH|Ancho del reporte|
     |REP.*|Columnas (Ej. REP.CIA,REP.NOM,REP.SALDO)|
 
-
   - Opciones:
 
     |Opción|Descripción|
@@ -2573,7 +2575,7 @@ CALL "RP_SYS;FORMATO",CANAL_PRN,R$,FORMATO$,OPC$
 
 [Volver arriba](#rutinas-públicas-rp_xxxxx)
 
-### RP_SYS:Rutinas varias del sistema
+### RP_SYS: Rutinas varias del sistema
 
 [Volver arriba](#rutinas-públicas-rp_xxxxx)
 
@@ -2604,14 +2606,13 @@ CALL "RP_SYS;ALINEACION",VAR$,40
 CALL "RP_SYS;ANTIGUEDAD",FANL$,FDOC$,TIPO$,MONTO,NRO,D{ALL},INTER,DIAS
 ~~~
 
-
 - Parámetros:
   
   |Parámetro|E/S|Descripción|
   |:--------|:-:|-----------|
-  |FANL$|E|Fecha del análisis|
-  |FDOC$|E|Fecha de vencimiento del documento|
-  |TIPO$|E|Tipo de análisis, ejemplo: -999999,-90,-60,-30,0,30,60,90,999999|
+  |FANL$|E|Fecha del análisis DDMMAAAA|
+  |FDOC$|E|Fecha de vencimiento del documento DDMMAAAA|
+  |TIPO$|E|Tipo de análisis, sí es vacío usa: -999999,-90,-60,-30,0,30,60,90,999999|
   |.|.|Para este ejemplo se llenará una matriz con:|
   |.|.|[0] = por vencer mas de 90 días|
   |.|.|[1] = por vencer 61 a 90 días|
@@ -2631,12 +2632,99 @@ CALL "RP_SYS;ANTIGUEDAD",FANL$,FDOC$,TIPO$,MONTO,NRO,D{ALL},INTER,DIAS
 - Ejemplo:
 
 ~~~text
-FANL$=""
-FDOC$=""
+FANL$="31082026"
+FDOC$="15072026"
 TIPO$=""
-MONTO=0
-NRO=0
+MONTO=1000
+NRO=9
 CALL "RP_SYS;ANTIGUEDAD",FANL$,FDOC$,TIPO$,MONTO,NRO,D{ALL},INTER,DIAS
+~~~
+
+[Volver arriba](#rutinas-públicas-rp_xxxxx)
+
+#### RP_SYS;AUDIT_PISTA: Pista de auditoría
+
+~~~text
+CALL "RP_SYS;AUDIT_PISTA",PISTA$
+~~~
+
+- Parámetros:
+  
+  |Parámetro|E/S|Descripción|
+  |:--------|:-:|-----------|
+  |PISTA$|S|Trama de texto con usuario+fecha+hora|
+  
+- Ejemplo:
+
+~~~text
+->CALL "RP_SYS;AUDIT_PISTA",PISTA$
+->PRINT PISTA$
+OLIVER090920261747
+~~~
+
+[Volver arriba](#rutinas-públicas-rp_xxxxx)
+
+#### RP_SYS;CAMBIO_MONEDA: Tasa de cambio registrada en CTLMONCA
+
+~~~text
+CALL "RP_SYS;CAMBIO_MONEDA",CODIGO$,FECHA$,CAMBIO,FEC_RESULT$,OPCION$
+~~~
+
+- Parámetros:
+  
+  |Parámetro|E/S|Descripción|
+  |:--------|:-:|-----------|
+  |CODIGO$|E|Código de moneda en CTLMONEX|
+  |FECHA$|E|Fecha de la tasa solicitada DDMMAAAA|
+  |CAMBIO|S|Tasa de cambio consultada|
+  |FEC_RESULT$|S|Fecha de cambio de la tasa de cambio obtenida|
+  |OPCION$|E|Opciones de la rutina|
+  
+  - Opciones:
+
+    |Opción|Descripción|
+    |:-----|-----------|
+    |""|Sin opciones|
+    |PROX|Tasa del día siguiente, sí no esta la del día solicitado (art.25 ley del iva)|
+
+- Ejemplo:
+
+~~~text
+->call "RP_SYS;CAMBIO_MONEDA","US$","21122025",C,F$,""
+->PRINT C," ",F$
+270.7893 15122025
+->call "RP_SYS;CAMBIO_MONEDA","US$","21122025",C,F$,"PROX"
+->PRINT C," ",F$
+285.4024 22122025
+~~~
+
+[Volver arriba](#rutinas-públicas-rp_xxxxx)
+
+#### RP_SYS;DESCUENTOS: Validación y cálculo de varios descuentos
+
+~~~text
+CALL "RP_SYS;DESCUENTOS",LIS$,MON,RES$,NETO,MNETO,NDES,P{ALL},M{ALL}
+~~~
+
+- Parámetros:
+  
+  |Parámetro|E/S|Descripción|
+  |:--------|:-:|-----------|
+  |LIS$  |E|Lista de descuentos separados por '+'|
+  |MON   |E|Monto a calcular descuentos (opcional)|
+  |RES$  |E|Validación (""=OK, "ERR"=NO OK)"|
+  |NETO  |S|Descuento neto en porcentaje|
+  |MNETO |S|Descuento neto en monto|
+  |NDES  |S|Número de descuentos|
+  |P[ALL]|S|Descuentos en porcentaje|
+  |M[ALL]|S|Descuentos en montos|
+  
+- Ejemplo:
+
+~~~text
+->call "RP_SYS;DESCUENTOS","10+5",100,"",NETO,MNETO,NDES,P{ALL},M{ALL}
+->PRINT NETO," ",MNETO," ",NDES," (",STR(P[ALL]),") (",STR(M[ALL]),")"
+14.5 14.5 2 ( 0 10 5) ( 0 10 4.5)
 ~~~
 
 [Volver arriba](#rutinas-públicas-rp_xxxxx)

@@ -119,6 +119,7 @@
       - [RP\_REP;FORMATO: Preparar columnas y datos del reporte](#rp_repformato-preparar-columnas-y-datos-del-reporte)
     - [RP\_SYS:Rutinas varias del sistema](#rp_sysrutinas-varias-del-sistema)
       - [RP\_SYS;ALINEACION: Alineación de un texto](#rp_sysalineacion-alineación-de-un-texto)
+      - [RP\_SYS;ANTIGUEDAD: Análisis de la antigüedad](#rp_sysantiguedad-análisis-de-la-antigüedad)
   - [Rutinas Utilitarias (RU\_XXXXX):](#rutinas-utilitarias-ru_xxxxx)
     - [RU\_COPY](#ru_copy)
 
@@ -2588,11 +2589,54 @@ CALL "RP_SYS;ALINEACION",TEXTO$,ANCHO
   |:--------|:-:|-----------|
   |TEXTO$|E|Texto a justificar|
   |ANCHO|E|Tamaño de la línea|
- 
+
 - Ejemplo:
 
 ~~~text
 CALL "RP_SYS;ALINEACION",VAR$,40
+~~~
+
+[Volver arriba](#rutinas-públicas-rp_xxxxx)
+
+#### RP_SYS;ANTIGUEDAD: Análisis de la antigüedad
+
+~~~text
+CALL "RP_SYS;ANTIGUEDAD",FANL$,FDOC$,TIPO$,MONTO,NRO,D{ALL},INTER,DIAS
+~~~
+
+
+- Parámetros:
+  
+  |Parámetro|E/S|Descripción|
+  |:--------|:-:|-----------|
+  |FANL$|E|Fecha del análisis|
+  |FDOC$|E|Fecha de vencimiento del documento|
+  |TIPO$|E|Tipo de análisis, ejemplo: -999999,-90,-60,-30,0,30,60,90,999999|
+  |.|.|Para este ejemplo se llenará una matriz con:|
+  |.|.|[0] = por vencer mas de 90 días|
+  |.|.|[1] = por vencer 61 a 90 días|
+  |.|.|[2] = por vencer 31 a 60  días|
+  |.|.|[3] = por vencer  1 a 30 días|
+  |.|.|[4] = se vence hoy|
+  |.|.|[5] = vencido  1 a 30 días|
+  |.|.|[6] = vencido 31 a 60 días|
+  |.|.|[7] = vencido 61 a 90 días|
+  |.|.|[8] = vencido mas de 90 días|
+  |MONTO|E|Monto del documento|
+  |NRO|E|Número de casillas de la matriz|
+  |D\{ALL\}|S|Matriz con el análisis del detalle|
+  |INTER|S|Número de la casilla en la cual se ubicó el documento|
+  |DIAS|S|Días vencidos o por vencer|
+
+- Ejemplo:
+
+~~~text
+FANL$=""
+FDOC$=""
+TIPO$=""
+MONTO=0
+NRO=0
+CALL "RP_SYS;ANTIGUEDAD",FANL$,FDOC$,TIPO$,MONTO,NRO,D{ALL},INTER,DIAS
 ~~~
 
 [Volver arriba](#rutinas-públicas-rp_xxxxx)

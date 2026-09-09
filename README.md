@@ -117,6 +117,8 @@
     - [RP\_QUERY: Despliegue o consulta de valores para seleccionar](#rp_query-despliegue-o-consulta-de-valores-para-seleccionar)
     - [RP\_REP: Manejo de Reportes](#rp_rep-manejo-de-reportes)
       - [RP\_REP;FORMATO: Preparar columnas y datos del reporte](#rp_repformato-preparar-columnas-y-datos-del-reporte)
+    - [RP\_SYS:Rutinas varias del sistema](#rp_sysrutinas-varias-del-sistema)
+      - [RP\_SYS;ALINEACION: Alineación de un texto](#rp_sysalineacion-alineación-de-un-texto)
   - [Rutinas Utilitarias (RU\_XXXXX):](#rutinas-utilitarias-ru_xxxxx)
     - [RU\_COPY](#ru_copy)
 
@@ -2519,7 +2521,7 @@ Para realizar todas al operaciones relacionadas a la emisión de reportes.
 #### RP_REP;FORMATO: Preparar columnas y datos del reporte
 
 ~~~text
-CALL "RP_REP; FORMATO",LP,REP$,FMT$,OPC$
+CALL "RP_REP;FORMATO",LP,REP$,FMT$,OPC$
 ~~~
 
 - Parámetros:
@@ -2532,6 +2534,7 @@ CALL "RP_REP; FORMATO",LP,REP$,FMT$,OPC$
   |OPC$|E|Opciones Adicionales (Separadas con Espacio)|
 
   - TEMPLATE REP$:
+  
     |Variable|Valor|
     |:-------|-----|
     |REP.CLIN|Contador de líneas|
@@ -2562,6 +2565,34 @@ CALL "RP_REP; FORMATO",LP,REP$,FMT$,OPC$
 - Ejemplo:
 
 ~~~text
+FORMATO$="COD[CÓDIGO]10 DES[DESCRIPCIÓN]30"
+OPC$="COL[80] TIT[TÍTULO DEL REPORTE]"
+CALL "RP_SYS;FORMATO",CANAL_PRN,R$,FORMATO$,OPC$
+~~~
+
+[Volver arriba](#rutinas-públicas-rp_xxxxx)
+
+### RP_SYS:Rutinas varias del sistema
+
+[Volver arriba](#rutinas-públicas-rp_xxxxx)
+
+#### RP_SYS;ALINEACION: Alineación de un texto
+
+~~~text
+CALL "RP_SYS;ALINEACION",TEXTO$,ANCHO
+~~~
+
+- Parámetros:
+  
+  |Parámetro|E/S|Descripción|
+  |:--------|:-:|-----------|
+  |TEXTO$|E|Texto a justificar|
+  |ANCHO|E|Tamaño de la línea|
+ 
+- Ejemplo:
+
+~~~text
+CALL "RP_SYS;ALINEACION",VAR$,40
 ~~~
 
 [Volver arriba](#rutinas-públicas-rp_xxxxx)

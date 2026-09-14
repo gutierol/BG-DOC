@@ -2625,7 +2625,7 @@ CALL "RP_SYS;ANTIGUEDAD",FANL$,FDOC$,TIPO$,MONTO,NRO,D{ALL},INTER,DIAS
   |.|.|[8] = vencido mas de 90 días|
   |MONTO|E|Monto del documento|
   |NRO|E|Número de casillas de la matriz|
-  |D\{ALL\}|S|Matriz con el análisis del detalle|
+  |D[ALL]|S|Matriz con el análisis del detalle|
   |INTER|S|Número de la casilla en la cual se ubicó el documento|
   |DIAS|S|Días vencidos o por vencer|
 

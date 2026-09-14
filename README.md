@@ -123,6 +123,10 @@
       - [RP\_SYS;AUDIT\_PISTA: Pista de auditoría](#rp_sysaudit_pista-pista-de-auditoría)
       - [RP\_SYS;CAMBIO\_MONEDA: Tasa de cambio registrada en CTLMONCA](#rp_syscambio_moneda-tasa-de-cambio-registrada-en-ctlmonca)
       - [RP\_SYS;DESCUENTOS: Validación y cálculo de varios descuentos](#rp_sysdescuentos-validación-y-cálculo-de-varios-descuentos)
+      - [RP\_SYS;DIF\_HORA: Calcular diferencia entre dos horas](#rp_sysdif_hora-calcular-diferencia-entre-dos-horas)
+      - [RP\_SYS;DIGITO\_VER: Rutina para calcular el dígito de control utilizando el sistema de pesos ponderados y un módulo variable](#rp_sysdigito_ver-rutina-para-calcular-el-dígito-de-control-utilizando-el-sistema-de-pesos-ponderados-y-un-módulo-variable)
+      - [RP\_SYS;DISTR\_MON: Distribución de monedas](#rp_sysdistr_mon-distribución-de-monedas)
+      - [RP\_SYS;EDITAR\_MONEDA:](#rp_syseditar_moneda)
   - [Rutinas Utilitarias (RU\_XXXXX):](#rutinas-utilitarias-ru_xxxxx)
     - [RU\_COPY](#ru_copy)
 
@@ -2722,9 +2726,118 @@ CALL "RP_SYS;DESCUENTOS",LIS$,MON,RES$,NETO,MNETO,NDES,P{ALL},M{ALL}
 - Ejemplo:
 
 ~~~text
-->call "RP_SYS;DESCUENTOS","10+5",100,"",NETO,MNETO,NDES,P{ALL},M{ALL}
+->CALL "RP_SYS;DESCUENTOS","10+5",100,"",NETO,MNETO,NDES,P{ALL},M{ALL}
 ->PRINT NETO," ",MNETO," ",NDES," (",STR(P[ALL]),") (",STR(M[ALL]),")"
 14.5 14.5 2 ( 0 10 5) ( 0 10 4.5)
+~~~
+
+[Volver arriba](#rutinas-públicas-rp_xxxxx)
+
+#### RP_SYS;DIF_HORA: Calcular diferencia entre dos horas
+
+~~~text
+CALL "RP_SYS;DIF_HORA",DESDE$,HASTA$,HDIF,MDIF
+~~~
+
+- Parámetros:
+  
+  |Parámetro|E/S|Descripción|
+  |:--------|:-:|-----------|
+  |DESDE$|E|Hora de comienzo, HHMM o HH:MM|
+  |HASTA$|E|Hora de finalización, HHMM o HH:MM|
+  |HDIF|S|Horas de diferencia|
+  |MDIF|S|Minutos de diferencia|
+
+- Ejemplo:
+
+~~~text
+->CALL "RP_SYS;DIF_HORA","10:45","1355",HDIF,MDIF
+->PRINT HDIF," ",MDIF
+ 3  10.2
+~~~
+
+[Volver arriba](#rutinas-públicas-rp_xxxxx)
+
+#### RP_SYS;DIGITO_VER: Rutina para calcular el dígito de control utilizando el sistema de pesos ponderados y un módulo variable
+
+~~~text
+CALL "RP_SYS;DIGITO_VER",N1$,P0$,MCD
+~~~
+
+- Parámetros:
+  
+  |Parámetro|E/S|Descripción|
+  |:--------|:-:|-----------|
+  |N1$|E/S|Número base y número resultante con el DC|
+  |P0$|E|Cadena que contiene los pesos 02, 03, 04 y 05|
+  |MCD|S|El módulo matemático para la división final (10 u 11)|
+
+- Ejemplo:
+
+~~~text
+->CALL "RP_SYS;DIGITO_VER", *** VERIFICAR EJEMPLO ***
+->PRINT HDIF," ",MDIF
+ 3  10.2
+~~~
+
+[Volver arriba](#rutinas-públicas-rp_xxxxx)
+
+#### RP_SYS;DISTR_MON: Distribución de monedas
+
+~~~text
+CALL "RP_SYS;DISTR_MON",MONTO,D[ALL],W[ALL]
+~~~
+
+- Parámetros:
+
+  |Parámetro|E/S|Descripción|
+  |:--------|:-:|-----------|
+  |MONTO|E|Monto a distribuir en monedas|
+  |D[ALL]|S|Matríz con la tabla de monedas|
+  |W[ALL]|S|Matríz con la distribución del detalle|
+
+- Ejemplo:
+
+~~~text
+->DIM D[5]
+->D[0]=0.01
+->D[2]=0.05
+->D[1]=0.05
+->D[2]=1.00
+->D[3]=5.00
+->D[4]=10.00
+->D[5]=100.00
+->CALL "RP_SYS;DISTR_MON",4258.12,D{ALL},W{ALL}
+->PRINT W{ALL}
+ 0 0 0 2 0 0 2 1 0 0 1 3 0 2 2
+~~~
+
+[Volver arriba](#rutinas-públicas-rp_xxxxx)
+
+#### RP_SYS;EDITAR_MONEDA:
+
+~~~text
+CALL "RP_SYS;EDITAR_MONEDA",MONEDA$,MASCARA$,MONTO,RESPUESTA$
+~~~
+
+- Parámetros:
+  
+  |Parámetro|E/S|Descripción|
+  |:--------|:-:|-----------|
+  |MONEDA$|E|Moneda en la cual fue hecho el movimiento|
+  |MASCARA$|E|Mascara de impresión (nulo=%BASE_MASK$)|
+  |MONTO|E|Monto del movimiento|
+  |RESPUESTA$|S|Monto editado con moneda|
+
+- Ejemplo:
+  
+~~~text
+->CALL "RP_SYS;EDITAR_MONEDA","US$","",12257.24,R$
+->PRINT R$
+$    12,257.24
+->CALL "RP_SYS;EDITAR_MONEDA","EUR","",12257.24,R$
+->PRINT R$
+€    12,257.24
 ~~~
 
 [Volver arriba](#rutinas-públicas-rp_xxxxx)

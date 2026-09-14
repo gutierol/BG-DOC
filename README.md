@@ -126,7 +126,8 @@
       - [RP\_SYS;DIF\_HORA: Calcular diferencia entre dos horas](#rp_sysdif_hora-calcular-diferencia-entre-dos-horas)
       - [RP\_SYS;DIGITO\_VER: Rutina para calcular el dígito de control utilizando el sistema de pesos ponderados y un módulo variable](#rp_sysdigito_ver-rutina-para-calcular-el-dígito-de-control-utilizando-el-sistema-de-pesos-ponderados-y-un-módulo-variable)
       - [RP\_SYS;DISTR\_MON: Distribución de monedas](#rp_sysdistr_mon-distribución-de-monedas)
-      - [RP\_SYS;EDITAR\_MONEDA:](#rp_syseditar_moneda)
+      - [RP\_SYS;EDITAR\_MONEDA: Agregar máscara y moneda a una cifra](#rp_syseditar_moneda-agregar-máscara-y-moneda-a-una-cifra)
+      - [RP\_SYS;HORA: Tomar la hora del sistema](#rp_syshora-tomar-la-hora-del-sistema)
   - [Rutinas Utilitarias (RU\_XXXXX):](#rutinas-utilitarias-ru_xxxxx)
     - [RU\_COPY](#ru_copy)
 
@@ -2814,7 +2815,7 @@ CALL "RP_SYS;DISTR_MON",MONTO,D[ALL],W[ALL]
 
 [Volver arriba](#rutinas-públicas-rp_xxxxx)
 
-#### RP_SYS;EDITAR_MONEDA:
+#### RP_SYS;EDITAR_MONEDA: Agregar máscara y moneda a una cifra
 
 ~~~text
 CALL "RP_SYS;EDITAR_MONEDA",MONEDA$,MASCARA$,MONTO,RESPUESTA$
@@ -2838,6 +2839,28 @@ $    12,257.24
 ->CALL "RP_SYS;EDITAR_MONEDA","EUR","",12257.24,R$
 ->PRINT R$
 €    12,257.24
+~~~
+
+[Volver arriba](#rutinas-públicas-rp_xxxxx)
+
+#### RP_SYS;HORA: Tomar la hora del sistema
+
+~~~text
+CALL "RP_SYS;HORA",T$
+~~~
+
+- Parámetros:
+  
+  |Parámetro|E/S|Descripción|
+  |:--------|:-:|-----------|
+  |T$|E/S|Hora del sistema HH:MM|
+
+- Ejemplo:
+
+~~~text
+->CALL "RP_SYS;HORA",T$
+->PRINT T$
+13:10
 ~~~
 
 [Volver arriba](#rutinas-públicas-rp_xxxxx)

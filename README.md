@@ -128,6 +128,7 @@
       - [RP\_SYS;DISTR\_MON: Distribución de monedas](#rp_sysdistr_mon-distribución-de-monedas)
       - [RP\_SYS;EDITAR\_MONEDA: Agregar máscara y moneda a una cifra](#rp_syseditar_moneda-agregar-máscara-y-moneda-a-una-cifra)
       - [RP\_SYS;HORA: Tomar la hora del sistema](#rp_syshora-tomar-la-hora-del-sistema)
+      - [RP\_SYS;INTERES: Cálculo de interes compuesto](#rp_sysinteres-cálculo-de-interes-compuesto)
   - [Rutinas Utilitarias (RU\_XXXXX):](#rutinas-utilitarias-ru_xxxxx)
     - [RU\_COPY](#ru_copy)
 
@@ -2861,6 +2862,35 @@ CALL "RP_SYS;HORA",T$
 ->CALL "RP_SYS;HORA",T$
 ->PRINT T$
 13:10
+~~~
+
+[Volver arriba](#rutinas-públicas-rp_xxxxx)
+
+#### RP_SYS;INTERES: Cálculo de interes compuesto
+
+~~~text
+CALL "RP_SYS;INTERES",PORCENTAJE,MESES,CAPITAL,FACTOR,CUOTA,INTERESES
+~~~
+
+- Parámetros:
+
+  |Parámetros|E/S|Descripción|
+  |:---------|:-:|-----------|
+  |PORCENTAJE|E|Porcentaje a aplicar|
+  |MESES|E|Cantidad de meses a calcular|
+  |CAPITAL|E|Capital a aplicar|
+  |FACTOR|S|Factor|
+  |CUOTA|S|Monto de la cuota mensual|
+  |INTERESES|S|Monto de los intereses|
+
+$$FACTOR = \frac{1}{(1+PORCENTAJE)^N-1/PORCENTAJE(1+PORCENTAJE)^N}$$
+
+$$CUOTA = CAPITAL * FACTOR$$
+
+- Ejemplo:
+
+~~~text
+->CALL "RP_SYS;INTERES"
 ~~~
 
 [Volver arriba](#rutinas-públicas-rp_xxxxx)

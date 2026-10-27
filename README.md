@@ -129,6 +129,10 @@
       - [RP\_SYS;EDITAR\_MONEDA: Agregar máscara y moneda a una cifra](#rp_syseditar_moneda-agregar-máscara-y-moneda-a-una-cifra)
       - [RP\_SYS;HORA: Tomar la hora del sistema](#rp_syshora-tomar-la-hora-del-sistema)
       - [RP\_SYS;INTERES: Cálculo de interes compuesto](#rp_sysinteres-cálculo-de-interes-compuesto)
+      - [RP\_SYS;LEER\_MONEDA: Leer moneda en un objeto (DROPBOX o MULTI\_LINE)](#rp_sysleer_moneda-leer-moneda-en-un-objeto-dropbox-o-multi_line)
+      - [RP\_SYS;MAIL\_TO: Rutina remplazada por RP\_MAIL](#rp_sysmail_to-rutina-remplazada-por-rp_mail)
+      - [RP\_SYS;MESCRITO: Conversión de montos en palabras](#rp_sysmescrito-conversión-de-montos-en-palabras)
+      - [RP\_SYS;NUM\_PROX\_REL: Generación automática del próximo número de relación](#rp_sysnum_prox_rel-generación-automática-del-próximo-número-de-relación)
   - [Rutinas Utilitarias (RU\_XXXXX):](#rutinas-utilitarias-ru_xxxxx)
     - [RU\_COPY](#ru_copy)
 
@@ -2874,8 +2878,8 @@ CALL "RP_SYS;INTERES",PORCENTAJE,MESES,CAPITAL,FACTOR,CUOTA,INTERESES
 
 - Parámetros:
 
-  |Parámetros|E/S|Descripción|
-  |:---------|:-:|-----------|
+  |Parámetro|E/S|Descripción|
+  |:--------|:-:|-----------|
   |PORCENTAJE|E|Porcentaje a aplicar|
   |MESES|E|Cantidad de meses a calcular|
   |CAPITAL|E|Capital a aplicar|
@@ -2890,8 +2894,79 @@ $$CUOTA = CAPITAL x FACTOR$$
 - Ejemplo:
 
 ~~~text
-->CALL "RP_SYS;INTERES"
+->CALL "RP_SYS;INTERES",60,12,100,F,C1,I0
+->PRINT F," ",C1," ",I0
+ 0.11282541  11.282541  35.390492
 ~~~
+
+[Volver arriba](#rutinas-públicas-rp_xxxxx)
+
+#### RP_SYS;LEER_MONEDA: Leer moneda en un objeto (DROPBOX o MULTI_LINE)
+
+~~~text
+CALL "RP_SYS;LEER_MONEDA",OBJETO,MONEDA$,OPCIONES$,MASCARA$
+~~~
+
+- Parámetros:
+
+  |Parámetro|E/S|Descripción|
+  |:--------|:-:|-----------|
+  |OBJETO|E|NÚmero del objeto (CTL) definido en el panel|
+  |MONEDA$|S|Código de la moneda|
+  |OPCIONES$|E|Moneda seleccionada: \"NACIONAL\" o \"MONEDA=XXX\"|
+  |MASCARA$|S|Mascara BM con las siglas de la moneda extranjera|
+  
+- Ejemplo:
+
+~~~text
+->CALL "RP_SYS;LEER_MONEDA",MONEDA.CTL,"US$","",MASC$
+~~~
+
+[Volver arriba](#rutinas-públicas-rp_xxxxx)
+
+#### RP_SYS;MAIL_TO: Rutina remplazada por RP_MAIL
+
+[Volver arriba](#rutinas-públicas-rp_xxxxx)
+
+#### RP_SYS;MESCRITO: Conversión de montos en palabras
+
+~~~text
+CALL "RP_SYS;MESCRITO",MONTO,TEXTO$
+~~~
+
+- Parámetros:
+
+  |Parámetro|E/S|Descripción|
+  |:--------|:-:|-----------|
+  |MONTO|E|Monto a ser convertido|
+  |TEXTO$|S|Monto en palabras|
+
+- Ejemplo:
+  
+~~~text
+->CALL "RP_SYS;MESCRITO",2710.62,T$
+->PRINT T$
+DOS MIL SETECIENTOS DIEZ CON 62 CENTIMOS
+~~~
+
+[Volver arriba](#rutinas-públicas-rp_xxxxx)
+
+#### RP_SYS;NUM_PROX_REL: Generación automática del próximo número de relación
+
+~~~text
+CALL "RP_SYS;NUM_PROX_REL",CANAL_MOV,CANAL_FOR,INDICE,TIP_FORMA$,PROX$,OPC$,ERR=*NEXT
+~~~
+
+- Parámetros:
+
+  |Parámetro|E/S|Descripción|
+  |:--------|:-:|-----------|
+  |CANAL_MOV|E|Canal del movimiento \(INVMOVIM, CTAMOVIM, etc\)|
+  |CANAL_FOR|E|Canal de la forma \(INVFORMA, CTAFORMA, etc\)|
+  |INDICE|E||
+  |TIP_FORMA$|E||
+  |PROX$|S||
+  |OPC$|E||
 
 [Volver arriba](#rutinas-públicas-rp_xxxxx)
 
